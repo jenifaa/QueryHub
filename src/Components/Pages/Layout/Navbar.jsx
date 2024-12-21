@@ -7,7 +7,9 @@ import logo from '../../../assets/images/queries.png'
 
 import { BsPersonCircle } from "react-icons/bs";
 import useAuth from "../../Hooks/useAuth";
+import { CiLogin } from "react-icons/ci";
 import Loading from "./Loading";
+import { IoPersonOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const { user, setUser, logOut, updateUserProfile, loading } =
@@ -16,19 +18,19 @@ const Navbar = () => {
 
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState("light");
+  // const [theme, setTheme] = useState("light");
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const isHomepage = location.pathname === "/";
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   document.documentElement.setAttribute("data-theme", theme);
+  // }, [theme]);
 
-  const handleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+  // const handleTheme = () => {
+  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  // };
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 250);
@@ -44,36 +46,37 @@ const Navbar = () => {
     <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white text-black shadow-lg"
-          : "bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white"
+          : "bg-gradient-to-r from-[#87CEEB] via-[#B0C4DE] to-[#B0E0E6]  text-white"
+          // : "bg-gradient-to-r from-[#FFF0F5] via-[#E6E6FA] to-[#D8BFD8] text-white"
       }`}>
-      <nav className="flex justify-between items-center md:px-8 py-4">
+      <nav className="flex justify-between items-center md:px-8 py-4 ">
         <div className="">
           <Link
             to="/"
-            className="font font-extrabold text-2xl md:text-4xl flex items-center"
+            className="font text-[#2C3E50] font-bold text-xl md:text-3xl flex items-center"
           >
-            <img className="w-24" src={logo} alt="" />
+            <img className="w-20" src={logo} alt="" />
             QueryHive
           </Link>
         </div>
-        <div className="hidden lg:flex space-x-6">
+        <div className="hidden lg:flex space-x-6 text-[#2C3E50]">
           <NavLink
             to="/"
-            className="hover:text-[#A67C52] hover:font-bold hover:text-xl flex items-center space-x-2"
+            className="hover:text-[#A67C52] hover:font-bold text-xl flex items-center space-x-2"
           >
             Home
           </NavLink>
           <NavLink
             to="/queries"
-            className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
+            className="hover:text-[#A67C52] hover:font-bold text-xl "
           >
            Queries
           </NavLink>
           {user && user?.email ? (
             <>
               <NavLink
-                to="/add"
-                className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
+                to="/recommendationForme"
+                className="hover:text-[#A67C52] hover:font-bold text-xl "
               >
                 Recommendations For Me
               </NavLink>
@@ -84,8 +87,8 @@ const Navbar = () => {
           {user && user?.email ? (
             <>
               <NavLink
-                to="/list"
-                className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
+                to="/myQueries"
+                className="hover:text-[#A67C52] hover:font-bold text-xl "
               >
                 My Queries
               </NavLink>
@@ -96,8 +99,8 @@ const Navbar = () => {
           {user && user?.email ? (
             <>
               <NavLink
-                to="/list"
-                className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
+                to="/myRecommendation"
+                className="hover:text-[#A67C52] hover:font-bold text-xl "
               >
                 My recommendations
               </NavLink>
@@ -130,14 +133,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex lg:flex-row flex-col items-center gap-2 lg:gap-5">
-          {isHomepage && (
+          {/* {isHomepage && (
             <input
               onClick={handleTheme}
               type="checkbox"
               value="synthwave"
               className="toggle theme-controller"
             />
-          )}
+          )} */}
           {user && user?.photoURL ? (
             <img
               src={user?.photoURL}
@@ -162,12 +165,14 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink to="/login">
-                <button className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md">
+                <button className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1">
+                <CiLogin />
                   Login
                 </button>
               </NavLink>
               <NavLink to="/register">
-                <button className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md">
+                <button className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1">
+                <IoPersonOutline />
                   Register
                 </button>
               </NavLink>
@@ -181,13 +186,13 @@ const Navbar = () => {
           <NavLink to="/" className="hover:text-gray-200">
             Home
           </NavLink>
-          <NavLink to="/all" className="hover:text-gray-200">
+          <NavLink to="/queries" className="hover:text-gray-200">
           Queries
           </NavLink>
           {user && user?.email ? (
             <>
               <NavLink
-                to="/add"
+                to="/recommendationForme"
                 className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
               >
                 Recommendations For Me
@@ -199,7 +204,7 @@ const Navbar = () => {
           {user && user?.email ? (
             <>
               <NavLink
-                to="/list"
+                to="/myQueries"
                 className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
               >
                 My Queries
@@ -211,7 +216,7 @@ const Navbar = () => {
           {user && user?.email ? (
             <>
               <NavLink
-                to="/list"
+                to="/myRecommendation"
                 className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
               >
                 My recommendations

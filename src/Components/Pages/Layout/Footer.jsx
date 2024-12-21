@@ -17,7 +17,7 @@ const Footer = () => {
     >
       <footer className="footer  p-10 md:flex items-center justify-around">
         <nav className="">
-          <h2 className="text-5xl font-extrabold font ">SportZone</h2>
+          <h2 className="text-5xl font-extrabold font ">QueryHive</h2>
           <p className="text-sm font-semibold">ACME Industries Ltd.</p>
         </nav>
         <nav>
