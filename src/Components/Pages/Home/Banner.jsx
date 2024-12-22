@@ -10,7 +10,9 @@ import Slide from "./Slide";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import { motion } from "framer-motion";
+import { easeOut } from "framer-motion";
+import Typewriter from "typewriter-effect";
 const Banner = () => {
   return (
     <Swiper
@@ -19,7 +21,7 @@ const Banner = () => {
       centeredSlides={true}
       loop={true}
       autoplay={{
-        delay: 5000,
+        delay: 8000,
         disableOnInteraction: false,
       }}
       pagination={{
@@ -31,33 +33,76 @@ const Banner = () => {
       <SwiperSlide>
         <Slide
           image={bg1}
-          text1="Find What You Need, Effortlessly"
-          text2={
+          text1={
             <>
-              <p>Discover the perfect products with QueryHive!</p>
               <p>
-                We provide personalized recommendations based on your needs,
-              </p>
-              <p>making it easy to find the best options for you.</p>
-              <p>
-                Join us and make smarter, more informed purchasing decisions!
+                "Find What You Need,{" "}
+                <motion.span
+                  className="text-6xl"
+                  animate={{ color: ["#f1391c", "#1cf1b7", "#dbf11c"] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                >
+                  Effortlessly
+                </motion.span>
+                ; "
               </p>
             </>
-          }></Slide>
+          }
+          text2={
+            <>
+              <p className="text-center">
+                <Typewriter
+                  options={{
+                    strings: [
+                      "Discover the perfect products with QueryHive!",
+                      " We provide personalized recommendations based on your needs",
+                      "Join us and make smarter, more informed purchasing decisions!",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    typeSpeed: 30,
+                    deleteSpeed: 30,
+                  }}
+                />
+              </p>
+            </>
+          }
+        ></Slide>
       </SwiperSlide>
       <SwiperSlide>
         <Slide
           image={bg2}
-          text1="Your Personalized Product Guide"
+          text1={
+            <>
+              <p>
+                "Your
+                <motion.span
+                  className="mx-3 text-6xl"
+                  animate={{ color: ["#f1391c", "#1cf1b7", "#dbf11c"] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                >
+                  Personalized
+                </motion.span>
+                Product Guide "
+              </p>
+            </>
+          }
           text2={
             <>
-              <p>Discover the perfect products with QueryHive!</p>
-              <p>
-                We provide personalized recommendations based on your needs,
-              </p>
-              <p>making it easy to find the best options for you.</p>
-              <p>
-                Join us and make smarter, more informed purchasing decisions!
+              <p className="text-center">
+                <Typewriter
+                  options={{
+                    strings: [
+                      "Discover the perfect products with QueryHive!",
+                      " We provide personalized recommendations based on your needs",
+                      "Join us and make smarter, more informed purchasing decisions!",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    typeSpeed: 30,
+                    deleteSpeed: 30,
+                  }}
+                />
               </p>
             </>
           }
@@ -66,20 +111,36 @@ const Banner = () => {
       <SwiperSlide>
         <Slide
           image={bg3}
-          text1="Discover, Compare, and Choose Smarter"
+          text1={
+            <>
+              <p>
+                <motion.span
+                  className="mx-3 text-6xl"
+                  animate={{ color: ["#f1391c", "#1cf1b7", "#dbf11c"] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                >
+                  Discover
+                </motion.span>
+                , Compare, and Choose Smarter"
+              </p>
+            </>
+          }
           text2={
             <>
-              <p className="font-semibold">
-                Discover the perfect products with QueryHive!
-              </p>
-              <p>
-                We provide personalized recommendations based on your needs,
-              </p>
-              <p>
-                making it easy to find the best options for you. Join us and
-              </p>
-              <p className="font-semibold">
-                make smarter, more informed purchasing decisions!
+              <p className="text-center">
+                <Typewriter
+                  options={{
+                    strings: [
+                      "Discover the perfect products with QueryHive!",
+                      " We provide personalized recommendations based on your needs",
+                      "Join us and make smarter, more informed purchasing decisions!",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    typeSpeed: 30,
+                    deleteSpeed: 30,
+                  }}
+                />
               </p>
             </>
           }

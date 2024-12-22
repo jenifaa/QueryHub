@@ -16,7 +16,7 @@ const Slide = ({ image, text1, text2, card1Title, card2Title }) => {
         <div className=" text-white flex-1">
           <motion.h1
             animate={{
-              x: [200, 250, 200],
+              x: [0, 100, 0],
               transition: {
                 duration: 4,
                 repeat: Infinity,
@@ -24,20 +24,12 @@ const Slide = ({ image, text1, text2, card1Title, card2Title }) => {
                 ease: easeOut,
               },
             }}
-            className="text-white text-3xl lg:text-5xl font-bold my-6"
+            className="text-white text-center text-3xl lg:text-5xl font-bold my-6"
           >
             {text1}
           </motion.h1>
 
-          <motion.h1
-            animate={{
-              x: [200, 200, 200],
-          
-            }}
-            className="text-white"
-          >
-            {text2}
-          </motion.h1>
+          <h1 className="text-white text-center">{text2}</h1>
         </div>
       </div>
     </div>

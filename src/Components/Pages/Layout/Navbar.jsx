@@ -40,8 +40,8 @@ const Navbar = () => {
     <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white text-black shadow-lg"
-          : "bg-gradient-to-r from-[#87CEEB] via-[#B0C4DE] to-[#B0E0E6]  text-white"
-          // : "bg-gradient-to-r from-[#FFF0F5] via-[#E6E6FA] to-[#D8BFD8] text-white"
+          // : "bg-gradient-to-r from-[#87CEEB] via-[#B0C4DE] to-[#B0E0E6]  text-white"
+          : "bg-gradient-to-r from-[#FFF0F5] via-[#E6E6FA] to-[#D8BFD8] text-white"
       }`}>
       <nav className="flex justify-between items-center md:px-8 py-4 ">
         <div className="">
@@ -56,13 +56,13 @@ const Navbar = () => {
         <div className="hidden lg:flex space-x-6 text-[#2C3E50]">
           <NavLink
             to="/"
-            className="hover:text-[#A67C52] hover:font-bold text-xl flex items-center space-x-2"
+            className="hover:text-purple-900 hover:font-bold text-xl flex items-center space-x-2"
           >
             Home
           </NavLink>
           <NavLink
             to="/queries"
-            className="hover:text-[#A67C52] hover:font-bold text-xl "
+            className="hover:text-purple-900 hover:font-bold text-xl "
           >
            Queries
           </NavLink>
@@ -70,7 +70,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/recommendationForme"
-                className="hover:text-[#A67C52] hover:font-bold text-xl "
+                className="hover:text-purple-900 hover:font-bold text-xl "
               >
                 Recommendations For Me
               </NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myQueries"
-                className="hover:text-[#A67C52] hover:font-bold text-xl "
+                className="hover:text-purple-900 hover:font-bold text-xl "
               >
                 My Queries
               </NavLink>
@@ -94,7 +94,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myRecommendation"
-                className="hover:text-[#A67C52] hover:font-bold text-xl "
+                className="hover:text-purple-900 hover:font-bold text-xl "
               >
                 My recommendations
               </NavLink>
@@ -128,7 +128,7 @@ const Navbar = () => {
 
         <div className="flex lg:flex-row flex-col items-center gap-2 lg:gap-5">
           
-          {user && user?.photoURL ? (
+          {/* {user && user?.photoURL ? (
             <img
               src={user?.photoURL}
               title={user?.displayName || "User"}
@@ -136,7 +136,7 @@ const Navbar = () => {
             ></img>
           ) : (
             <BsPersonCircle className="text-5xl" />
-          )}
+          )} */}
 
           {user && user?.email ? (
             <div>
@@ -169,7 +169,7 @@ const Navbar = () => {
       </nav>
 
       {menuOpen && (
-        <div className="flex flex-col space-y-4 px-6 py-4 bg-[#071f10] lg:hidden">
+        <div className="flex flex-col space-y-4 px-6 py-4 bg-gradient-to-r from-[#87CEEB] via-[#B0C4DE] to-[#B0E0E6]  text-white lg:hidden">
           <NavLink to="/" className="hover:text-gray-200">
             Home
           </NavLink>
@@ -180,7 +180,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/recommendationForme"
-                className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
+                className="hover:text-purple-900 hover:font-bold hover:text-xl "
               >
                 Recommendations For Me
               </NavLink>
@@ -192,7 +192,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myQueries"
-                className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
+                className="hover:text-purple-900 hover:font-bold hover:text-xl "
               >
                 My Queries
               </NavLink>
@@ -204,7 +204,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myRecommendation"
-                className="hover:text-[#A67C52] hover:font-bold hover:text-xl "
+                className="hover:text-purple-900 hover:font-bold hover:text-xl "
               >
                 My recommendations
               </NavLink>
