@@ -3,7 +3,7 @@ import { useContext, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
-
+import google from '../../../assets/images/search.png'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Login = () => {
   const { userLogin, setUser, setUserLogin, signInWithGoogle } = useAuth();
@@ -108,7 +108,7 @@ const Login = () => {
             onClick={handleGoogleSignIn}
             className=" font-semibold flex justify-around items-center border-2 p-3 rounded-full "
           >
-            {/* <img src={iconImgLogin} alt="" className="w-8 mr-3" /> */}
+            <img src={google} alt="" className="w-8 mr-3" />
             <p>Sign Up with Google</p>
           </button>
         </div>

@@ -18,19 +18,13 @@ const Navbar = () => {
 
 
   const [menuOpen, setMenuOpen] = useState(false);
-  // const [theme, setTheme] = useState("light");
+  
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const isHomepage = location.pathname === "/";
 
-  // useEffect(() => {
-  //   document.documentElement.setAttribute("data-theme", theme);
-  // }, [theme]);
 
-  // const handleTheme = () => {
-  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  // };
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 250);
@@ -133,14 +127,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex lg:flex-row flex-col items-center gap-2 lg:gap-5">
-          {/* {isHomepage && (
-            <input
-              onClick={handleTheme}
-              type="checkbox"
-              value="synthwave"
-              className="toggle theme-controller"
-            />
-          )} */}
+          
           {user && user?.photoURL ? (
             <img
               src={user?.photoURL}

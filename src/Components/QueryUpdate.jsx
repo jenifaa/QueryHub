@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyQuesries = () => {
+const QueryUpdate = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const MyQuesries = () => {
     );
 };
 
-export default MyQuesries;
+export default QueryUpdate;

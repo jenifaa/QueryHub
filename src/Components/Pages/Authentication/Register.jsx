@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-
+import google from '../../../assets/images/search.png'
 
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
@@ -169,7 +169,7 @@ const Register = () => {
             onClick={handleGoogleSignUp}
             className=" font-semibold flex justify-around items-center border-2 p-3 rounded-full "
           >
-            {/* <img src={iconImg} alt="" className="w-8 mr-3" /> */}
+            <img src={google} alt="" className="w-8 mr-3" />
             <p>Sign Up with Google</p>
           </button>
         </div>
