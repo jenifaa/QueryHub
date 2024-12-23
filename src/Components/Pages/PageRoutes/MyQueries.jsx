@@ -50,44 +50,75 @@ const MyQueries = () => {
     });
   };
 
-  const handleDetails = () => {
-    Swal.fire({
-      title: "Submit your Github username",
-      input: "text",
-      inputAttributes: {
-        autocapitalize: "off",
-      },
-      showCancelButton: true,
-      confirmButtonText: "Look up",
-      showLoaderOnConfirm: true,
-      preConfirm: async (login) => {
-        try {
-          const githubUrl = `
-          https://api.github.com/users/${login}
-        `;
-          const response = await fetch(githubUrl);
-          if (!response.ok) {
-            return Swal.showValidationMessage(`
-            ${JSON.stringify(await response.json())}
-          `);
-          }
-          return response.json();
-        } catch (error) {
-          Swal.showValidationMessage(`
-          Request failed: ${error}
-        `);
-        }
-      },
-      allowOutsideClick: () => !Swal.isLoading(),
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: `${result.value.login}'s avatar`,
-          imageUrl: result.value.avatar_url,
-        });
-      }
-    });
-  };
+  // const handleDetails = (id) => {
+  //   const selectedQuery = queries.find((query) => query._id === id); // Find the selected query
+  //   if (!selectedQuery) return; // 
+  //   Swal.fire({
+  //     title: "Update your product details",
+
+  //     html: `
+  //     <input id="title" class="swal2-input" placeholder="Title" value="${selectedQuery.title}" />
+  //     <input id="brand" class="swal2-input" placeholder="Brand" value="${selectedQuery.brand}" />
+  //     <textarea id="reason" class="swal2-input" placeholder="Reason">${selectedQuery.reason}</textarea>
+  //     <textarea id="image" class="swal2-input" placeholder="Image">${selectedQuery.image}</textarea>
+  //   `,
+
+  //     focusConfirm: false,
+
+  //     preConfirm: async () => {
+  //       const title = document.getElementById("title").value;
+  //       const brand = document.getElementById("brand").value;
+  //       const reason = document.getElementById("reason").value;
+  //       const image = document.getElementById("image").value;
+  //       if (!title || !brand || !reason || !image) {
+  //         Swal.showValidationMessage("All fields are required.");
+  //         return;
+  //       }
+  //       try {
+  //         const response = await fetch(
+  //           `http://localhost:5000/queries/user/${id}`,
+  //           {
+  //             method: "PUT",
+  //             headers: {
+  //               "content-type": "application/json",
+  //             },
+  //             body: JSON.stringify({
+  //               title,
+  //               brand,
+  //               image,
+  //               reason,
+  //             }),
+  //           }
+  //         );
+  //         if (!response.ok) {
+  //           return Swal.showValidationMessage(
+  //             `Failed to update product: ${response.statusText}`
+  //           );
+  //         }
+  //         const updatedQuery = await response.json();
+  //         return updatedQuery;
+  //       } catch (error) {
+  //         Swal.showValidationMessage(`
+  //         Request failed: ${error}
+  //       `);
+  //       }
+  //     },
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       Swal.fire({
+  //         title: "Update Successful!",
+  //         text: `Query have been updated successfully.`,
+  //         icon: "success",
+  //       });
+  //       const updatedQuery = result.value;
+  //       setQueries(
+  //         queries.map((query) => {
+  //           query._id === updatedQuery._id ? updatedQuery : query;
+  //         })
+  //       );
+  //     }
+  //   });
+  // };
 
   return (
     <div className="mt-28">
@@ -134,34 +165,30 @@ const MyQueries = () => {
         <div className="text-center py-10">
           <h2 className="text-2xl font-bold">No Queries Found</h2>
           <p className="text-lg">
-            You haven't added any queries yet. Start by adding one!
+            Haven't added any queries yet. Start by adding one!
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2  lg:w-10/12 gap-5 mx-auto my-6">
+        <div className="grid grid-cols-1 md:grid-cols-2  lg:w-11/12 gap-5 mx-auto my-6">
           {queries.map((query) => (
-            <div key={query._id} className="border rounded-xl p-3 w-[580px]">
-              <div className="card bg-base-300 w-[550px] p-5 ">
-                <div className="flex">
+            <div key={query._id} className="border rounded-xl p-3 ">
+              <div className="card bg-base-300  p-3 ">
+                <div className="lg:flex">
                   <figure>
-                    <img className="w-48 rounded-xl" src={query.image} />
+                    <img className="lg:w-56 lg:h-56 rounded-xl" src={query.image} />
                   </figure>
 
                   <div className="card-body">
-                    <h2 className="card-title font-bold">{query.brand}</h2>
+                    <h2 className="card-title font-bold">{query.name}</h2>
                     <p>{query.title}</p>
+                    <p><span className="font-bold">Brand: </span> {query.brand}</p>
+                    <p><span className="font-bold">Reason for Boycotting: </span> {query.reason}</p>
                     <p>{query.currentDateAndTime}</p>
                     <div className="card-actions flex flex-row  pt-5">
-                      <button
-                        onClick={handleDetails}
-                        className="btn btn-primary"
-                      >
-                        {/* <Link to="/queryUpdate">Update</Link> */}
-                        Update
+                     
+                      <button className="btn btn-primary">
+                        <Link to={`/queries/user/${query._id}`}>Update</Link>
                       </button>
-                      {/* <button className="btn btn-primary">
-                        <Link to="/queryUpdate">Update</Link>
-                      </button> */}
                       <button
                         onClick={() => handleDelete(query._id)}
                         className="btn bg-red-700 text-white font-semibold"
@@ -169,7 +196,7 @@ const MyQueries = () => {
                         Delete
                       </button>
                       <button className="btn btn-primary">
-                        <Link to={`/queries/user/${query._id}`}>Details</Link>
+                        <Link to={`/queries/${query._id}`}>Details</Link>
                       </button>
                     </div>
                   </div>

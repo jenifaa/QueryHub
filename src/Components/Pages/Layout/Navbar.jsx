@@ -128,7 +128,7 @@ const Navbar = () => {
 
         <div className="flex lg:flex-row flex-col items-center gap-2 lg:gap-5">
           
-          {/* {user && user?.photoURL ? (
+          {user && user?.photoURL ? (
             <img
               src={user?.photoURL}
               title={user?.displayName || "User"}
@@ -136,7 +136,7 @@ const Navbar = () => {
             ></img>
           ) : (
             <BsPersonCircle className="text-5xl" />
-          )} */}
+          )}
 
           {user && user?.email ? (
             <div>

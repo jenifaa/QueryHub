@@ -5,20 +5,22 @@ import useAuth from "./Hooks/useAuth";
 const AddQueries = () => {
   const { user } = useAuth();
   const [recommendation, setRecommendaton] = useState(0);
+  console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
-    console.log(initialData);
+    
 
     const newData = {
       ...initialData,
       userEmail: user?.email,
       userName: user?.displayName,
-      userProfileImage: user?.PhotoURL,
+      userProfileImage: user?.photoURL,
       currentDateAndTime: new Date().toISOString(),
       recommendationCount: 0,
     };
+    console.log(newData);
 
     fetch("http://localhost:5000/queries", {
       method: "POST",

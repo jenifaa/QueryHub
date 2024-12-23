@@ -8,9 +8,9 @@ import twitter from "../../../assets/images/twitter.png";
 const Footer = () => {
   return (
     <div
-      className=" text-[#ffffff]"
+      className=" text-black bg-base-300"
       style={{
-        background: 'linear-gradient(90deg, #2C1B18, #1C0D08, #0D0906)',
+       
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

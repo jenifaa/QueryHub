@@ -34,6 +34,7 @@ const router = createBrowserRouter([
       {
         path: "queries",
         element: <Queries></Queries>,
+        loader: () => fetch('http://localhost:5000/queries/all')
       },
       {
         path: "recommendationForme",
@@ -61,12 +62,12 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "queryUpdate",
-    element: <QueryUpdate></QueryUpdate>,
+    path: "/queries/user/:id",
+    element: <PrivateRoute><QueryUpdate></QueryUpdate></PrivateRoute>
   },
   {
     path: "/queries/:id",
-    element: <QueryDetails></QueryDetails>,
+    element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
     loader: ({params}) => fetch(`http://localhost:5000/queries/user/${params.id}`)
   },
 ]);
