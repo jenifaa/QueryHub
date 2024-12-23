@@ -22,10 +22,10 @@ const Cards = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2  lg:w-10/12 gap-5 mx-auto my-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2  w-10/12 gap-5 mx-auto my-6">
           {cards.map((card) => (
             <div key={card._id} className="border rounded-xl p-3 w-[580px]">
-              <div className="card bg-base-300 w-[550px] p-5 ">
+              <div className="card bg-base-300 w-[550px] p-2 ">
                 <div className="flex">
                   <figure>
                     <img className="w-48 rounded-xl" src={card.image} />
@@ -34,16 +34,9 @@ const Cards = () => {
                   <div className="card-body">
                     <h2 className="card-title font-bold">{card.brand}</h2>
                     <p>{card.title}</p>
-                    <div className="card-actions   pt-5">
-                      {/* <button className="btn btn-primary">
-                        <Link to="/queryUpdate">Update</Link>
-                      </button>
-                      <button
-                        onClick={() => handleDelete(query._id)}
-                        className="btn btn-primary"
-                      >
-                        Delete
-                      </button> */}
+                    <p>RecommedationCount: {card.recommendationCount}</p>
+                    <div className="card-actions   pt-2">
+                      
                       <button className="btn btn-primary">
                         <Link to={`/queries/${card._id}`}>Details</Link>
                       </button>

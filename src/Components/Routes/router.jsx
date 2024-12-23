@@ -59,7 +59,9 @@ const router = createBrowserRouter([
       <PrivateRoute>
         <AddQueries></AddQueries>
       </PrivateRoute>
+      
     ),
+   
   },
   {
     path: "/queries/user/:id",

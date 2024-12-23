@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Navbar from "./Pages/Layout/Navbar";
 import useAuth from "./Hooks/useAuth";
+import { useLoaderData } from "react-router-dom";
 
 const AddQueries = () => {
   const { user } = useAuth();
+ 
   const [recommendation, setRecommendaton] = useState(0);
-  console.log(user);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -30,6 +32,10 @@ const AddQueries = () => {
       body: JSON.stringify(newData),
     });
   };
+
+  // useState(() =>{
+  //   fetch(`http://localhost:5000/recommendation/query/${}`)
+  // })
   return (
     <div>
       <Navbar></Navbar>
