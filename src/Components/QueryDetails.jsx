@@ -74,7 +74,7 @@ const QueryDetails = () => {
             <img
               src={data.image}
               alt={data.title}
-              className="rounded-lg shadow-xl w-full object-cover h-80"
+              className="rounded-lg shadow-xl w-full  h-80"
             />
           </div>
 

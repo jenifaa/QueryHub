@@ -69,51 +69,62 @@ const Queries = () => {
             : "lg:grid-cols-3 md:grid-cols-2"
         }  gap-2 lg:gap-5  mx-auto my-10`}
       >
-        {allQuery.map((all) => (
-          <div key={all._id} className="border md:w-[340px] lg:w-[410px] rounded-xl p-3 ">
+        {allQuery
+          .filter((all) => {
+            return search.toLowerCase() === ""
+              ? all
+              : all.name.toLowerCase().includes(search);
+          })
+          .map((all) => (
             <div
-              className={`card bg-base-300 lg:p-5  lg:w-96 mx-auto md:w-80`}
+              key={all._id}
+              className="border md:w-[340px] lg:w-[410px] rounded-xl p-3 "
             >
-              <div className="">
-                <div className="flex-1 my-auto">
-                  <figure className="p-5">
-                    <img
-                      className="md:w-80 w-full  h-60 rounded-xl"
-                      src={all.image}
-                    />
-                  </figure>
-                </div>
+              <div
+                className={`card bg-base-300 lg:p-5  lg:w-96 mx-auto md:w-80`}
+              >
+                <div className="">
+                  <div className="flex-1 my-auto">
+                    <figure className="p-5">
+                      <img
+                        className="md:w-80 w-full  h-60 rounded-xl"
+                        src={all.image}
+                      />
+                    </figure>
+                  </div>
 
-                <div className="card-body flex-1">
-                  <h2 className="card-title font-bold">Name: {all.name}</h2>
-                  <h2 className="">
-                    <span className="font-bold text-xl mr-3">Brand :</span>{" "}
-                    {all.brand}
-                  </h2>
-                  <p>
-                    <span className="font-bold text-xl mr-3">Query :</span>{" "}
-                    {all.title}
-                  </p>
-                  <p>
-                    <span className="font-bold text-xl mr-3">Added Time:</span>{" "}
-                    {all.currentDateAndTime}
-                  </p>
-                  <p>
-                    <span className="font-bold text-xl mr-3">
-                      RecommendationCount:
-                    </span>{" "}
-                    {all.recommendationCount}
-                  </p>
-                  <div className="card-actions flex  ">
-                    <button className="btn btn-primary">
-                      <Link to={`/queries/${all._id}`}>recommendation</Link>
-                    </button>
+                  <div className="card-body flex-1">
+                    <h2 className="card-title font-bold">Name: {all.name}</h2>
+                    <h2 className="">
+                      <span className="font-bold text-xl mr-3">Brand :</span>{" "}
+                      {all.brand}
+                    </h2>
+                    <p>
+                      <span className="font-bold text-xl mr-3">Query :</span>{" "}
+                      {all.title}
+                    </p>
+                    <p>
+                      <span className="font-bold text-xl mr-3">
+                        Added Time:
+                      </span>{" "}
+                      {all.currentDateAndTime}
+                    </p>
+                    <p>
+                      <span className="font-bold text-xl mr-3">
+                        RecommendationCount:
+                      </span>{" "}
+                      {all.recommendationCount}
+                    </p>
+                    <div className="card-actions flex  ">
+                      <button className="btn btn-primary">
+                        <Link to={`/queries/${all._id}`}>recommendation</Link>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

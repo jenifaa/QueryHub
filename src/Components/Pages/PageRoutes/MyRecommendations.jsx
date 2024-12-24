@@ -3,19 +3,29 @@ import useAuth from "../../Hooks/useAuth";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import Loading from "../Layout/Loading";
+import useAxios from "../../Hooks/useAxios";
 const MyRecommendations = () => {
   const [myRecommendation, setMyRecommendation] = useState([]);
   const { user, loading } = useAuth();
   console.log(user);
+  const axiosSecure = useAxios();
   useEffect(() => {
-    fetch(`http://localhost:5000/recommendedUser/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMyRecommendation(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // fetch(`http://localhost:5000/recommendedUser/${user?.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setMyRecommendation(data);
+    //   })
+    //   .catch((error) => {
+        // fetch(`http://localhost:5000/recommendedUser/${user.email}?userEmail=${user.email}`
+    //     console.log(error);
+    //   });
+    if (user?.email) {
+      axiosSecure
+        .get(`http://localhost:5000/recommendedUser/${user.email}?userEmail=${user.email}`)
+        .then((res) => {
+          setMyRecommendation(res.data);
+        });
+    }
   }, [user]);
   console.log(myRecommendation);
 
