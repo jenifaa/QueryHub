@@ -5,35 +5,6 @@ const QueryUpdate = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-
-
-
-
-
-  // const [queryData, setQueryData] = useState({
-  //   name: "",
-  //   brand: "",
-  //   title: "",
-  //   reason: "",
-  //   image: "",
-  // });
-
-  // useEffect(() => {
-  //   // Fetch the existing query data by ID
-  //   fetch(`http://localhost:5000/queries/user/${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setQueryData(data))
-  //     .catch((err) => console.error("Error fetching query:", err));
-  // }, [id]);
-
-
-
-
-
-
-
-
-
   const handleUpdate = (e) => {
     e.preventDefault();
     const data = {
@@ -43,7 +14,6 @@ const QueryUpdate = () => {
       reason: e.target.reason.value,
       image: e.target.image.value,
       currentDateAndTime: new Date().toISOString(),
-     
     };
     fetch(`http://localhost:5000/queries/user/${id}`, {
       method: "PATCH",

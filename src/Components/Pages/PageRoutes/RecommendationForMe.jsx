@@ -10,7 +10,7 @@ const RecommendationForMe = () => {
   useEffect(() => {
     if (user?.email) {
       axiosSecure
-        .get(`http://localhost:5000/user-recommendation/${user?.email}`)
+        .get(`/user-recommendation/${user?.email}`)
         .then((res) => {
           setRecommendationForMe(res.data);
         });

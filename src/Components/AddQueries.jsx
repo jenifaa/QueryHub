@@ -31,6 +31,7 @@ const AddQueries = () => {
       },
       body: JSON.stringify(newData),
     });
+    // form.reset();
   };
 
   // useState(() =>{

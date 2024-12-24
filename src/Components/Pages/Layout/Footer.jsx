@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import fb from "../../../assets/images/facebook.png";
 import insta from "../../../assets/images/instagram.png";
-import twitter from "../../../assets/images/twitter.png";
-
+import linkedIn from "../../../assets/images/linkedin.png";
+import query from '../../../assets/images/query.png'
 
 
 const Footer = () => {
@@ -17,6 +17,7 @@ const Footer = () => {
     >
       <footer className="footer  p-10 md:flex items-center justify-around">
         <nav className="">
+          <img src={query} className="w-28" alt="" />
           <h2 className="text-5xl font-extrabold font ">QueryHive</h2>
           <p className="text-sm font-semibold">ACME Industries Ltd.</p>
         </nav>
@@ -42,10 +43,10 @@ const Footer = () => {
             <Link to="https://www.instagram.com/">
               <img className="w-10 h-10" src={insta} alt="" />
             </Link>
-            <Link to="https://x.com/?lang=en">
+            <Link to="https://www.linkedin.com/">
               <img
                 className="w-10 h-10"
-                src={twitter}
+                src={linkedIn}
                 alt="https://x.com/?lang=en"
               />
             </Link>

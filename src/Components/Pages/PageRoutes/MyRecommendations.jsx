@@ -21,7 +21,7 @@ const MyRecommendations = () => {
     //   });
     if (user?.email) {
       axiosSecure
-        .get(`http://localhost:5000/recommendedUser/${user.email}?userEmail=${user.email}`)
+        .get(`/recommendedUser/${user.email}?userEmail=${user.email}`)
         .then((res) => {
           setMyRecommendation(res.data);
         });

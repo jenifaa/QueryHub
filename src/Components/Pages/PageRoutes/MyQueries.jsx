@@ -17,7 +17,7 @@ const MyQueries = () => {
     if (user?.email) {
       // fetch(`http://localhost:5000/queries/user?userEmail=${user.email}`)
       axiosSecure
-        .get(`http://localhost:5000/queries/user?userEmail=${user.email}`)
+        .get(`/queries/user?userEmail=${user.email}`)
         .then((res) => {
           setQueries(res.data);
         })
