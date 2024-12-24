@@ -119,7 +119,7 @@ const MyQueries = () => {
 
                   <div className="card-body">
                     <h2 className="card-title font-bold">{query.name}</h2>
-                    <p>{query.title}</p>
+                    <p> <span className="font-bold">Query: </span>{query.title}</p>
                     <p>
                       <span className="font-bold">Brand: </span> {query.brand}
                     </p>

@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "recommendationForme",
-        element: <RecommendationForMe></RecommendationForMe>,
+        element: <PrivateRoute><RecommendationForMe></RecommendationForMe></PrivateRoute>
       },
       {
         path: "myQueries",
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: "myRecommendation",
-        element: <MyRecommendations></MyRecommendations>,
+        element: <PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
       },
     ],
   },

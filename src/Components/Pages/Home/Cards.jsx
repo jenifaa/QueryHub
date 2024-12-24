@@ -32,7 +32,7 @@ const Cards = () => {
             <div className="card bg-base-300 w-[550px] p-2 ">
               <div className="flex">
                 <figure>
-                  <img className="w-48 rounded-xl" src={card.image} />
+                  <img className="w-56 h-52 rounded-xl" src={card.image} />
                 </figure>
 
                 <div className="card-body">

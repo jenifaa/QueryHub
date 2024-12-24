@@ -16,7 +16,7 @@ const MyRecommendations = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [user]);
   console.log(myRecommendation);
 
   const handleRecommendationDelete = (id) => {
