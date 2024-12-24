@@ -63,6 +63,7 @@ const Register = () => {
     creatNewUser(email, password)
       .then((result) => {
         const user = result.user;
+        // const user = {email: email}
 
         toast.success("Registered Successfully");
         userUpdate({ displayName: name, photoURL: photo }).then((res) => {

@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const Queries = () => {
   const allData = useLoaderData();
   console.log(allData);
   const [allQuery, setAllQuery] = useState(allData);
+  const [search,setSearch] = useState("")
+  // useEffect(()=>{
+  //   const fetchAllQueries = async () =>{
+  //     const {data} = await axios.get(`http://localhost:5000/all-query?search=${search}`)
+  //     setAllQuery(data);
+  //   }
+  //   fetchAllQueries()
+  // },[search])
   return (
     <div className="mt-36 bg-base-100">
       <div>
@@ -22,7 +31,7 @@ const Queries = () => {
 
       <div className="w-96 mx-auto my-10">
         <label className="input input-bordered flex items-center gap-2">
-          <input type="text" className="grow" placeholder="Search" />
+          <input onChange={e => setSearch(e.target.value)} type="text" className="grow" placeholder="Search" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -46,10 +55,12 @@ const Queries = () => {
                   <figure>
                     <img className="lg:w-52 rounded-xl mb-3" src={all.image} />
                   </figure>
-                  <h2 className="card-title font-bold">Brand: {all.brand}</h2>
+                 
                 </div>
 
                 <div className="card-body">
+                <h2 className="card-title font-bold">Name: {all.name}</h2>
+                <h2 className=""><span className="font-bold text-xl mr-3">Brand :</span> {all.brand}</h2>
                   <p>
                     <span className="font-bold text-xl mr-3">Query :</span>{" "}
                     {all.title}

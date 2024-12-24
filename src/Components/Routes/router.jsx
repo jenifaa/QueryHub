@@ -5,7 +5,7 @@ import Register from "../Pages/Authentication/Register";
 import Login from "../Pages/Authentication/Login";
 import Queries from "../Pages/PageRoutes/Queries";
 import ErrorPage from "../ErrorPage/ErrorPage";
-import RecomendationForMe from "../Pages/PageRoutes/RecomendationForMe";
+import RecommendationForMe from "../Pages/PageRoutes/RecommendationForMe";
 
 import MyRecommendations from "../Pages/PageRoutes/MyRecommendations";
 import MyQueries from "../Pages/PageRoutes/MyQueries";
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "recommendationForme",
-        element: <RecomendationForMe></RecomendationForMe>,
+        element: <RecommendationForMe></RecommendationForMe>,
       },
       {
         path: "myQueries",

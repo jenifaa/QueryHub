@@ -3,19 +3,25 @@ import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import Typewriter from "typewriter-effect";
 import useAuth from "../../Hooks/useAuth";
+import axios from "axios";
+import useAxios from "../../Hooks/useAxios";
 
 const MyQueries = () => {
   // const data = useLoaderData();
   const [queries, setQueries] = useState([]);
   const { user } = useAuth();
+  const axiosSecure = useAxios();
   console.log(user);
   // console.log(data);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/queries/user?userEmail=${user.email}`)
-        .then((res) => res.json())
-        .then((data) => setQueries(data))
-        .catch((err) => console.error("Error fetching queries:", err));
+      // fetch(`http://localhost:5000/queries/user?userEmail=${user.email}`)
+      axiosSecure
+        .get(`http://localhost:5000/queries/user?userEmail=${user.email}`)
+        .then((res) => {
+          setQueries(res.data);
+        })
+       
     }
   }, [user?.email]);
   console.log(queries);
@@ -49,76 +55,6 @@ const MyQueries = () => {
       }
     });
   };
-
-  // const handleDetails = (id) => {
-  //   const selectedQuery = queries.find((query) => query._id === id); // Find the selected query
-  //   if (!selectedQuery) return; // 
-  //   Swal.fire({
-  //     title: "Update your product details",
-
-  //     html: `
-  //     <input id="title" class="swal2-input" placeholder="Title" value="${selectedQuery.title}" />
-  //     <input id="brand" class="swal2-input" placeholder="Brand" value="${selectedQuery.brand}" />
-  //     <textarea id="reason" class="swal2-input" placeholder="Reason">${selectedQuery.reason}</textarea>
-  //     <textarea id="image" class="swal2-input" placeholder="Image">${selectedQuery.image}</textarea>
-  //   `,
-
-  //     focusConfirm: false,
-
-  //     preConfirm: async () => {
-  //       const title = document.getElementById("title").value;
-  //       const brand = document.getElementById("brand").value;
-  //       const reason = document.getElementById("reason").value;
-  //       const image = document.getElementById("image").value;
-  //       if (!title || !brand || !reason || !image) {
-  //         Swal.showValidationMessage("All fields are required.");
-  //         return;
-  //       }
-  //       try {
-  //         const response = await fetch(
-  //           `http://localhost:5000/queries/user/${id}`,
-  //           {
-  //             method: "PUT",
-  //             headers: {
-  //               "content-type": "application/json",
-  //             },
-  //             body: JSON.stringify({
-  //               title,
-  //               brand,
-  //               image,
-  //               reason,
-  //             }),
-  //           }
-  //         );
-  //         if (!response.ok) {
-  //           return Swal.showValidationMessage(
-  //             `Failed to update product: ${response.statusText}`
-  //           );
-  //         }
-  //         const updatedQuery = await response.json();
-  //         return updatedQuery;
-  //       } catch (error) {
-  //         Swal.showValidationMessage(`
-  //         Request failed: ${error}
-  //       `);
-  //       }
-  //     },
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       Swal.fire({
-  //         title: "Update Successful!",
-  //         text: `Query have been updated successfully.`,
-  //         icon: "success",
-  //       });
-  //       const updatedQuery = result.value;
-  //       setQueries(
-  //         queries.map((query) => {
-  //           query._id === updatedQuery._id ? updatedQuery : query;
-  //         })
-  //       );
-  //     }
-  //   });
-  // };
 
   return (
     <div className="mt-28">
@@ -175,17 +111,24 @@ const MyQueries = () => {
               <div className="card bg-base-300  p-3 ">
                 <div className="lg:flex">
                   <figure>
-                    <img className="lg:w-56 lg:h-56 rounded-xl" src={query.image} />
+                    <img
+                      className="lg:w-56 lg:h-56 rounded-xl"
+                      src={query.image}
+                    />
                   </figure>
 
                   <div className="card-body">
                     <h2 className="card-title font-bold">{query.name}</h2>
                     <p>{query.title}</p>
-                    <p><span className="font-bold">Brand: </span> {query.brand}</p>
-                    <p><span className="font-bold">Reason for Boycotting: </span> {query.reason}</p>
+                    <p>
+                      <span className="font-bold">Brand: </span> {query.brand}
+                    </p>
+                    <p>
+                      <span className="font-bold">Reason for Boycotting: </span>{" "}
+                      {query.reason}
+                    </p>
                     <p>{query.currentDateAndTime}</p>
                     <div className="card-actions flex flex-row  pt-5">
-                     
                       <button className="btn btn-primary">
                         <Link to={`/queries/user/${query._id}`}>Update</Link>
                       </button>
