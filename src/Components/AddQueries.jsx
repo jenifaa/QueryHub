@@ -5,14 +5,13 @@ import { useLoaderData } from "react-router-dom";
 
 const AddQueries = () => {
   const { user } = useAuth();
- 
+
   const [recommendation, setRecommendaton] = useState(0);
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
-    
 
     const newData = {
       ...initialData,
@@ -22,7 +21,6 @@ const AddQueries = () => {
       currentDateAndTime: new Date().toISOString(),
       recommendationCount: 0,
     };
-   
 
     fetch("https://assignment-11-server-seven-liard.vercel.app/queries", {
       method: "POST",
@@ -30,11 +28,15 @@ const AddQueries = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(newData),
-    });
-    // form.reset();
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        e.target.reset();
+      });
+
+    
   };
 
- 
   return (
     <div>
       <Navbar></Navbar>

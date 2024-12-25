@@ -8,7 +8,7 @@ const Header = ({
   scrollToAiGenerated,
 }) => {
   return (
-    <div className="lg:mt-14 md:mt-24 py-2 ">
+    <div className="lg:mt-14 md:mt-24 mt-32 py-2 ">
       <div className="md:flex justify-between items-center w-10/12 mx-auto">
         <div className="flex items-center">
             <img className="w-16" src={query} alt="" />

@@ -111,7 +111,7 @@ const MyQueries = () => {
           {queries.map((query) => (
             <div key={query._id} className="border rounded-xl p-3 ">
               <div className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="flex gap-6 items-start">
+                <div className="md:flex gap-6 items-start">
                   <figure>
                     <img
                       className="w-36 h-36 object-cover rounded-md"
@@ -124,13 +124,6 @@ const MyQueries = () => {
                       <h2 className="text-2xl font-semibold text-gray-800">
                         {query.title}
                       </h2>
-                      {/* <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1 rounded-md">
-                        <MdOutlineRecommend />
-                        {query.recommendationCount}
-                        <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs py-1 px-2 rounded">
-                          Recommendation
-                        </span>
-                      </p> */}
                     </div>
 
                     <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
@@ -154,7 +147,7 @@ const MyQueries = () => {
                       </p>
                     </div>
 
-                    <div className="flex justify-between items-center">
+                    <div className="md:flex justify-between items-center">
                       <div>
                         <h3 className="font-bold text-gray-700">
                           Name:{" "}

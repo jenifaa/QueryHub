@@ -80,7 +80,7 @@ const ProductExplorer = ({ productExplorerRef }) => {
   return (
     <div ref={productExplorerRef}>
       <h2 className="text-3xl font-bold text-center my-10 font">Explore More...</h2>
-      <div className="py-16 px-8 bg-base-200 flex justify-between items-center">
+      <div className="py-16 px-8 bg-base-200 lg:flex justify-between items-center">
         <div className=" flex-1">
           <h1 className="text-2xl font-bold text-center my-4">
             Select a Product Category to Explore
@@ -95,7 +95,7 @@ const ProductExplorer = ({ productExplorerRef }) => {
                 <p className="text-lg mb-4 text-blue-600 font-semibold">
                   Select a Product Category
                 </p>
-                <div className="flex justify-center space-x-8">
+                <div className="md:flex justify-center space-x-8">
                   <button
                     className="bg-blue-600 text-white hover:bg-blue-800 px-6 py-3 rounded-lg shadow-lg transition duration-300"
                     onClick={() => handleCategorySelection("Laptops")}
