@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import fb from "../../../assets/images/facebook.png";
 import insta from "../../../assets/images/instagram.png";
 import linkedIn from "../../../assets/images/linkedin.png";
-import query from '../../../assets/images/query.png'
 
+import logo from "../../../assets/images/queries.png";
 
 const Footer = () => {
   return (
     <div
-      className=" text-black bg-base-300"
+      className=" text-white bg-black"
       style={{
        
         backgroundSize: 'cover',
@@ -17,7 +17,7 @@ const Footer = () => {
     >
       <footer className="footer  p-10 md:flex items-center justify-around">
         <nav className="">
-          <img src={query} className="w-28" alt="" />
+          <img src={logo} className="w-28" alt="" />
           <h2 className="text-5xl font-extrabold font ">QueryHive</h2>
           <p className="text-sm font-semibold">ACME Industries Ltd.</p>
         </nav>

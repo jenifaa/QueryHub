@@ -16,7 +16,7 @@ import Typewriter from "typewriter-effect";
 const Banner = () => {
   return (
     <Swiper
-      className="mt-[110px] mySwiper"
+      className="mySwiper"
       spaceBetween={30}
       centeredSlides={true}
       loop={true}

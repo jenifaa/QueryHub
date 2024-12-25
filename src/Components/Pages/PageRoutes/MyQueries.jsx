@@ -5,6 +5,10 @@ import Typewriter from "typewriter-effect";
 import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import useAxios from "../../Hooks/useAxios";
+import Header from "../Layout/Header";
+import { CiClock1 } from "react-icons/ci";
+import { FaRegEye } from "react-icons/fa";
+import { MdOutlineRecommend } from "react-icons/md";
 
 const MyQueries = () => {
   // const data = useLoaderData();
@@ -12,19 +16,13 @@ const MyQueries = () => {
   const { user } = useAuth();
   const axiosSecure = useAxios();
 
- 
   useEffect(() => {
     if (user?.email) {
-     
-      axiosSecure
-        .get(`/queries/user?userEmail=${user.email}`)
-        .then((res) => {
-          setQueries(res.data);
-        })
-       
+      axiosSecure.get(`/queries/user?userEmail=${user.email}`).then((res) => {
+        setQueries(res.data);
+      });
     }
   }, [user?.email]);
-  
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -37,9 +35,12 @@ const MyQueries = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assignment-11-server-seven-liard.vercel.app/queries/user/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-11-server-seven-liard.vercel.app/queries/user/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -57,7 +58,8 @@ const MyQueries = () => {
   };
 
   return (
-    <div className="mt-28">
+    <div className="mt-[50px]">
+      <Header></Header>
       <div
         className="hero h-[500px]"
         style={{
@@ -108,39 +110,73 @@ const MyQueries = () => {
         <div className="grid grid-cols-1 md:grid-cols-2  lg:w-11/12 gap-5 mx-auto my-6">
           {queries.map((query) => (
             <div key={query._id} className="border rounded-xl p-3 ">
-              <div className="card bg-base-300  p-3 ">
-                <div className="lg:flex">
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="flex gap-6 items-start">
                   <figure>
                     <img
-                      className="lg:w-56 lg:h-56 rounded-xl"
+                      className="w-36 h-36 object-cover rounded-md"
                       src={query.image}
                     />
                   </figure>
 
-                  <div className="card-body">
-                    <h2 className="card-title font-bold">{query.name}</h2>
-                    <p> <span className="font-bold">Query: </span>{query.title}</p>
-                    <p>
-                      <span className="font-bold">Brand: </span> {query.brand}
-                    </p>
-                    <p>
-                      <span className="font-bold">Reason for Boycotting: </span>{" "}
-                      {query.reason}
-                    </p>
-                    <p>{query.currentDateAndTime}</p>
-                    <div className="card-actions flex flex-row  pt-5">
-                      <button className="btn btn-primary">
-                        <Link to={`/queries/user/${query._id}`}>Update</Link>
-                      </button>
-                      <button
-                        onClick={() => handleDelete(query._id)}
-                        className="btn bg-red-700 text-white font-semibold"
-                      >
-                        Delete
-                      </button>
-                      <button className="btn btn-primary">
-                        <Link to={`/queries/${query._id}`}>Details</Link>
-                      </button>
+                  <div className="flex-1">
+                    <div className=" mb-2">
+                      <h2 className="text-2xl font-semibold text-gray-800">
+                        {query.title}
+                      </h2>
+                      {/* <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1 rounded-md">
+                        <MdOutlineRecommend />
+                        {query.recommendationCount}
+                        <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs py-1 px-2 rounded">
+                          Recommendation
+                        </span>
+                      </p> */}
+                    </div>
+
+                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                      <p className="flex items-center gap-1">
+                        <CiClock1 />
+                        {query.currentDateAndTime}
+                      </p>
+                      <p className="flex items-center gap-1 px-2 py-1 bg-blue-100">
+                        <FaRegEye />
+                        {Math.floor(
+                          Math.random() * (100000 - 10000) + 10000
+                        )}{" "}
+                        Views
+                      </p>
+                      <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1 ">
+                        <MdOutlineRecommend />
+                        {query.recommendationCount}
+                        <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs py-1 px-2 rounded">
+                          Recommendation
+                        </span>
+                      </p>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h3 className="font-bold text-gray-700">
+                          Name:{" "}
+                          <span className="font-normal">{query.name}</span>
+                        </h3>
+                        <p className="text-gray-600">{query.reason}</p>
+                      </div>
+
+                      <div className="text-right flex gap-1 items-center">
+                        <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                          <Link to={`/queries/user/${query._id}`}>Update</Link>
+                        </button>
+                        <button
+                          onClick={() => handleDelete(query._id)}
+                          className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors"
+                        >
+                          Delete
+                        </button>
+                        <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                          <Link to={`/queries/${query._id}`}>Details</Link>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

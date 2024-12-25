@@ -8,7 +8,7 @@ const Queries = () => {
   const [allQuery, setAllQuery] = useState(allData);
   const [search, setSearch] = useState("");
   const [isGrid, setIsGrid] = useState(false);
- 
+
   return (
     <div className="mt-36 bg-base-100">
       <div>
@@ -60,8 +60,8 @@ const Queries = () => {
         className={`grid  grid-cols-1 ${
           isGrid
             ? "md:grid-cols-1 lg:grid-cols-2 w-10/12  lg:w-8/12"
-            : "lg:grid-cols-3 md:grid-cols-2"
-        }  gap-2 lg:gap-5  mx-auto my-10`}
+            : "lg:grid-cols-3 lg:w-10/12 md:grid-cols-2"
+        }  gap-4 lg:gap-5  mx-auto my-10`}
       >
         {allQuery
           .filter((all) => {
@@ -72,45 +72,35 @@ const Queries = () => {
           .map((all) => (
             <div
               key={all._id}
-              className="border md:w-[340px] lg:w-[410px] rounded-xl p-3 "
+              className="border  md:w-[340px] lg:w-[360px] p-3 "
             >
-              <div
-                className={`card bg-base-300 lg:p-5  lg:w-96 mx-auto md:w-80`}
-              >
+              <div className={` bg-base-300 p-5  lg:w-80 mx-auto md:w-80`}>
                 <div className="">
-                  <div className="flex-1 my-auto">
+                  <h2 className="card-title font-bold">Name: {all.name}</h2>
+                  <p>{all.currentDateAndTime}</p>
+                  <hr className="border border-gray-300 my-2" />
+                  <div className=" my-auto">
                     <figure className="p-5">
-                      <img
-                        className="md:w-80 w-full  h-60 rounded-xl"
-                        src={all.image}
-                      />
+                      <img className="md:w-80 w-full  h-56 " src={all.image} />
                     </figure>
                   </div>
 
-                  <div className="card-body flex-1">
-                    <h2 className="card-title font-bold">Name: {all.name}</h2>
-                    <h2 className="">
+                  <div className=" ">
+                    {/* <h2 className="">
                       <span className="font-bold text-xl mr-3">Brand :</span>{" "}
                       {all.brand}
-                    </h2>
+                    </h2> */}
+                    <p className="font-bold ">{all.title}</p>
+                    <p className="text-red-700">{all.reason}</p>
+
                     <p>
-                      <span className="font-bold text-xl mr-3">Query :</span>{" "}
-                      {all.title}
-                    </p>
-                    <p>
-                      <span className="font-bold text-xl mr-3">
-                        Added Time:
-                      </span>{" "}
-                      {all.currentDateAndTime}
-                    </p>
-                    <p>
-                      <span className="font-bold text-xl mr-3">
+                      <span className="font-bold  mr-3">
                         RecommendationCount:
                       </span>{" "}
                       {all.recommendationCount}
                     </p>
                     <div className="card-actions flex  ">
-                      <button className="btn btn-primary">
+                      <button className="px-3 py-1 bg-blue-600 text-white my-3">
                         <Link to={`/queries/${all._id}`}>recommendation</Link>
                       </button>
                     </div>

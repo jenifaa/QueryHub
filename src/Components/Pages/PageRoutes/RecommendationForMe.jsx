@@ -17,7 +17,9 @@ const RecommendationForMe = () => {
     }
   }, [user?.email]);
   return (
-    <div className="mt-48">
+    <div className="mt-20">
+      <h2 className="font text-3xl font-bold text-center my-10">Recommendation For ME</h2>
+      <hr className="mb-5"/>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

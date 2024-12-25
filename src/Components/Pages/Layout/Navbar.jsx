@@ -1,9 +1,7 @@
-
-
 import React, { useContext, useEffect, useState } from "react";
 
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import logo from '../../../assets/images/queries.png'
+// import logo from "../../../assets/images/queries.png";
 import { CiLogout } from "react-icons/ci";
 
 import { BsPersonCircle } from "react-icons/bs";
@@ -13,18 +11,14 @@ import Loading from "./Loading";
 import { IoPersonOutline } from "react-icons/io5";
 
 const Navbar = () => {
-  const { user, setUser, logOut, updateUserProfile, loading } =
-    useAuth();
- 
-
+  const { user, setUser, logOut, updateUserProfile, loading } = useAuth();
 
   const [menuOpen, setMenuOpen] = useState(false);
-  
+
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const isHomepage = location.pathname === "/";
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,40 +32,42 @@ const Navbar = () => {
   }
 
   return (
-    <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+    <div
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white text-black shadow-lg"
-          // : "bg-gradient-to-r from-[#87CEEB] via-[#B0C4DE] to-[#B0E0E6]  text-white"
-          : "bg-gradient-to-r from-[#FFF0F5] via-[#E6E6FA] to-[#D8BFD8] text-white"
-      }`}>
-      <nav className="flex justify-between items-center md:px-8 py-4 ">
-        <div className="">
+          : "bg-red-950 text-white"
+          // : "bg-gradient-to-r from-[#FFF0F5] via-[#E6E6FA] to-[#D8BFD8] text-white"
+      }`}
+    >
+      <nav className="flex justify-between items-center md:px-8 py-2 ">
+        {/* <div className="">
           <Link
             to="/"
-            className="font text-[#2C3E50] font-bold text-xl md:text-3xl flex items-center"
+            className="font  font-bold text-xl md:text-3xl flex items-center"
           >
             <img className="w-20" src={logo} alt="" />
             QueryHive
           </Link>
-        </div>
-        <div className="hidden lg:flex space-x-6 text-[#2C3E50]">
+        </div> */}
+        <div className="hidden lg:flex space-x-6 ">
           <NavLink
             to="/"
-            className="hover:text-purple-900 hover:font-bold text-xl flex items-center space-x-2"
+            className="hover:text-purple-900 hover:font-bold text-sm flex items-center space-x-2"
           >
             Home
           </NavLink>
           <NavLink
             to="/queries"
-            className="hover:text-purple-900 hover:font-bold text-xl "
+            className="hover:text-purple-900 hover:font-bold text-sm "
           >
-           Queries
+            Queries
           </NavLink>
           {user && user?.email ? (
             <>
               <NavLink
                 to="/recommendationForme"
-                className="hover:text-purple-900 hover:font-bold text-xl "
+                className="hover:text-purple-900 hover:font-bold text-sm "
               >
                 Recommendations For Me
               </NavLink>
@@ -83,7 +79,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myQueries"
-                className="hover:text-purple-900 hover:font-bold text-xl "
+                className="hover:text-purple-900 hover:font-bold text-sm "
               >
                 My Queries
               </NavLink>
@@ -95,7 +91,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myRecommendation"
-                className="hover:text-purple-900 hover:font-bold text-xl "
+                className="hover:text-purple-900 hover:font-bold text-sm "
               >
                 My recommendations
               </NavLink>
@@ -128,12 +124,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex lg:flex-row flex-col items-center gap-2 lg:gap-5">
-          
           {user && user?.photoURL ? (
             <img
               src={user?.photoURL}
               title={user?.displayName || "User"}
-              className="w-10 h-10 md:w-14 md:h-14 rounded-full md:flex"
+              className="w-10 h-10  rounded-full md:flex"
             ></img>
           ) : (
             <BsPersonCircle className="text-5xl" />
@@ -155,13 +150,13 @@ const Navbar = () => {
             <>
               <NavLink to="/login">
                 <button className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1">
-                <CiLogin />
+                  <CiLogin />
                   Login
                 </button>
               </NavLink>
               <NavLink to="/register">
                 <button className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1">
-                <IoPersonOutline />
+                  <IoPersonOutline />
                   Register
                 </button>
               </NavLink>
@@ -176,7 +171,7 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink to="/queries" className="hover:text-gray-200">
-          Queries
+            Queries
           </NavLink>
           {user && user?.email ? (
             <>

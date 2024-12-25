@@ -18,7 +18,7 @@ const MyRecommendations = () => {
         });
     }
   }, [user]);
-  console.log(myRecommendation);
+
 
   const handleRecommendationDelete = (id) => {
     Swal.fire({
@@ -32,7 +32,7 @@ const MyRecommendations = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/recommendedUser/${id}`,
+          `https://assignment-11-server-seven-liard.vercel.app/recommendedUser/${id}`,
           {
             method: "DELETE", 
           }
@@ -79,7 +79,9 @@ const MyRecommendations = () => {
   }
 
   return (
-    <div className="mt-48">
+    <div className="mt-20">
+      <h2 className="my-10 text-center font-bold text-3xl font">My Recommendation</h2>
+      <hr className="my-9"/>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
+import Lottie from "lottie-react";
+import animation from '../../../assets/lottie/ai.json'
 
-const AiGenerated = () => {
+const AiGenerated = ({aiGeneratedRef}) => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [answer, setAnswer] = useState("");
@@ -380,9 +383,8 @@ const AiGenerated = () => {
   }, [query]);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between bg-base-200 py-16 px-8 my-12">
-      <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-left mx-auto">
-        <h2 className="text-3xl font-bold">
+    <div  ref={aiGeneratedRef} className="font" >
+       <h2 className="text-4xl font-bold text-center">
           Get Your Answer By{" "}
           <motion.span
             animate={{ color: ["#f1391c", "#1cf1b7", "#dbf11c"] }}
@@ -392,7 +394,13 @@ const AiGenerated = () => {
             Ai
           </motion.span>
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-sm text-center my-3">Leverage the power of AI to enhance your query experience. Discover accurate insights, personalized <br />recommendations, and faster solutions tailored to your needs.</p>
+      
+      <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-500 text-white py-16 px-8 my-12 ">
+      <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-left mx-auto">
+      <h2 className="font-bold text-3xl ">Unlock Insights with AI: Smarter Queries, Better Answers</h2>
+      
+        <p className="text-lg text-[#ffffff]">
           Type a question to explore answers and recommendations.
         </p>
 
@@ -406,7 +414,7 @@ const AiGenerated = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Type a query..."
-            className="w-96 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-96 px-4 py-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </motion.div>
 
@@ -415,7 +423,7 @@ const AiGenerated = () => {
             suggestions.map((suggestion, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-100 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"
+                className="bg-gray-100 text-black px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -428,7 +436,7 @@ const AiGenerated = () => {
 
         {answer && (
           <motion.div
-            className="mt-4 bg-green-100 px-4 py-4 rounded-lg"
+            className="mt-4 bg-green-100 text-black px-4 py-4 rounded-lg"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 120 }}
@@ -442,13 +450,17 @@ const AiGenerated = () => {
           onClick={() =>
             setQuery(data[Math.floor(Math.random() * data.length)].question)
           }
-          className="px-6 py-2 btn btn-primary text-white rounded-lg hover:bg-blue-700 transition"
+          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           Auto Generate
         </motion.button>
       </div>
+      <div>
+      <Lottie className="w-96" animationData={animation} loop={true} />
+      </div>
+    </div>
     </div>
   );
 };

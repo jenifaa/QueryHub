@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import useAuth from "./Hooks/useAuth";
 import Navbar from "./Pages/Layout/Navbar";
 import { div } from "motion/react-client";
-
+import { motion } from "framer-motion";
 const QueryDetails = () => {
   const data = useLoaderData();
 
@@ -27,7 +27,6 @@ const QueryDetails = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const recommendedData = Object.fromEntries(formData.entries());
-  
 
     const newRecommendedData = {
       ...recommendedData,
@@ -41,29 +40,36 @@ const QueryDetails = () => {
 
       currentDateAndTime: new Date().toISOString(),
     };
-  
 
-    fetch("https://assignment-11-server-seven-liard.vercel.app/recommendation", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newRecommendedData),
-    })
+    fetch(
+      "https://assignment-11-server-seven-liard.vercel.app/recommendation",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newRecommendedData),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
- 
-      });
+        if (result.insertedId) {
+          e.target.reset();
+
+          setRecommendations((prev) => [...prev, newRecommendedData]);
+        }
+      })
+      .catch((error) => console.error("Error adding recommendation:", error));
   };
 
   return (
     <div>
       <Navbar></Navbar>
-      <div className=" max-w-7xl mx-auto mt-40 p-5">
-        <h2 className="text-center text-3xl font-bold my-4">
+      <div className=" max-w-7xl mx-auto mt-20 p-5 ">
+        <h2 className="text-center text-3xl font-bold my-4 font">
           More Details For You
         </h2>
-        <p className="text-sm font-semibold text-gray-500 my-5 text-center">
+        <p className="text-sm font font-semibold text-gray-500 my-5 text-center">
           Discover the comprehensive insights and background behind this query,
           including the motivations and detailed <br /> reasoning that inspired
           its creation.{" "}
@@ -73,29 +79,29 @@ const QueryDetails = () => {
           <div className="md:w-1/3 p-5">
             <img
               src={data.image}
-              alt={data.title}
               className="rounded-lg shadow-xl w-full  h-80"
             />
           </div>
 
           <div className=" md:w-2/3 p-5 bg-base-200 shadow-lg rounded-xl">
-            <h1 className=" mb-3 text-lg text-gray-600">
+            <h1 className=" mb-2 text-lg font-bold font">
+              
+              {data.name}
+            </h1>
+            <h1 className=" mb-3 text-lg text-gray-600 font">
               <span className="text-xl font-bold text-black">Query: </span>
               {data.title}
             </h1>
-            <p className="text-lg text-gray-600 mb-3">
-              <span className="text-xl font-bold text-black">Reason: </span>
+            <p className="text-lg text-red-700 font mb-3">
+             
               {data.reason}
             </p>
-            {/* <h2 className="text-2xl font-semibold text-gray-800 mb-4">Details</h2> */}
-            <div className="flex justify-between items-center">
-              <p className="text-2xl px-4 py-1 rounded-full bg-blue-400 font-semibold italic my-4 text-white">
-                {data.brand}
-              </p>
-              <p className="text-md text-gray-500 font-semibold">
-                {data.currentDateAndTime}
-              </p>
-            </div>
+
+            <p className="my-2 font">{data.brand}</p>
+
+            <p className="text-md text-gray-500 font-semi bold mb-2">
+              {data.currentDateAndTime}
+            </p>
 
             <div className=" flex gap-6">
               <button className="btn btn-primary py-2 px-6 rounded-full text-white bg-blue-600 hover:bg-blue-700">
@@ -108,8 +114,6 @@ const QueryDetails = () => {
           </div>
         </div>
         <hr className="my-6" />
-
-        {/* user information */}
 
         <div className="border-2 rounded-xl py-5 my-16 bg-base-300">
           <h2 className="text-3xl font-bold text-center my-5 underline  [text-underline-offset:10px]">
@@ -225,7 +229,7 @@ const QueryDetails = () => {
                 >
                   <div>
                     <img
-                      className="w-28 rounded-xl"
+                      className="w-28 rounded-full"
                       src={recommendation.image}
                       alt=""
                     />
@@ -256,6 +260,60 @@ const QueryDetails = () => {
             )}
           </div>
         </div>
+        {/* <div className="mt-16">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+            All Recommendations
+          </h2>
+          <div className="space-y-6">
+            {recommendations.length > 0 ? (
+              recommendations.map((recommendation, index) => {
+                const isUserRecommendation =
+                  recommendation.recommenderEmail === user?.email;
+
+                return (
+                  <motion.div
+                    key={index}
+                    className={`chat ${
+                      isUserRecommendation ? "chat-end" : "chat-start"
+                    }`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2, duration: 0.5 }}
+                  >
+                    <div className="chat-bubble bg-blue-100 shadow-xl w-full  max-w-5xl  text-black p-5">
+                      <div className="flex items-center gap-4 mb-3">
+                        <img
+                          className="w-16 h-16 rounded-full shadow-md"
+                          src={recommendation.image}
+                          alt={recommendation.title}
+                        />
+                        <h3 className="font-bold text-xl">
+                          {recommendation.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-700 italic mb-4 text-lg">
+                        {recommendation.reason}
+                      </p>
+                      <div className="mt-2 text-sm text-gray-600">
+                        <p>
+                          <span className="font-semibold">Recommended by:</span>{" "}
+                          {recommendation.recommenderName}
+                        </p>
+                        <p className="text-gray-500">
+                          {recommendation.currentDateAndTime}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })
+            ) : (
+              <p className="text-gray-500 text-center">
+                No recommendations yet. Add your own!
+              </p>
+            )}
+          </div>
+        </div> */}
       </div>
     </div>
   );
