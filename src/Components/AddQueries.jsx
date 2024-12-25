@@ -22,9 +22,9 @@ const AddQueries = () => {
       currentDateAndTime: new Date().toISOString(),
       recommendationCount: 0,
     };
-    console.log(newData);
+   
 
-    fetch("http://localhost:5000/queries", {
+    fetch("https://assignment-11-server-seven-liard.vercel.app/queries", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,9 +34,7 @@ const AddQueries = () => {
     // form.reset();
   };
 
-  // useState(() =>{
-  //   fetch(`http://localhost:5000/recommendation/query/${}`)
-  // })
+ 
   return (
     <div>
       <Navbar></Navbar>

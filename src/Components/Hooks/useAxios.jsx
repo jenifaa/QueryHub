@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://assignment-11-server-seven-liard.vercel.app',
     withCredentials: true
 })
 const useAxios = () => {
@@ -15,7 +15,7 @@ const useAxios = () => {
           return response;
         },
         (error) => {
-          console.log(error);
+     
           if (error.status === 401 || error.status === 403) {
             logOut()
               .then(() => {

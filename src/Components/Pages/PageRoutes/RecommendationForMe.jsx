@@ -5,7 +5,7 @@ import useAxios from "../../Hooks/useAxios";
 const RecommendationForMe = () => {
   const [recommendationForMe, setRecommendationForMe] = useState([]);
  const axiosSecure = useAxios();
-  console.log(recommendationForMe);
+ 
   const { user } = useAuth();
   useEffect(() => {
     if (user?.email) {

@@ -442,11 +442,11 @@ const AiGenerated = () => {
           onClick={() =>
             setQuery(data[Math.floor(Math.random() * data.length)].question)
           }
-          className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+          className="px-6 py-2 btn btn-primary text-white rounded-lg hover:bg-blue-700 transition"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Auto Suggestion
+          Auto Generate
         </motion.button>
       </div>
     </div>

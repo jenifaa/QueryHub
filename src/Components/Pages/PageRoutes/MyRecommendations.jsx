@@ -7,18 +7,9 @@ import useAxios from "../../Hooks/useAxios";
 const MyRecommendations = () => {
   const [myRecommendation, setMyRecommendation] = useState([]);
   const { user, loading } = useAuth();
-  console.log(user);
+
   const axiosSecure = useAxios();
   useEffect(() => {
-    // fetch(`http://localhost:5000/recommendedUser/${user?.email}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setMyRecommendation(data);
-    //   })
-    //   .catch((error) => {
-        // fetch(`http://localhost:5000/recommendedUser/${user.email}?userEmail=${user.email}`
-    //     console.log(error);
-    //   });
     if (user?.email) {
       axiosSecure
         .get(`/recommendedUser/${user.email}?userEmail=${user.email}`)
@@ -40,26 +31,49 @@ const MyRecommendations = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/recommendedUser/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
+        fetch(
+          `http://localhost:5000/recommendedUser/${id}`,
+          {
+            method: "DELETE", 
+          }
+        )
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Failed to delete recommendation");
+            }
+            return res.json();
+          })
           .then((data) => {
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
-                text: "Your Application has been deleted.",
+                text: "Your recommendation has been deleted.",
                 icon: "success",
               });
-
+  
               setMyRecommendation(
-                myRecommendation.filter((allReco) => allReco._id != id)
+                myRecommendation.filter((allReco) => allReco._id !== id)
               );
+            } else {
+              Swal.fire({
+                title: "Error!",
+                text: data.message || "Could not delete the recommendation.",
+                icon: "error",
+              });
             }
+          })
+          .catch((error) => {
+            console.error("Error deleting recommendation:", error);
+            Swal.fire({
+              title: "Error!",
+              text: "Something went wrong. Please try again later.",
+              icon: "error",
+            });
           });
       }
     });
   };
+  
   if (loading) {
     return <Loading></Loading>;
   }

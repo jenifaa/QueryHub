@@ -6,14 +6,14 @@ import { div } from "motion/react-client";
 
 const QueryDetails = () => {
   const data = useLoaderData();
-  console.log(data);
+
   const { user } = useAuth();
   const [recommendationCount, setRecommendationCount] = useState(0);
   const [recommendations, setRecommendations] = useState([]);
   const recommendationsRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/recommendation")
+    fetch("https://assignment-11-server-seven-liard.vercel.app/recommendation")
       .then((res) => res.json())
       .then((result) => {
         const filterRecommend = result.filter(
@@ -27,7 +27,7 @@ const QueryDetails = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const recommendedData = Object.fromEntries(formData.entries());
-    console.log(recommendedData);
+  
 
     const newRecommendedData = {
       ...recommendedData,
@@ -41,9 +41,9 @@ const QueryDetails = () => {
 
       currentDateAndTime: new Date().toISOString(),
     };
-    console.log(newRecommendedData);
+  
 
-    fetch("http://localhost:5000/recommendation", {
+    fetch("https://assignment-11-server-seven-liard.vercel.app/recommendation", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -52,7 +52,7 @@ const QueryDetails = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+ 
       });
   };
 

@@ -4,17 +4,11 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Queries = () => {
   const allData = useLoaderData();
-  console.log(allData);
+
   const [allQuery, setAllQuery] = useState(allData);
   const [search, setSearch] = useState("");
   const [isGrid, setIsGrid] = useState(false);
-  // useEffect(()=>{
-  //   const fetchAllQueries = async () =>{
-  //     const {data} = await axios.get(`http://localhost:5000/queries/all-query?search=${search}`)
-  //     setAllQuery(data);
-  //   }
-  //   fetchAllQueries()
-  // },[search])
+ 
   return (
     <div className="mt-36 bg-base-100">
       <div>

@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 const Cards = () => {
   const [cards, setCards] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/queries")
+    fetch("https://assignment-11-server-seven-liard.vercel.app/queries")
       .then((res) => res.json())
       .then((data) => {
         setCards(data);
       });
   }, []);
-  console.log(cards);
+
   return (
     <div className="my-20">
       <div className="text-center">
@@ -36,12 +36,13 @@ const Cards = () => {
                 </figure>
 
                 <div className="card-body">
-                  <h2 className="card-title font-bold">{card.brand}</h2>
-                  <p>{card.title}</p>
-                  <p>RecommedationCount: {card.recommendationCount}</p>
+                  <h2 className="card-title font-bold">{card.name}</h2>
+                  <h2 className="card-title">Brand: {card.brand}</h2>
+                  <p><span className="font-bold">Query: </span>{card.title}</p>
+                  <p><span className="font-bold">RecommendationCount: </span>{card.recommendationCount}</p>
                   <div className="card-actions   pt-2">
                     <button className="btn btn-primary">
-                      <Link to={`/queries/${card._id}`}>Details</Link>
+                      <Link to={`/queries/${card._id}`}>More Details...</Link>
                     </button>
                   </div>
                 </div>

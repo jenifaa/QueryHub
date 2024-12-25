@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "queries",
         element: <Queries></Queries>,
-        loader: () => fetch('http://localhost:5000/queries/all')
+        loader: () => fetch('https://assignment-11-server-seven-liard.vercel.app/queries/all')
       },
       {
         path: "recommendationForme",
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: "myQueries",
         element: <MyQueries></MyQueries>,
-        // loader: () => fetch(`http://localhost:5000/queries/user/?email=${email}`),
+        
       },
       {
         path: "myRecommendation",
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
   {
     path: "/queries/:id",
     element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
-    loader: ({params}) => fetch(`http://localhost:5000/queries/user/${params.id}`)
+    loader: ({params}) => fetch(`https://assignment-11-server-seven-liard.vercel.app/queries/user/${params.id}`)
   },
 ]);
 export default router;

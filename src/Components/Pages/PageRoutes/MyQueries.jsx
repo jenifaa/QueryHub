@@ -11,11 +11,11 @@ const MyQueries = () => {
   const [queries, setQueries] = useState([]);
   const { user } = useAuth();
   const axiosSecure = useAxios();
-  console.log(user);
-  // console.log(data);
+
+ 
   useEffect(() => {
     if (user?.email) {
-      // fetch(`http://localhost:5000/queries/user?userEmail=${user.email}`)
+     
       axiosSecure
         .get(`/queries/user?userEmail=${user.email}`)
         .then((res) => {
@@ -24,7 +24,7 @@ const MyQueries = () => {
        
     }
   }, [user?.email]);
-  console.log(queries);
+  
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -37,7 +37,7 @@ const MyQueries = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/queries/user/${id}`, {
+        fetch(`https://assignment-11-server-seven-liard.vercel.app/queries/user/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

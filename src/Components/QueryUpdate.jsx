@@ -15,7 +15,7 @@ const QueryUpdate = () => {
       image: e.target.image.value,
       currentDateAndTime: new Date().toISOString(),
     };
-    fetch(`http://localhost:5000/queries/user/${id}`, {
+    fetch(`https://assignment-11-server-seven-liard.vercel.app/queries/user/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -24,7 +24,7 @@ const QueryUpdate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+   
         navigate("/myQueries");
       });
   };

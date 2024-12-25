@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from '../../../assets/images/queries.png'
+import { CiLogout } from "react-icons/ci";
 
 import { BsPersonCircle } from "react-icons/bs";
 import useAuth from "../../Hooks/useAuth";
@@ -143,8 +144,9 @@ const Navbar = () => {
               <NavLink>
                 <button
                   onClick={logOut}
-                  className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md"
+                  className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1"
                 >
+                  <CiLogout />
                   LogOut
                 </button>
               </NavLink>
