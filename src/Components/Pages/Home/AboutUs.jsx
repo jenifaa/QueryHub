@@ -19,7 +19,7 @@ const AboutUs = () => {
             your preferences and queries.
           </p>
           <p className="text-gray-700 italic mt-2">
-             Your trusted partner in smarter shopping! 
+            ✨ Your trusted partner in smarter shopping! ✨
           </p>
           <button className="px-4 py-1 bg-blue-100 my-3">
             <Link to="/blog">See More...</Link>
@@ -43,13 +43,13 @@ const AboutUs = () => {
           </p>
           <div className="text-left mx-auto max-w-sm">
             <p className="mb-2">
-              <span className="font-bold"> WhatsApp:</span> +1 (234) 567-890
+              <span className="font-bold">📞 WhatsApp:</span> +1 (234) 567-890
             </p>
             <p className="mb-2">
-              <span className="font-bold"> Email:</span> queryhive@gmail.com
+              <span className="font-bold">📧 Email:</span> queryhive@gmail.com
             </p>
             <p className="mb-2">
-              <span className="font-bold"> Website:</span>{" "}
+              <span className="font-bold">🌐 Website:</span>{" "}
               <Link
                
                 className="text-blue-500 underline"
@@ -58,12 +58,12 @@ const AboutUs = () => {
               </Link>
             </p>
             <p className="mb-2">
-              <span className="font-bold"> Location:</span> 123 Product St.,
+              <span className="font-bold">📍 Location:</span> 123 Product St.,
               Recommendation City, RC 45678
             </p>
           </div>
           <p className="text-gray-700 italic mt-2">
-          We’re here to assist you 24/7! 
+            ✨ We’re here to assist you 24/7! ✨
           </p>
           <button className="btn btn-primary mt-4"><Link to="https://mail.google.com/mail/u/0/#inbox">Contact Us</Link></button>
         </div>

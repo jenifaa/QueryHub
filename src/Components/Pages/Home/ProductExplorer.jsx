@@ -207,7 +207,7 @@ const ProductExplorer = () => {
               <h1 className="mb-5 text-5xl font-bold text-white">
                 DownLoad Our App
               </h1>
-              <p className="mb-5 flex justify-between items-center">
+              <div className="mb-5 flex justify-between items-center">
                 <div className="flex flex-col items-center">
                   <img className="w-16 mb-3" src={apple} alt="App Store" />
                   <p className="text-lg font-medium text-white">App Store</p>
@@ -227,7 +227,7 @@ const ProductExplorer = () => {
                     Windows Store
                   </p>
                 </div>
-              </p>
+              </div>
             </div>
           </div>
         </div>
