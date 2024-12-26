@@ -12,10 +12,10 @@ const QueryDetails = () => {
   const { user } = useAuth();
   const [recommendationCount, setRecommendationCount] = useState(0);
   const [recommendations, setRecommendations] = useState([]);
-  const recommendationsRef = useRef(null);
+
 
   useEffect(() => {
-    fetch("https://assignment-11-server-seven-liard.vercel.app/recommendation")
+    fetch("https://assignment-11-server-seven-liard.vercel.app/recommendation",{credentials: 'include'})
       .then((res) => res.json())
       .then((result) => {
         const filterRecommend = result.filter(
