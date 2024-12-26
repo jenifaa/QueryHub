@@ -4,6 +4,7 @@ import useAuth from "./Hooks/useAuth";
 import Navbar from "./Pages/Layout/Navbar";
 import { div } from "motion/react-client";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 const QueryDetails = () => {
   const data = useLoaderData();
 
@@ -64,6 +65,10 @@ const QueryDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>QueryHive | Details</title>
+      </Helmet>
+
       <Navbar></Navbar>
       <div className=" max-w-7xl mx-auto mt-20 p-5 ">
         <h2 className="text-center text-3xl font-bold my-4 font">
@@ -120,7 +125,7 @@ const QueryDetails = () => {
             Information of the Creator of the Query
           </h2>
 
-          <div className="flex items-center justify-around py-10">
+          <div className="md:flex items-center justify-around py-10 px-5">
             <div className=" ">
               <h2 className="italic font-semibold">
                 <span className="font-bold text-xl text-black">Name: </span>
@@ -133,7 +138,7 @@ const QueryDetails = () => {
             </div>
             <div>
               <img
-                className="md:w-48 rounded-xl"
+                className="md:w-52 rounded-xl"
                 src={data?.userProfileImage}
                 alt=""
               />
@@ -229,7 +234,7 @@ const QueryDetails = () => {
                 >
                   <div>
                     <img
-                      className="w-28 rounded-full"
+                      className="w-28 "
                       src={recommendation.image}
                       alt=""
                     />

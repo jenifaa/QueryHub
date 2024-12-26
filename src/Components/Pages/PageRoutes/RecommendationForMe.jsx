@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useAxios from "../../Hooks/useAxios";
+import { Helmet } from "react-helmet";
 
 const RecommendationForMe = () => {
   const [recommendationForMe, setRecommendationForMe] = useState([]);
@@ -18,6 +19,10 @@ const RecommendationForMe = () => {
   }, [user?.email]);
   return (
     <div className="mt-20">
+      <Helmet>
+        <title>QueryHive | Recommendation for me</title>
+      </Helmet>
+
       <h2 className="font text-3xl font-bold text-center my-10">Recommendation For ME</h2>
       <hr className="mb-5"/>
       <div className="overflow-x-auto">

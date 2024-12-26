@@ -4,6 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import Loading from "../Layout/Loading";
 import useAxios from "../../Hooks/useAxios";
+import { Helmet } from "react-helmet";
 const MyRecommendations = () => {
   const [myRecommendation, setMyRecommendation] = useState([]);
   const { user, loading } = useAuth();
@@ -80,6 +81,10 @@ const MyRecommendations = () => {
 
   return (
     <div className="mt-20">
+      <Helmet>
+        <title>QueryHive | My Recommendation</title>
+      </Helmet>
+
       <h2 className="my-10 text-center font-bold text-3xl font">My Recommendation</h2>
       <hr className="my-9"/>
       <div className="overflow-x-auto">

@@ -9,6 +9,7 @@ import Header from "../Layout/Header";
 import { CiClock1 } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
 import { MdOutlineRecommend } from "react-icons/md";
+import { Helmet } from "react-helmet";
 
 const MyQueries = () => {
   // const data = useLoaderData();
@@ -59,6 +60,10 @@ const MyQueries = () => {
 
   return (
     <div className="mt-[50px]">
+      <Helmet>
+        <title>QueryHive | MyQueries</title>
+      </Helmet>
+
       <Header></Header>
       <div
         className="hero h-[500px]"

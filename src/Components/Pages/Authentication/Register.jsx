@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import useAuth from "../../Hooks/useAuth";
 
-// import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
@@ -86,9 +86,9 @@ const Register = () => {
   };
   return (
     <div>
-      {/* <Helmet>
-        <title>SportZone | SignUp</title>
-      </Helmet> */}
+      <Helmet>
+        <title>QueryHive | SignUp</title>
+      </Helmet>
 
       <div className="w-10/12 px-8  mx-auto bg-base-200  md:px-32 py-10 mt-56 lg:mt-44 mb-10">
         <div className="text-center my-5">

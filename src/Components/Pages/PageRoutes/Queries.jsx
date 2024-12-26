@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 const Queries = () => {
@@ -11,6 +12,10 @@ const Queries = () => {
 
   return (
     <div className="mt-36 bg-base-100">
+      <Helmet>
+        <title>QueryHive | Queries</title>
+      </Helmet>
+
       <div>
         <h2 className="text-4xl font-bold text-center mt-10 mb-3">
           All <span className="text-6xl font-extrabold text-blue-800">Q</span>

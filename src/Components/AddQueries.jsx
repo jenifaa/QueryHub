@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Navbar from "./Pages/Layout/Navbar";
 import useAuth from "./Hooks/useAuth";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddQueries = () => {
   const { user } = useAuth();
@@ -31,6 +33,15 @@ const AddQueries = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        // if()
+       if(data.insertedId){
+        Swal.fire({
+          title: " Query Added",
+          text: "Your Query Added to the list",
+          icon: "success"
+        });
+
+       }
         e.target.reset();
       });
 
@@ -40,6 +51,10 @@ const AddQueries = () => {
   return (
     <div>
       <Navbar></Navbar>
+      <Helmet>
+        <title>QueryHive | Add Queries</title>
+      </Helmet>
+
       <div className="card bg-base-200 w-full md:w-10/12 mx-auto mt-36 mb-10">
         <h2 className="text-center text-3xl font-bold pb-3 pt-10">Add Query</h2>
         <form onSubmit={handleSubmit} className="card-body">

@@ -1,7 +1,8 @@
 ## Project Name: Product Recommendation System
-## Purpose: To help users easily explore, choose, and find the best products by category, price range, or preferences through an intuitive interface, enhanced with dynamic recommendations, AI-driven suggestions, and a seamless user experience.
+## Purpose: 
+To help users easily explore, choose, and find the best products by category, price range, or preferences through an intuitive interface, enhanced with dynamic recommendations, AI-driven suggestions, and a seamless user experience.
 
-### The website also allows users to:
+## The website also allows users to:
 
 ### 1.Add, update, and delete product-related queries.
 ### 2.Discover AI-generated product recommendations.

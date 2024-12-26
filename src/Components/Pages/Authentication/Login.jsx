@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
 import google from '../../../assets/images/search.png'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 const Login = () => {
   const { userLogin, setUser, setUserLogin, signInWithGoogle } = useAuth();
   const [login, setLogin] = useState(false);
@@ -52,6 +53,10 @@ const Login = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>QueryHive | SignIn</title>
+      </Helmet>
+
       <div className="w-10/12 px-8  mx-auto bg-base-200  md:px-32 py-10 mt-56 lg:mt-44 mb-10">
         <div className="text-center my-5">
           <h1 className="font-bold text-3xl mb-10">SignIn Here</h1>
