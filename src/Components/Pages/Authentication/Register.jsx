@@ -137,7 +137,7 @@ const Register = () => {
               />
               <button
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-[180px] lg:right-[850px] lg:top-[590px] top-[600px]"
+                className="absolute right-[180px] md:right-[220px] lg:right-[850px] lg:top-[580px] top-[600px]"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
               </button>
@@ -154,6 +154,7 @@ const Register = () => {
                 name="photo"
                 placeholder="Enter photo url"
                 className="input input-bordered w-full "
+                required
               />
             </label>
           </div>
