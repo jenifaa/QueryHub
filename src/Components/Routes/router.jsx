@@ -13,6 +13,7 @@ import AddQueries from "../AddQueries";
 import QueryUpdate from "../QueryUpdate";
 import QueryDetails from "../QueryDetails";
 import PrivateRoute from "../Main/PrivateRoute";
+import Blog from "../Blog";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,20 +35,30 @@ const router = createBrowserRouter([
       {
         path: "queries",
         element: <Queries></Queries>,
-        loader: () => fetch('https://assignment-11-server-seven-liard.vercel.app/queries/all')
+        loader: () =>
+          fetch(
+            "https://assignment-11-server-seven-liard.vercel.app/queries/all"
+          ),
       },
       {
         path: "recommendationForme",
-        element: <PrivateRoute><RecommendationForMe></RecommendationForMe></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <RecommendationForMe></RecommendationForMe>
+          </PrivateRoute>
+        ),
       },
       {
         path: "myQueries",
         element: <MyQueries></MyQueries>,
-        
       },
       {
         path: "myRecommendation",
-        element: <PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <MyRecommendations></MyRecommendations>
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -59,18 +70,31 @@ const router = createBrowserRouter([
       <PrivateRoute>
         <AddQueries></AddQueries>
       </PrivateRoute>
-      
     ),
-   
   },
   {
     path: "/queries/user/:id",
-    element: <PrivateRoute><QueryUpdate></QueryUpdate></PrivateRoute>
+    element: (
+      <PrivateRoute>
+        <QueryUpdate></QueryUpdate>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/queries/:id",
-    element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
-    loader: ({params}) => fetch(`https://assignment-11-server-seven-liard.vercel.app/queries/user/${params.id}`)
+    element: (
+      <PrivateRoute>
+        <QueryDetails></QueryDetails>
+      </PrivateRoute>
+    ),
+    loader: ({ params }) =>
+      fetch(
+        `https://assignment-11-server-seven-liard.vercel.app/queries/user/${params.id}`
+      ),
+  },
+  {
+    path: "blog",
+    element: <Blog></Blog>,
   },
 ]);
 export default router;

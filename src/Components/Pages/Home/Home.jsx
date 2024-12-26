@@ -5,11 +5,13 @@ import AiGenerated from "./AiGenerated";
 import ProductExplorer from "./ProductExplorer";
 import Card from "./Card";
 import Header from "../Layout/Header";
+import AboutUs from "./AboutUs";
 
 const Home = () => {
   const cardsRef = useRef();
   const productExplorerRef = useRef();
   const aiGeneratedRef = useRef();
+  const aboutUsRef = useRef();
 
   const scrollToCards = () =>
     cardsRef.current.scrollIntoView({ behavior: "smooth" });
@@ -17,6 +19,8 @@ const Home = () => {
     productExplorerRef.current.scrollIntoView({ behavior: "smooth" });
   const scrollToAiGenerated = () =>
     aiGeneratedRef.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToAboutUs = () =>
+    aboutUsRef.current.scrollIntoView({ behavior: "smooth" });
 
   return (
     <div>
@@ -24,6 +28,7 @@ const Home = () => {
         scrollToCards={scrollToCards}
         scrollToProductExplorer={scrollToProductExplorer}
         scrollToAiGenerated={scrollToAiGenerated}
+        scrollToAboutUs={scrollToAboutUs}
       />
 
       <Banner />
@@ -35,6 +40,9 @@ const Home = () => {
 
       <div ref={aiGeneratedRef}>
         <AiGenerated />
+      </div>
+      <div ref={aboutUsRef}>
+        <AboutUs></AboutUs>
       </div>
       <div ref={productExplorerRef}>
         <ProductExplorer />
