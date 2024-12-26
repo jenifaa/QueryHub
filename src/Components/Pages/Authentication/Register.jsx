@@ -5,10 +5,11 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 
 import useAuth from "../../Hooks/useAuth";
-
+import signinlottie from '../../../assets/lottie/signup.json'
 import { Helmet } from "react-helmet";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import Lottie from "lottie-react";
 
 const Register = () => {
   const { creatNewUser, setUser, setLoading, userUpdate, signInWithGoogle } =
@@ -95,6 +96,8 @@ const Register = () => {
           <h1 className="font-bold text-3xl mb-10">SignUp Here</h1>
         </div>
 
+       <div className="lg:flex lg:justify-between lg:gap-16 items-center">
+        <div className="lg:flex-1">
         <form onSubmit={handleSignUp}>
           <div className=" my-5">
             <label className="form-control w-full ">
@@ -134,7 +137,7 @@ const Register = () => {
               />
               <button
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-[250px] top-[600px]"
+                className="absolute right-[180px] lg:right-[850px] lg:top-[590px] top-[600px]"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
               </button>
@@ -165,7 +168,7 @@ const Register = () => {
         </form>
         {error && <p className="text-red-600 px-4 pb-4">{error}</p>}
 
-        <div className="my-4 ml-3  rounded-full lg:w-[38%] w-full">
+        <div className="my-4 ml-3  rounded-full lg:w-[50%] w-full">
           <button
             onClick={handleGoogleSignUp}
             className=" font-semibold flex justify-around items-center border-2 p-3 rounded-full "
@@ -174,6 +177,9 @@ const Register = () => {
             <p>Sign Up with Google</p>
           </button>
         </div>
+        </div>
+        <div className="lg:flex-1"><Lottie className="lg:w-96" animationData={signinlottie}></Lottie></div>
+       </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const AboutUs = ({ aboutUsRef }) => {
   return (
     <div ref={aboutUsRef} className=" my-20">
       <h2 className="text-center font-bold text-5xl font my-7"><span className="text-7xl text-blue-800">A</span>bout US</h2>
-    <div className="bg-gray-100 py-5">
+    <div className="bg-gray-100 py-3">
     <div className="md:flex items-center justify-between my-10 w-10/12 mx-auto">
         <div className="flex-1">
           <p class="text-gray-600 text-lg">
@@ -26,7 +26,7 @@ const AboutUs = ({ aboutUsRef }) => {
           </button>
         </div>
         <div className="flex-1 ml-32">
-          <img className="ml-16 w-60 " src={logo} alt="" />
+          <img className="ml-16 w-60 lg:w-80" src={logo} alt="" />
         </div>
       </div>
     </div>

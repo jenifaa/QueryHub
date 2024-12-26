@@ -3,9 +3,11 @@ import { useContext, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
-import google from '../../../assets/images/search.png'
+import google from "../../../assets/images/search.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import Lottie from "lottie-react";
+import loginAnime from "../../../assets/lottie/login.json";
 const Login = () => {
   const { userLogin, setUser, setUserLogin, signInWithGoogle } = useAuth();
   const [login, setLogin] = useState(false);
@@ -62,60 +64,68 @@ const Login = () => {
           <h1 className="font-bold text-3xl mb-10">SignIn Here</h1>
         </div>
 
-        <form onSubmit={handleSignin}>
-          <div className=" my-5">
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text">Email</span>
-              </div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter Email"
-                className="input input-bordered w-full "
-              />
-            </label>
-            
+        <div className="lg:flex justify-between gap-10 items-center">
+          <div className="flex-1">
+            <form onSubmit={handleSignin}>
+              <div className=" my-5">
+                <label className="form-control w-full ">
+                  <div className="label">
+                    <span className="label-text">Email</span>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    className="input input-bordered w-full "
+                  />
+                </label>
 
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text">Password</span>
+                <label className="form-control w-full ">
+                  <div className="label">
+                    <span className="label-text">Password</span>
+                  </div>
+                  <input
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="password"
+                    className="input input-bordered "
+                    required
+                  />
+                  <button
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-[160px] top-[500px] md:right-[230px] lg:top-[468px] lg:left-[680px]"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
+                  </button>
+                  {error.login && (
+                    <label className="label">{error.login}</label>
+                  )}
+                </label>
               </div>
+
               <input
-                name="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="password"
-                className="input input-bordered "
-                required
+                type="submit"
+                value="Sign in"
+                className="w-full py-3 text-center font-bold button bg-[#5c4E4E]  border-2 border-[#331A15] text-[#ffffff] rounded-lg"
               />
+              <p>
+                New to this website? please <Link to="/register">Register</Link>
+              </p>
+            </form>
+            <div className="my-4 ml-3  rounded-full lg:w-[50%] w-full">
               <button
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-[220px] top-[500px] lg:top-[450px] lg:right-[300px]"
+                onClick={handleGoogleSignIn}
+                className=" font-semibold flex justify-around items-center border-2 p-3  rounded-full "
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
+                <img src={google} alt="" className="w-8 mr-3" />
+                <p>Sign Up with Google</p>
               </button>
-              {error.login && <label className="label">{error.login}</label>}
-            </label>
+            </div>
           </div>
 
-          
-          <input
-            type="submit"
-            value="Sign in"
-            className="w-full py-3 text-center font-bold button bg-[#5c4E4E]  border-2 border-[#331A15] text-[#ffffff] rounded-lg"
-          />
-           <p>
-              New to this website? please <Link to="/register">Register</Link>
-            </p>
-        </form>
-        <div className="my-4 ml-3  rounded-full lg:w-[38%] w-full">
-          <button
-            onClick={handleGoogleSignIn}
-            className=" font-semibold flex justify-around items-center border-2 p-3 rounded-full "
-          >
-            <img src={google} alt="" className="w-8 mr-3" />
-            <p>Sign Up with Google</p>
-          </button>
+         <div className="flex-1">
+         <Lottie className="lg:w-80" animationData={loginAnime}></Lottie>
+         </div>
         </div>
       </div>
     </div>
