@@ -5,9 +5,10 @@ import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
 import google from "../../../assets/images/search.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Helmet } from "react-helmet";
+
 import Lottie from "lottie-react";
 import loginAnime from "../../../assets/lottie/login.json";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { userLogin, setUser, setUserLogin, signInWithGoogle } = useAuth();
   const [login, setLogin] = useState(false);

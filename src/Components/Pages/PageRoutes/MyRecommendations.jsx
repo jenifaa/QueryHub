@@ -4,7 +4,8 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import Loading from "../Layout/Loading";
 import useAxios from "../../Hooks/useAxios";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
 const MyRecommendations = () => {
   const [myRecommendation, setMyRecommendation] = useState([]);
   const { user, loading } = useAuth();
@@ -80,7 +81,7 @@ const MyRecommendations = () => {
   }
 
   return (
-    <div className="mt-20">
+    <div className="mt-32 lg:mt-20">
       <Helmet>
         <title>QueryHive | My Recommendation</title>
       </Helmet>

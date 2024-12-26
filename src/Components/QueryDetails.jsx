@@ -4,7 +4,8 @@ import useAuth from "./Hooks/useAuth";
 import Navbar from "./Pages/Layout/Navbar";
 import { div } from "motion/react-client";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
 const QueryDetails = () => {
   const data = useLoaderData();
 

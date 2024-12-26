@@ -5,7 +5,7 @@ import playStore from "../../../assets/images/playstore.png";
 import apple from "../../../assets/images/apple-logo.png";
 import windows from "../../../assets/images/microsoft.png";
 
-const ProductExplorer = ({ productExplorerRef }) => {
+const ProductExplorer = () => {
   const [step, setStep] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [priceRange, setPriceRange] = useState("");
@@ -78,7 +78,7 @@ const ProductExplorer = ({ productExplorerRef }) => {
   };
 
   return (
-    <div ref={productExplorerRef}>
+    <div>
       <h2 className="text-3xl font-bold text-center my-10 font"><span className="text-5xl text-blue-800">E</span>xplore More...</h2>
       <div className="py-16 px-8 bg-base-200 lg:flex justify-between items-center">
         <div className=" flex-1">
@@ -92,9 +92,9 @@ const ProductExplorer = ({ productExplorerRef }) => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className="text-lg mb-4 text-blue-600 font-semibold">
+                <span className="text-lg mb-4 text-blue-600 font-semibold">
                   Select a Product Category
-                </p>
+                </span>
                 <div className="md:flex justify-center space-x-8">
                   <button
                     className="bg-blue-600 text-white hover:bg-blue-800 px-6 py-3 rounded-lg shadow-lg transition duration-300"
@@ -124,9 +124,9 @@ const ProductExplorer = ({ productExplorerRef }) => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className="text-lg mb-4 text-green-600 font-semibold">
+                <span className="text-lg mb-4 text-green-600 font-semibold">
                   Select a Price Range
-                </p>
+                </span>
                 <div className="flex justify-center space-x-6">
                   <button
                     className="bg-green-500 text-white hover:bg-green-700 px-6 py-3 rounded-lg shadow-lg transition duration-300"
@@ -157,9 +157,9 @@ const ProductExplorer = ({ productExplorerRef }) => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className="text-lg mb-4 text-purple-600 font-semibold">
+                <span className="text-lg mb-4 text-purple-600 font-semibold">
                   Here are your recommended products:
-                </p>
+                </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredProducts.map((product, index) => (
                     <motion.div

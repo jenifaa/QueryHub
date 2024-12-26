@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
 import { Link, useLoaderData } from "react-router-dom";
 
 const Queries = () => {
@@ -11,7 +12,7 @@ const Queries = () => {
   const [isGrid, setIsGrid] = useState(false);
 
   return (
-    <div className="mt-36 bg-base-100">
+    <div className="mt-40 bg-base-100">
       <Helmet>
         <title>QueryHive | Queries</title>
       </Helmet>

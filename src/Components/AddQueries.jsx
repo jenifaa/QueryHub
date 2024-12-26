@@ -3,7 +3,8 @@ import Navbar from "./Pages/Layout/Navbar";
 import useAuth from "./Hooks/useAuth";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
 
 const AddQueries = () => {
   const { user } = useAuth();

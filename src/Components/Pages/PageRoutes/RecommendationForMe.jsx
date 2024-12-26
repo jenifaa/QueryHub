@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useAxios from "../../Hooks/useAxios";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
 
 const RecommendationForMe = () => {
   const [recommendationForMe, setRecommendationForMe] = useState([]);
@@ -18,7 +19,7 @@ const RecommendationForMe = () => {
     }
   }, [user?.email]);
   return (
-    <div className="mt-20">
+    <div className="mt-32 lg:mt-20">
       <Helmet>
         <title>QueryHive | Recommendation for me</title>
       </Helmet>

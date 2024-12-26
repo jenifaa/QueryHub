@@ -6,10 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 import useAuth from "../../Hooks/useAuth";
 import signinlottie from '../../../assets/lottie/signup.json'
-import { Helmet } from "react-helmet";
+
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import Lottie from "lottie-react";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { creatNewUser, setUser, setLoading, userUpdate, signInWithGoogle } =

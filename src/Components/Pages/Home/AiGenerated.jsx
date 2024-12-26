@@ -4,7 +4,7 @@ import { div } from "framer-motion/client";
 import Lottie from "lottie-react";
 import animation from '../../../assets/lottie/ai.json'
 
-const AiGenerated = ({aiGeneratedRef}) => {
+const AiGenerated = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [answer, setAnswer] = useState("");
@@ -383,7 +383,7 @@ const AiGenerated = ({aiGeneratedRef}) => {
   }, [query]);
 
   return (
-    <div  ref={aiGeneratedRef} className="font" >
+    <div  className="font" >
        <h2 className="text-4xl font-bold text-center">
           Get Your Answer By{" "}
           <motion.span

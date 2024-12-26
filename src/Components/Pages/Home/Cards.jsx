@@ -5,7 +5,7 @@ import { BiBookmarkAlt } from "react-icons/bi";
 import { CiClock1 } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
 import { div } from "framer-motion/client";
-const Cards = ({ cardsRef }) => {
+const Cards = () => {
   const [cards, setCards] = useState([]);
   const navigate = useNavigate();
   const handleQueries = () => {
@@ -21,7 +21,7 @@ const Cards = ({ cardsRef }) => {
   }, []);
 
   return (
-    <div ref={cardsRef} className="my-20 font">
+    <div  className="my-20 font">
       <div className="text-center">
         <h2 className="my-4 font-bold text-4xl flex justify-center items-center gap-1">
           <BiBookmarkAlt />

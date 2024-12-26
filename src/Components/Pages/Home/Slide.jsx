@@ -4,7 +4,7 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import { easeOut } from "framer-motion";
-const Slide = ({ image, text1, text2, card1Title, card2Title }) => {
+const Slide = ({ image, text1, text2}) => {
   return (
     <div
       className="w-full bg-center bg-cover h-[30rem]"

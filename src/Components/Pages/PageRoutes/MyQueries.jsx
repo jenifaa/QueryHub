@@ -9,7 +9,9 @@ import Header from "../Layout/Header";
 import { CiClock1 } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
 import { MdOutlineRecommend } from "react-icons/md";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
+
 
 const MyQueries = () => {
   // const data = useLoaderData();
@@ -116,7 +118,7 @@ const MyQueries = () => {
           {queries.map((query) => (
             <div key={query._id} className="border rounded-xl p-3 ">
               <div className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="md:flex gap-6 items-start">
+                <div className="lg:flex gap-6 items-start">
                   <figure>
                     <img
                       className="w-36 h-36 object-cover rounded-md"

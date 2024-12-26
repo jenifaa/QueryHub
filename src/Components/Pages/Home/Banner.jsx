@@ -35,7 +35,7 @@ const Banner = () => {
           image={bg1}
           text1={
             <>
-              <p>
+              <span>
                 "Find What You Need,{" "}
                 <motion.span
                   className="text-6xl"
@@ -45,12 +45,12 @@ const Banner = () => {
                   Effortlessly
                 </motion.span>
                 ; "
-              </p>
+              </span>
             </>
           }
           text2={
             <>
-              <p className="text-center">
+              <span className="text-center">
                 <Typewriter
                   options={{
                     strings: [
@@ -64,7 +64,7 @@ const Banner = () => {
                     deleteSpeed: 30,
                   }}
                 />
-              </p>
+              </span>
             </>
           }
         ></Slide>
@@ -74,7 +74,7 @@ const Banner = () => {
           image={bg2}
           text1={
             <>
-              <p>
+              <span>
                 "Your
                 <motion.span
                   className="mx-3 text-6xl"
@@ -84,12 +84,12 @@ const Banner = () => {
                   Personalized
                 </motion.span>
                 Product Guide "
-              </p>
+              </span>
             </>
           }
           text2={
             <>
-              <p className="text-center">
+              <span className="text-center">
                 <Typewriter
                   options={{
                     strings: [
@@ -103,7 +103,7 @@ const Banner = () => {
                     deleteSpeed: 30,
                   }}
                 />
-              </p>
+              </span>
             </>
           }
         />
@@ -113,7 +113,7 @@ const Banner = () => {
           image={bg3}
           text1={
             <>
-              <p>
+              <span>
                 <motion.span
                   className="mx-3 text-6xl"
                   animate={{ color: ["#f1391c", "#1cf1b7", "#dbf11c"] }}
@@ -122,12 +122,12 @@ const Banner = () => {
                   Discover
                 </motion.span>
                 , Compare, and Choose Smarter"
-              </p>
+              </span>
             </>
           }
           text2={
             <>
-              <p className="text-center">
+              <span className="text-center">
                 <Typewriter
                   options={{
                     strings: [
@@ -141,7 +141,7 @@ const Banner = () => {
                     deleteSpeed: 30,
                   }}
                 />
-              </p>
+              </span>
             </>
           }
         ></Slide>
