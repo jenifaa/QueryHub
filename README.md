@@ -67,10 +67,9 @@ Ensure you have the following installed:
 ```bash
 git clone https://github.com/jenifaa/product-recommendation-system.git
 cd product-recommendation-system
-
-### **3. Install Dependencies**
+3. Install Dependencies
 To install the necessary dependencies for the project, run the following command in the root directory of your project:
 
-```bash
+bash
+Copy code
 npm install
-
