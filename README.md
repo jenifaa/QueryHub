@@ -93,11 +93,11 @@ Frontend .env File:
 
 **BackEnd .env file**
 
-REACT_APP_API_URL=http://localhost:5000/api  # The API URL for your backend
-JWT_SECRET=your_jwt_secret                 # Your secret key for JWT authentication
-MONGO_URI=mongodb://localhost:27017/product-recommendation  # MongoDB URI
-PORT=5000                                 # The port your backend will run on
-Make sure to replace the placeholders with your actual credentials where necessary.
+REACT_APP_API_URL=http://localhost:5000/api # The API URL for your backend
+JWT_SECRET=your_jwt_secret # Your secret key for JWT authentication
+MONGO_URI=mongodb://localhost:27017/product-recommendation # MongoDB URI
+PORT=5000 # The port your backend will run on
+
 
 
 ### **5. Run the Backend**
