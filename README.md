@@ -79,7 +79,7 @@ To install the necessary dependencies for the project, run the following command
 npm install
 ```
 ### **4. Setup Envionment variable**
-**FrontEnd .env file**
+## **FrontEnd .env file**
 
  ### REACT_APP_API_URL=http://localhost:5000/api
  ### REACT_APP_CLIENT_URL=http://localhost:3000
@@ -90,7 +90,9 @@ npm install
 ### REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
 ### REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
 
-**BackEnd .env file**
+---
+
+## **BackEnd .env file**
 
 ### REACT_APP_API_URL=http://localhost:5000/api # The API URL for your backend
 ### JWT_SECRET=your_jwt_secret # Your secret key for JWT authentication
