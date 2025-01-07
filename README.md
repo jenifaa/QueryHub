@@ -81,22 +81,22 @@ npm install
 ### **4. Setup Envionment variable**
 **FrontEnd .env file**
 Frontend .env File:
-### REACT_APP_API_URL=http://localhost:5000/api
-### REACT_APP_CLIENT_URL=http://localhost:3000
--`REACT_APP_FIREBASE_API_KEY=your_firebase_api_key`
--`REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain`
--`REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id`
--`REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket`
--`REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id`
--`REACT_APP_FIREBASE_APP_ID=your_firebase_app_id`
+ **REACT_APP_API_URL=http://localhost:5000/api**
+ **REACT_APP_CLIENT_URL=http://localhost:3000**
+**REACT_APP_FIREBASE_API_KEY=your_firebase_api_key**
+**REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain**
+**REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id**
+**REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket**
+**REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id**
+**REACT_APP_FIREBASE_APP_ID=your_firebase_app_id**
 
 
 **BackEnd .env file**
 
-REACT_APP_API_URL=http://localhost:5000/api # The API URL for your backend
-JWT_SECRET=your_jwt_secret # Your secret key for JWT authentication
-MONGO_URI=mongodb://localhost:27017/product-recommendation # MongoDB URI
-PORT=5000 # The port your backend will run on
+**REACT_APP_API_URL=http://localhost:5000/api # The API URL for your backend**
+**JWT_SECRET=your_jwt_secret # Your secret key for JWT authentication**
+**MONGO_URI=mongodb://localhost:27017/product-recommendation # MongoDB URI**
+**PORT=5000 # The port your backend will run on**
 
 
 
