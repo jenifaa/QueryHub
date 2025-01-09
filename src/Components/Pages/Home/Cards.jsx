@@ -26,7 +26,7 @@ const Cards = () => {
         <h2 className="my-4 font-bold text-4xl flex justify-center items-center gap-1">
           <BiBookmarkAlt />
           Recent{" "}
-          <span className="text-6xl font-extrabold text-blue-800 ml-2"> Q</span>
+          <span className="text-6xl font-extrabold text-red-900 ml-2"> Q</span>
           ueries
         </h2>
         <p className="text-sm font-medium mb-10 ">

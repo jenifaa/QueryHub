@@ -8,7 +8,7 @@ import query from '../../../assets/images/query.png'
 const Footer = () => {
   return (
     <div
-      className=" text-white bg-black mt-5"
+      className=" text-white bg-black"
       style={{
        
         backgroundSize: 'cover',

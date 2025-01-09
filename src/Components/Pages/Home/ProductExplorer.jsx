@@ -79,10 +79,10 @@ const ProductExplorer = () => {
 
   return (
     <div id="explore">
-      <h2 className="text-3xl font-bold text-center my-10 font"><span className="text-5xl text-blue-800">E</span>xplore More...</h2>
-      <div className="py-16 px-8 bg-base-200 lg:flex justify-between items-center">
-        <div className=" flex-1">
-          <h1 className="text-2xl font-bold text-center my-4">
+      <h2 className="text-3xl font-bold text-center my-10 font"><span className="text-6xl text-red-900">E</span>xplore More...</h2>
+      <div className="py-10 px-8 bg-base-200 lg:flex lg:justify-between items-center gap-10">
+        <div className=" lg:flex-1">
+          <h1 className="text-2xl md:text-4xl font-bold text-center my-4 md:py-6">
             Select a Product Category to Explore
           </h1>
           <div className="text-center space-y-5 ">
@@ -92,24 +92,22 @@ const ProductExplorer = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="text-lg mb-4 text-blue-600 font-semibold">
-                  Select a Product Category
-                </span>
-                <div className="md:flex justify-center space-x-8">
+                
+                <div className="md:grid-cols-3 grid-cols-2 gap-4 md:gap-10    grid md:justify-center ">
                   <button
-                    className="bg-blue-600 text-white hover:bg-blue-800 px-6 py-3 rounded-lg shadow-lg transition duration-300"
+                    className="bg-blue-500 text-white hover:bg-blue-800 px-4 py-3 rounded-lg shadow-lg transition duration-300"
                     onClick={() => handleCategorySelection("Laptops")}
                   >
                     Laptops
                   </button>
                   <button
-                    className="bg-blue-600 text-white hover:bg-blue-800 px-6 py-3 rounded-lg shadow-lg transition duration-300"
+                    className="bg-blue-500 text-white hover:bg-blue-800 px-4 py-3 rounded-lg shadow-lg transition duration-300"
                     onClick={() => handleCategorySelection("Smartphones")}
                   >
                     Smartphones
                   </button>
                   <button
-                    className="bg-blue-600 text-white hover:bg-blue-800 px-6 py-3 rounded-lg shadow-lg transition duration-300"
+                    className="bg-blue-500 text-white hover:bg-blue-800 px-4 py-3 rounded-lg shadow-lg transition duration-300"
                     onClick={() => handleCategorySelection("Accessories")}
                   >
                     Accessories
@@ -158,7 +156,7 @@ const ProductExplorer = () => {
                 transition={{ duration: 0.5 }}
               >
                 <span className="text-lg mb-4 text-purple-600 font-semibold">
-                  Here are your recommended products:
+                  Here is your recommended products:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredProducts.map((product, index) => (
@@ -196,7 +194,7 @@ const ProductExplorer = () => {
         </div>
 
         <div
-          className="hero  flex-1"
+          className="hero  lg:flex-1 my-4"
           style={{
             backgroundImage: `url(${bg})`,
           }}

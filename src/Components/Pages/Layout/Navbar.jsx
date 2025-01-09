@@ -43,13 +43,13 @@ const Navbar = () => {
         <div className="hidden lg:flex space-x-6 ">
           <NavLink
             to="/"
-            className="hover:text-purple-900 hover:font-bold text-sm flex items-center space-x-2"
+            className="hover:text-blue-500 hover:font-bold text-sm flex items-center space-x-2"
           >
             Home
           </NavLink>
           <NavLink
             to="/queries"
-            className="hover:text-purple-900 hover:font-bold text-sm "
+            className="hover:text-blue-500 hover:font-bold text-sm "
           >
             Queries
           </NavLink>
@@ -57,7 +57,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/recommendationForme"
-                className="hover:text-purple-900 hover:font-bold text-sm "
+                className="hover:text-blue-500 hover:font-bold text-sm "
               >
                 Recommendations For Me
               </NavLink>
@@ -69,7 +69,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myQueries"
-                className="hover:text-purple-900 hover:font-bold text-sm "
+                className="hover:text-blue-500 hover:font-bold text-sm "
               >
                 My Queries
               </NavLink>
@@ -81,7 +81,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myRecommendation"
-                className="hover:text-purple-900 hover:font-bold text-sm "
+                className="hover:text-blue-500 hover:font-bold text-sm "
               >
                 My recommendations
               </NavLink>

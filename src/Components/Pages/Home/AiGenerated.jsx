@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { div } from "framer-motion/client";
 import Lottie from "lottie-react";
-import animation from '../../../assets/lottie/ai.json'
+import animation from "../../../assets/lottie/ai.json";
 
 const AiGenerated = () => {
   const [query, setQuery] = useState("");
@@ -367,9 +367,11 @@ const AiGenerated = () => {
 
   useEffect(() => {
     if (query) {
-      const filteredSuggestions = data.filter((item) =>
-        item.question.toLowerCase().includes(query.toLowerCase())
-      ).slice(0,5);
+      const filteredSuggestions = data
+        .filter((item) =>
+          item.question.toLowerCase().includes(query.toLowerCase())
+        )
+        .slice(0, 5);
       setSuggestions(filteredSuggestions.map((item) => item.question));
 
       const matching = data.find(
@@ -383,8 +385,11 @@ const AiGenerated = () => {
   }, [query]);
 
   return (
-    <div id="ai"  className="" >
-       <h2 className="text-4xl font-bold text-center font">
+    <div id="ai" className="">
+      <h2 className="text-4xl font-bold text-center font">
+        Get Your Answer By <span className="text-6xl text-red-900">Ai</span>
+      </h2>
+      {/* <h2 className="text-4xl font-bold text-center font">
           Get Your Answer By{" "}
           <motion.span
             animate={{ color: ["#f1391c", "#1cf1b7", "#dbf11c"] }}
@@ -393,74 +398,80 @@ const AiGenerated = () => {
           >
             Ai
           </motion.span>
-        </h2>
-        <p className="text-sm text-center my-3 font">Leverage the power of AI to enhance your query experience. Discover accurate insights, personalized <br />recommendations, and faster solutions tailored to your needs.</p>
-      
+        </h2> */}
+      <p className="text-sm text-center my-3 font">
+        Leverage the power of AI to enhance your query experience. Discover
+        accurate insights, personalized <br />
+        recommendations, and faster solutions tailored to your needs.
+      </p>
+
       <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-500 text-white py-16 px-8 my-12 ">
-      <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-left mx-auto">
-      <h2 className="font-bold text-3xl font">Unlock Insights with AI: Smarter Queries, Better Answers</h2>
-      
-        <p className="text-lg text-[#ffffff]">
-          Type a question to explore answers and recommendations.
-        </p>
+        <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-left mx-auto">
+          <h2 className="font-bold text-3xl font">
+            Unlock Insights with AI: Smarter Queries, Better Answers
+          </h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.7 }}
-        >
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Type a query..."
-            className="md:w-96 px-4 py-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </motion.div>
+          <p className="text-lg text-[#ffffff]">
+            Type a question to explore answers and recommendations.
+          </p>
 
-        <div className="space-y-2">
-          {suggestions.length > 0 &&
-            suggestions.map((suggestion, index) => (
-              <motion.div
-                key={index}
-                className="bg-gray-100 text-black px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                onClick={() => setQuery(suggestion)}
-              >
-                {suggestion}
-              </motion.div>
-            ))}
-        </div>
-
-        {answer && (
           <motion.div
-            className="mt-4 bg-green-100 text-black px-4 py-4 rounded-lg"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 120 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
           >
-            <h4 className="text-lg font-semibold">Answer:</h4>
-            <p>{answer}</p>
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Type a query..."
+              className="md:w-96 px-4 py-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </motion.div>
-        )}
 
-        <motion.button
-          onClick={() =>
-            setQuery(data[Math.floor(Math.random() * data.length)].question)
-          }
-          className="px-6 py-2 font bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Auto Generate
-        </motion.button>
+          <div className="space-y-2">
+            {suggestions.length > 0 &&
+              suggestions.map((suggestion, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-gray-100 text-black px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  onClick={() => setQuery(suggestion)}
+                >
+                  {suggestion}
+                </motion.div>
+              ))}
+          </div>
+
+          {answer && (
+            <motion.div
+              className="mt-4 bg-green-100 text-black px-4 py-4 rounded-lg"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 120 }}
+            >
+              <h4 className="text-lg font-semibold">Answer:</h4>
+              <p>{answer}</p>
+            </motion.div>
+          )}
+
+          <motion.button
+            onClick={() =>
+              setQuery(data[Math.floor(Math.random() * data.length)].question)
+            }
+            className="px-6 py-2 font bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Auto Generate
+          </motion.button>
+        </div>
+        <div>
+          <Lottie className="w-96" animationData={animation} loop={true} />
+        </div>
       </div>
-      <div>
-      <Lottie className="w-96" animationData={animation} loop={true} />
-      </div>
-    </div>
     </div>
   );
 };

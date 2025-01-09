@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "./Pages/Layout/Navbar";
+import Footer from "./Pages/Layout/Footer";
 
 const Blog = () => {
   return (
-    <div>
+    <div className="">
       <Navbar></Navbar>
-      <h2 className="text-center font-bold text-4xl mt-40 mb-10">Our Blog</h2>
-      <div className="bg-base-200 p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
+      <h2 className="text-center font-bold text-6xl font mt-20 mb-10">Our Blog</h2>
+      <div className="bg-base-200 p-8 rounded-lg shadow-lg max-w-4xl mx-auto mb-10">
         <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
           Transforming Shopping with Personalized Recommendations
         </h1>
@@ -128,7 +129,9 @@ const Blog = () => {
           </p>
         </div>
       </div>
+      <Footer></Footer>
     </div>
+
   );
 };
 

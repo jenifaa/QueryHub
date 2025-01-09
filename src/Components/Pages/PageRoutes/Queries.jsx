@@ -12,14 +12,14 @@ const Queries = () => {
   const [isGrid, setIsGrid] = useState(false);
 
   return (
-    <div className="mt-40 bg-base-100">
+    <div className="mt-20 bg-base-100">
       <Helmet>
         <title>QueryHive | Queries</title>
       </Helmet>
 
       <div>
         <h2 className="text-4xl font-bold text-center mt-10 mb-3">
-          All <span className="text-6xl font-extrabold text-blue-800">Q</span>
+          All <span className="text-6xl font-extrabold text-red-900">Q</span>
           ueries
         </h2>
         <p className="text-center text-sm font-semibold mb-10">
@@ -56,7 +56,7 @@ const Queries = () => {
         <div>
           <button
             onClick={() => setIsGrid(!isGrid)}
-            className="btn btn-primary"
+            className="btn bg-blue-500 text-white"
           >
             Change LayOut(2/3)
           </button>
@@ -65,8 +65,8 @@ const Queries = () => {
       <div
         className={`grid  grid-cols-1 ${
           isGrid
-            ? "md:grid-cols-1 lg:grid-cols-2 w-10/12  lg:w-8/12"
-            : "lg:grid-cols-3 lg:w-10/12 md:grid-cols-2"
+            ? "md:grid-cols-1 lg:grid-cols-3 w-11/12 "
+            : "lg:grid-cols-4 lg:w-11/12 md:grid-cols-2"
         }  gap-4 lg:gap-5  mx-auto my-10`}
       >
         {allQuery
@@ -78,7 +78,7 @@ const Queries = () => {
           .map((all) => (
             <div
               key={all._id}
-              className="border  md:w-[340px] lg:w-[360px] p-3 "
+              className=""
             >
               <div className={` bg-base-300 p-5  lg:w-80 mx-auto md:w-80`}>
                 <div className="">
@@ -106,7 +106,7 @@ const Queries = () => {
                       {all.recommendationCount}
                     </p>
                     <div className="card-actions flex  ">
-                      <button className="px-3 py-1 bg-blue-600 text-white my-3">
+                      <button className="px-3 py-1 bg-blue-500 text-white my-3">
                         <Link to={`/queries/${all._id}`}>recommendation</Link>
                       </button>
                     </div>
