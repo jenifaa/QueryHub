@@ -94,7 +94,7 @@ const MyQueries = () => {
               A platform where you can add, explore, and manage queries. Join
               the community and find insights on various topics.
             </p>
-            <button className="btn btn-primary">
+            <button className="btn bg-blue-500 text-white hover:text-blue-600">
               <Link to="/addQueries">Add Query </Link>
             </button>
           </div>

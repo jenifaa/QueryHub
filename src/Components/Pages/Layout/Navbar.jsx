@@ -34,9 +34,7 @@ const Navbar = () => {
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white text-black shadow-lg"
-          : "bg-red-950 text-white"
+        scrolled ? "bg-white text-black shadow-lg" : "bg-red-950 text-white"
       }`}
     >
       <nav className="flex justify-between items-center px-8 py-2">
@@ -84,6 +82,30 @@ const Navbar = () => {
                 className="hover:text-blue-500 hover:font-bold text-sm "
               >
                 My recommendations
+              </NavLink>
+            </>
+          ) : (
+            ""
+          )}
+          {user && user?.email ? (
+            <>
+              <NavLink
+                to="/allItems"
+                className="hover:text-blue-500 hover:font-bold text-sm "
+              >
+                All-Queries
+              </NavLink>
+            </>
+          ) : (
+            ""
+          )}
+          {user && user?.email ? (
+            <>
+              <NavLink
+                to="/addQueries"
+                className="hover:text-blue-500 hover:font-bold text-sm "
+              >
+                Add Queries
               </NavLink>
             </>
           ) : (
@@ -157,18 +179,11 @@ const Navbar = () => {
 
       {menuOpen && (
         <div className="flex flex-col space-y-4 px-6 py-4 bg-gradient-to-r from-[#87CEEB] via-[#B0C4DE] to-[#B0E0E6]  text-white lg:hidden">
-          <NavLink to="/" className="hover:text-gray-200">
-            Home
-          </NavLink>
-          <NavLink to="/queries" className="hover:text-gray-200">
-            Queries
-          </NavLink>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/queries">Queries</NavLink>
           {user && user?.email ? (
             <>
-              <NavLink
-                to="/recommendationForme"
-                className="hover:text-purple-900 hover:font-bold hover:text-xl "
-              >
+              <NavLink to="/recommendationForme" className=" ">
                 Recommendations For Me
               </NavLink>
             </>
@@ -177,24 +192,28 @@ const Navbar = () => {
           )}
           {user && user?.email ? (
             <>
-              <NavLink
-                to="/myQueries"
-                className="hover:text-purple-900 hover:font-bold hover:text-xl "
-              >
-                My Queries
-              </NavLink>
+              <NavLink to="/myQueries">My Queries</NavLink>
             </>
           ) : (
             ""
           )}
           {user && user?.email ? (
             <>
-              <NavLink
-                to="/myRecommendation"
-                className="hover:text-purple-900 hover:font-bold hover:text-xl "
-              >
-                My recommendations
-              </NavLink>
+              <NavLink to="/myRecommendation">My recommendations</NavLink>
+            </>
+          ) : (
+            ""
+          )}
+          {user && user?.email ? (
+            <>
+              <NavLink to="/allItems">All-Queries</NavLink>
+            </>
+          ) : (
+            ""
+          )}
+          {user && user?.email ? (
+            <>
+              <NavLink to="/addQueries">Add Queries</NavLink>
             </>
           ) : (
             ""

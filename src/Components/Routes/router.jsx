@@ -14,6 +14,7 @@ import QueryUpdate from "../QueryUpdate";
 import QueryDetails from "../QueryDetails";
 import PrivateRoute from "../Main/PrivateRoute";
 import Blog from "../Blog";
+import AllItems from "../Pages/PageRoutes/AllItems";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +50,16 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "addQueries",
+        element: (
+          // <AddQueries></AddQueries>
+
+          <PrivateRoute>
+            <AddQueries></AddQueries>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "myQueries",
         element: <MyQueries></MyQueries>,
       },
@@ -60,18 +71,26 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "allItems",
+        element: (
+          <PrivateRoute>
+            <AllItems></AllItems>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
-  {
-    path: "addQueries",
-    element: (
-      // <AddQueries></AddQueries>
+  // {
+  //   path: "addQueries",
+  //   element: (
+  //     // <AddQueries></AddQueries>
 
-      <PrivateRoute>
-        <AddQueries></AddQueries>
-      </PrivateRoute>
-    ),
-  },
+  //     <PrivateRoute>
+  //       <AddQueries></AddQueries>
+  //     </PrivateRoute>
+  //   ),
+  // },
   {
     path: "/queries/user/:id",
     element: (
