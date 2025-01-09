@@ -5,7 +5,14 @@ import Navbar from "./Pages/Layout/Navbar";
 import { div } from "motion/react-client";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
 const QueryDetails = () => {
   const data = useLoaderData();
 
@@ -13,9 +20,11 @@ const QueryDetails = () => {
   const [recommendationCount, setRecommendationCount] = useState(0);
   const [recommendations, setRecommendations] = useState([]);
 
-
   useEffect(() => {
-    fetch("https://assignment-11-server-seven-liard.vercel.app/recommendation",{credentials: 'include'})
+    fetch(
+      "https://assignment-11-server-seven-liard.vercel.app/recommendation",
+      { credentials: "include" }
+    )
       .then((res) => res.json())
       .then((result) => {
         const filterRecommend = result.filter(
@@ -71,9 +80,9 @@ const QueryDetails = () => {
       </Helmet>
 
       <Navbar></Navbar>
-      <div className=" max-w-7xl mx-auto mt-20 p-5 ">
-        <h2 className="text-center text-3xl font-bold my-4 font">
-          More Details For You
+      <div className=" max-w-7xl mx-auto mt-16 p-5 ">
+        <h2 className="text-center text-5xl font-bold my-4 font">
+          <span className="text-red-900 text-6xl">M</span>ore Details For You
         </h2>
         <p className="text-sm font font-semibold text-gray-500 my-5 text-center">
           Discover the comprehensive insights and background behind this query,
@@ -81,7 +90,7 @@ const QueryDetails = () => {
           its creation.{" "}
         </p>
         <hr className="my-4" />
-        <div className="flex flex-col md:flex-row mt-10 mb-10 gap-10">
+        <div className="flex items-center flex-col md:flex-row mt-10 mb-10 gap-10">
           <div className="md:w-1/3 p-5">
             <img
               src={data.image}
@@ -89,33 +98,34 @@ const QueryDetails = () => {
             />
           </div>
 
-          <div className=" md:w-2/3 p-5 bg-base-200 shadow-lg rounded-xl">
-            <h1 className=" mb-2 text-lg font-bold font">
-              
-              {data.name}
-            </h1>
+          <div className=" md:w-2/3 p-5 bg-base-200 shadow-lg flex-grow  h-full flex flex-col rounded-xl">
+            <h1 className=" mb-2 text-lg font-bold font">{data.name}</h1>
             <h1 className=" mb-3 text-lg text-gray-600 font">
               <span className="text-xl font-bold text-black">Query: </span>
               {data.title}
             </h1>
-            <p className="text-lg text-red-700 font mb-3">
-             
-              {data.reason}
-            </p>
+            <p className="text-lg text-red-700 font mb-3">{data.reason}</p>
 
             <p className="my-2 font">{data.brand}</p>
 
-            <p className="text-md text-gray-500 font-semi bold mb-2">
+            <p className="text-md text-gray-500 font-semi bold mb-4">
               {data.currentDateAndTime}
             </p>
 
-            <div className=" flex gap-6">
-              <button className="btn btn-primary py-2 px-6 rounded-full text-white bg-blue-600 hover:bg-blue-700">
+            <div className=" flex gap-6 mt-auto my-5">
+              <button className="btn  py-2 px-6 rounded-full text-white bg-blue-500 hover:bg-blue-700">
                 <a href={`mailto:${data.userEmail}`}>Contact the Author</a>
               </button>
-              <button className="btn btn-secondary py-2 px-6 rounded-full text-white bg-green-600 hover:bg-green-700">
+              <Link
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+                to="recommendation"
+                className="btn  py-2 px-6 rounded-full text-white bg-red-950 hover:bg-red-900"
+              >
                 All Recommendation
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -212,7 +222,7 @@ const QueryDetails = () => {
             <div className="flex justify-center items-center">
               <button
                 // onClick={() => handleIncrement(data._id)}
-                className="btn btn-primary my-4"
+                className="btn bg-blue-500 text-white my-4"
               >
                 Add Recommendation
               </button>
@@ -222,7 +232,7 @@ const QueryDetails = () => {
 
         {/* all recomendation */}
 
-        <div className=" mt-16">
+        <div id="recommendation" className=" mt-16">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">
             All Recommendations:{" "}
           </h2>
@@ -234,11 +244,7 @@ const QueryDetails = () => {
                   className="p-4 bg-gray-100 rounded-lg shadow flex items-center gap-20"
                 >
                   <div>
-                    <img
-                      className="w-28 "
-                      src={recommendation.image}
-                      alt=""
-                    />
+                    <img className="w-28 " src={recommendation.image} alt="" />
                   </div>
                   <div>
                     <h3 className="font-bold text-xl">

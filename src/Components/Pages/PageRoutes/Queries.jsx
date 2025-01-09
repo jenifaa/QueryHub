@@ -31,42 +31,45 @@ const Queries = () => {
       </div>
 
       <div className="md:flex items-center  justify-center gap-5">
-        <div className="w-96  my-10">
-          <label className="input input-bordered flex items-center gap-2">
-            <input
-              onChange={(e) => setSearch(e.target.value)}
-              type="text"
-              className="grow"
-              placeholder="Search"
-            />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="h-4 w-4 opacity-70"
-            >
-              <path
-                fillRule="evenodd"
-                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                clipRule="evenodd"
+        <div className="flex justify-center items-center">
+          <div className="w-96  my-10">
+            <label className="input input-bordered flex  items-center gap-2">
+              <input
+                onChange={(e) => setSearch(e.target.value)}
+                type="text"
+                className="grow"
+                placeholder="Search"
               />
-            </svg>
-          </label>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="h-4 w-4 opacity-70"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </label>
+          </div>
         </div>
-        <div>
+        <div className="flex justify-center gap-3 items-center">
           <button
             onClick={() => setIsGrid(!isGrid)}
             className="btn bg-blue-500 text-white"
           >
-            Change LayOut(2/3)
+            Change LayOut
           </button>
+          <button className="btn bg-blue-500 text-white">Sort</button>
         </div>
       </div>
       <div
         className={`grid  grid-cols-1 ${
           isGrid
-            ? "md:grid-cols-1 lg:grid-cols-3 w-11/12 "
-            : "lg:grid-cols-4 lg:w-11/12 md:grid-cols-2"
+            ? "md:grid-cols-1 sm:grid-cols-1 sm:w-9/12 lg:grid-cols-3 md:w-11/12 px-3 "
+            : "lg:grid-cols-4 lg:w-11/12 sm:grid-cols-2 sm:w-11/12 w-8/12"
         }  gap-4 lg:gap-5  mx-auto my-10`}
       >
         {allQuery
@@ -76,41 +79,38 @@ const Queries = () => {
               : all.name.toLowerCase().includes(search);
           })
           .map((all) => (
-            <div
-              key={all._id}
-              className=""
-            >
-              <div className={` bg-base-300 p-5  lg:w-80 mx-auto md:w-80`}>
-                <div className="">
+            <div key={all._id} className="">
+              <div className="bg-base-300 p-5  md:w-80 mx-auto h-full flex flex-col">
+                <div className="flex-grow">
                   <h2 className="card-title font-bold">Name: {all.name}</h2>
                   <p>{all.currentDateAndTime}</p>
                   <hr className="border border-gray-300 my-2" />
-                  <div className=" my-auto">
-                    <figure className="p-5">
-                      <img className="md:w-80 w-full  h-56 " src={all.image} />
+                  <div className="my-auto">
+                    <figure>
+                      <img
+                        className="md:w-80 w-full object-cover my-3 h-56"
+                        src={all.image}
+                        alt="Card"
+                      />
                     </figure>
                   </div>
-
-                  <div className=" ">
-                    {/* <h2 className="">
-                      <span className="font-bold text-xl mr-3">Brand :</span>{" "}
+                  <div>
+                    <p className="font-bold text-lg">{all.title}</p>
+                    <h2>
+                      <span className="font-semibold mr-3">Brand:</span>{" "}
                       {all.brand}
-                    </h2> */}
-                    <p className="font-bold ">{all.title}</p>
-                    <p className="text-red-700">{all.reason}</p>
-
-                    <p>
-                      <span className="font-bold  mr-3">
-                        RecommendationCount:
-                      </span>{" "}
-                      {all.recommendationCount}
-                    </p>
-                    <div className="card-actions flex  ">
-                      <button className="px-3 py-1 bg-blue-500 text-white my-3">
-                        <Link to={`/queries/${all._id}`}>recommendation</Link>
-                      </button>
-                    </div>
+                    </h2>
+                    <p className="text-red-700 my-2">{all.reason}</p>
                   </div>
+                </div>
+                <div className="mt-auto card-actions flex flex-col">
+                  <p className="">
+                    <span className="font-bold mr-3">Recommendations:</span>
+                    {all.recommendationCount}
+                  </p>
+                  <button className="px-3 py-1 bg-blue-500 text-white my-2">
+                    <Link to={`/queries/${all._id}`}>More Details...</Link>
+                  </button>
                 </div>
               </div>
             </div>
