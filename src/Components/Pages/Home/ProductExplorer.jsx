@@ -78,7 +78,7 @@ const ProductExplorer = () => {
   };
 
   return (
-    <div>
+    <div id="explore">
       <h2 className="text-3xl font-bold text-center my-10 font"><span className="text-5xl text-blue-800">E</span>xplore More...</h2>
       <div className="py-16 px-8 bg-base-200 lg:flex justify-between items-center">
         <div className=" flex-1">

@@ -21,8 +21,8 @@ const Cards = () => {
   }, []);
 
   return (
-    <div  className="my-20 font">
-      <div className="text-center">
+    <div id="queries" className="my-20 ">
+      <div className="text-center font">
         <h2 className="my-4 font-bold text-4xl flex justify-center items-center gap-1">
           <BiBookmarkAlt />
           Recent{" "}
@@ -43,7 +43,7 @@ const Cards = () => {
               <div className="md:flex gap-6 items-start">
                 <figure className="flex-shrink-0">
                   <img
-                    className="w-36 h-36 object-cover rounded-md"
+                    className="md:w-36 md:h-36 w-full h-[250px] object-cover rounded-md"
                     src={card.image}
                     alt={card.title}
                   />
@@ -53,7 +53,7 @@ const Cards = () => {
 
                 <div className="flex-1">
                   <div className="flex justify-between items-center mb-2">
-                    <h2 className="text-2xl font-semibold text-gray-800">
+                    <h2 className="text-2xl font font-semibold text-gray-800">
                       {card.title}
                     </h2>
                     <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1 rounded-md">
@@ -67,7 +67,7 @@ const Cards = () => {
 
                   <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
                     <p className="flex items-center gap-1">
-                      <CiClock1 />
+                      <CiClock1 className="text-base"/>
                       {card.currentDateAndTime}
                     </p>
                     <p className="flex items-center gap-1 px-2 py-1 bg-blue-100">
@@ -81,14 +81,14 @@ const Cards = () => {
 
                   <div className="md:flex justify-between items-center">
                     <div>
-                      <h3 className="font-bold text-gray-700">
-                        Name: <span className="font-normal">{card.name}</span>
+                      <h3 className="font-bold text-xl">
+                       {card.name}
                       </h3>
                       <p className="text-gray-600">{card.reason}</p>
                     </div>
 
                     <div className="text-right">
-                      <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                      <button className="px-4 font py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
                         <Link to={`/queries/${card._id}`}>More Details...</Link>
                       </button>
                     </div>
@@ -101,10 +101,10 @@ const Cards = () => {
         ))}
       </div>
 
-      <div className="flex justify-center items-center my-5">
+      <div className="flex justify-center items-center mb-5 mt-7">
         <button
           onClick={handleQueries}
-          className="font text-white px-3 py-2 bg-black "
+          className="font text-white px-3 py-2 bg-blue-500 "
         >
           View All Queries
         </button>

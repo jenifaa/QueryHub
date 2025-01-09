@@ -8,21 +8,21 @@ import query from '../../../assets/images/query.png'
 const Footer = () => {
   return (
     <div
-      className=" text-white bg-black"
+      className=" text-white bg-black mt-5"
       style={{
        
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <footer className="footer  p-10 md:flex items-center justify-around">
+      <footer className="footer  pt-7 mb-2 md:flex items-start justify-around">
         <nav className="">
-          <img src={query} className="w-28" alt="" />
-          <h2 className="text-5xl font-extrabold font ">QueryHive</h2>
-          <p className="text-sm font-semibold">ACME Industries Ltd.</p>
+          <img src={query} className="w-24" alt="" />
+          <h2 className="text-4xl font-extrabold font ">QueryHive</h2>
+          {/* <p className="text-sm font-semibold">ACME Industries Ltd.</p> */}
         </nav>
         <nav>
-          <h6 className="footer-title">Company</h6>
+          <h6 className="footer-title ">Company</h6>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
@@ -55,14 +55,14 @@ const Footer = () => {
       </footer>
 
       
-        <footer className="footer footer-center  p-4">
+        <div className="footer footer-center  p-4">
           <aside>
             <p>
               Copyright © {new Date().getFullYear()} - All right reserved by
-              ACME Industries Ltd
+              QueryHive Industries Ltd
             </p>
           </aside>
-        </footer>
+        </div>
       
     </div>
   );

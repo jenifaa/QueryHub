@@ -369,7 +369,7 @@ const AiGenerated = () => {
     if (query) {
       const filteredSuggestions = data.filter((item) =>
         item.question.toLowerCase().includes(query.toLowerCase())
-      );
+      ).slice(0,5);
       setSuggestions(filteredSuggestions.map((item) => item.question));
 
       const matching = data.find(
@@ -383,8 +383,8 @@ const AiGenerated = () => {
   }, [query]);
 
   return (
-    <div  className="font" >
-       <h2 className="text-4xl font-bold text-center">
+    <div id="ai"  className="" >
+       <h2 className="text-4xl font-bold text-center font">
           Get Your Answer By{" "}
           <motion.span
             animate={{ color: ["#f1391c", "#1cf1b7", "#dbf11c"] }}
@@ -394,11 +394,11 @@ const AiGenerated = () => {
             Ai
           </motion.span>
         </h2>
-        <p className="text-sm text-center my-3">Leverage the power of AI to enhance your query experience. Discover accurate insights, personalized <br />recommendations, and faster solutions tailored to your needs.</p>
+        <p className="text-sm text-center my-3 font">Leverage the power of AI to enhance your query experience. Discover accurate insights, personalized <br />recommendations, and faster solutions tailored to your needs.</p>
       
       <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-500 text-white py-16 px-8 my-12 ">
       <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-left mx-auto">
-      <h2 className="font-bold text-3xl ">Unlock Insights with AI: Smarter Queries, Better Answers</h2>
+      <h2 className="font-bold text-3xl font">Unlock Insights with AI: Smarter Queries, Better Answers</h2>
       
         <p className="text-lg text-[#ffffff]">
           Type a question to explore answers and recommendations.
@@ -450,7 +450,7 @@ const AiGenerated = () => {
           onClick={() =>
             setQuery(data[Math.floor(Math.random() * data.length)].question)
           }
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          className="px-6 py-2 font bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

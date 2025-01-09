@@ -5,8 +5,9 @@ import Lottie from "lottie-react";
 import about from "../../../assets/lottie/aboutUs.json";
 const AboutUs = () => {
   return (
-    <div className=" my-20">
-      <h2 className="text-center font-bold text-5xl font my-7"><span className="text-7xl text-blue-800">A</span>bout US</h2>
+    <div id="about" className=" my-20">
+      <h2 className="text-center font-bold text-5xl font mb-2"><span className="text-7xl text-blue-800">A</span>bout US</h2>
+      <p className="text-center font text-sm mb-7">Know More About Us...</p>
     <div className="bg-gray-100 py-3">
     <div className="md:flex items-center justify-between my-10 w-10/12 mx-auto">
         <div className="flex-1">
@@ -25,7 +26,7 @@ const AboutUs = () => {
             <Link to="/blog">See More...</Link>
           </button>
         </div>
-        <div className="flex-1 ml-32">
+        <div className="md:flex-1 md:ml-32">
           <img className="ml-16 w-60 lg:w-80" src={logo} alt="" />
         </div>
       </div>

@@ -37,19 +37,9 @@ const Navbar = () => {
         scrolled
           ? "bg-white text-black shadow-lg"
           : "bg-red-950 text-white"
-          // : "bg-gradient-to-r from-[#FFF0F5] via-[#E6E6FA] to-[#D8BFD8] text-white"
       }`}
     >
-      <nav className="flex justify-between items-center md:px-8 py-2 ">
-        {/* <div className="">
-          <Link
-            to="/"
-            className="font  font-bold text-xl md:text-3xl flex items-center"
-          >
-            <img className="w-20" src={logo} alt="" />
-            QueryHive
-          </Link>
-        </div> */}
+      <nav className="flex justify-between items-center px-8 py-2">
         <div className="hidden lg:flex space-x-6 ">
           <NavLink
             to="/"
@@ -123,7 +113,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="flex lg:flex-row flex-col items-center gap-2 lg:gap-5">
+        <div className="flex   items-center gap-2 lg:gap-5">
           {user && user?.photoURL ? (
             <img
               src={user?.photoURL}
