@@ -8,9 +8,9 @@ import useAxios from "../../Hooks/useAxios";
 import Header from "../Layout/Header";
 import { CiClock1 } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
-import { MdOutlineRecommend } from "react-icons/md";
+import { MdDeleteForever, MdOutlineRecommend } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
-
+import { FaRegEdit } from "react-icons/fa";
 const MyQueries = () => {
   // const data = useLoaderData();
   const [queries, setQueries] = useState([]);
@@ -106,83 +106,74 @@ const MyQueries = () => {
       </div>
       <hr />
 
-      {queries.length === 0 ? (
-        <div className="text-center py-10">
-          <h2 className="text-2xl font-bold">No Queries Found</h2>
-          <p className="text-lg">
-            Haven't added any queries yet. Start by adding one!
-          </p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:w-11/12 gap-5 mx-auto my-6 px-2">
-          {queries.map((query) => (
-            <div
-              key={query._id}
-              className="border rounded-xl p-4 bg-gray-100 flex flex-col shadow-md hover:shadow-lg transition-shadow h-full"
-            >
-              <div className="lg:flex gap-4 items-start h-full">
-                <figure className="flex-shrink-0">
-                  <img
-                    className="lg:w-52 lg:h-52 w-full h-72 object-cover rounded-md"
-                    src={query.image}
-                    alt={`Image for ${query.title}`}
-                  />
-                </figure>
-
-                <div className="flex-1 flex flex-col justify-between">
-                  <div>
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-1">
-                      {query.title}
-                    </h2>
-
-                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-1">
-                      <p className="flex items-center gap-1">
-                        <CiClock1 />
-                        {query.currentDateAndTime}
-                      </p>
-                      <p className="flex items-center gap-1 px-2 py-1 bg-blue-100 rounded-md">
-                        <FaRegEye />
-                        {Math.floor(
-                          Math.random() * (100000 - 10000) + 10000
-                        )}{" "}
-                        Views
-                      </p>
-                      <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1 rounded-md">
-                        <MdOutlineRecommend />
-                        {query.recommendationCount}
-                        <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs py-1 px-2 rounded">
-                          Recommendation
-                        </span>
-                      </p>
+      <div className="overflow-x-auto min-h-screen">
+        {queries.length === 0 ? (
+          <div className="text-center py-10">
+            <h2 className="text-2xl font-bold">No Queries Found</h2>
+            <p className="text-lg">
+              Haven't added any queries yet. Start by adding one!
+            </p>
+          </div>
+        ) : (
+          <table className="table">
+            {/* Table Header */}
+            <thead>
+              <tr>
+                <th></th>
+                <th>Product</th>
+                <th>Added Time</th>
+                <th>Recommendation</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            {/* Table Body */}
+            <tbody>
+              {queries.map((query, index) => (
+                <tr key={query._id}>
+                  <th>{index + 1}</th>
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle h-12 w-12">
+                          <img src={query.image} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{query.name}</div>
+                        <div className="text-sm opacity-50">{query.brand}</div>
+                      </div>
                     </div>
-
-                   
-                  </div>
-                  <div>
-                      <h3 className="font-bold mb-1">{query.name}</h3>
-                      <p className="text-gray-600">{query.reason}</p>
-                    </div>
-
-                  <div className="mt-auto flex items-end  gap-2">
-                    <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
-                      <Link to={`/queries/user/${query._id}`}>Update</Link>
+                  </td>
+                  <td>{query.currentDateAndTime}</td>
+                  <td>{query.recommendationCount}</td>
+                  <td>
+                    <button>
+                      <Link to={`/queries/user/${query._id}`}>
+                        <FaRegEdit className="text-2xl text-blue-600"/>
+                      </Link>
                     </button>
+                  </td>
+                  <td>
                     <button
                       onClick={() => handleDelete(query._id)}
-                      className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition-colors"
+                      // className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition-colors"
                     >
-                      Delete
+                      <MdDeleteForever className="text-2xl text-red-700" />
                     </button>
-                    <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
-                      <Link to={`/queries/${query._id}`}>Details</Link>
+                  </td>
+                  <td>
+                    <button className="px-2 py-1 bg-blue-500 text-xs text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                      <Link to={`/queries/${query._id}`}>Details..</Link>
                     </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 };

@@ -27,7 +27,7 @@ const AboutUs = () => {
           </button>
         </div>
         <div className="md:flex-1 md:ml-32 lg:ml-48">
-          <img className="ml-16 w-60 lg:w-80" src={logo} alt="" />
+          <img className=" sm:ml-16 w-80 " src={logo} alt="" />
         </div>
       </div>
     </div>

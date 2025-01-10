@@ -40,7 +40,7 @@ const QueryUpdate = () => {
           <img src={updateImg} alt="" />
         </div>
         <div className="lg:w-10/12 mx-auto">
-          <h2 className="text-center text-5xl font-bold">
+          <h2 className="text-center font text-5xl font-bold">
             Update Your Query
           </h2>
           <form onSubmit={handleUpdate} className="card-body">

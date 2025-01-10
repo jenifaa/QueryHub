@@ -396,7 +396,7 @@ const AiGenerated = () => {
         recommendations, and faster solutions tailored to your needs.
       </p>
 
-      <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-500 text-white py-16 px-8 my-12 ">
+      <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-500 text-white py-16 px-8 lg:px-16 my-12 ">
         <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-left mx-auto">
           <h2 className="font-bold text-3xl font">
             Unlock Insights with AI: Smarter Queries, Better Answers
