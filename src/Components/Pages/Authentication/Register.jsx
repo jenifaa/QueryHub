@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import google from '../../../assets/images/search.png'
+import google from "../../../assets/images/search.png";
 
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 
 import useAuth from "../../Hooks/useAuth";
-import signinlottie from '../../../assets/lottie/signup.json'
+import signinlottie from "../../../assets/lottie/signup.json";
 
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
@@ -76,7 +76,6 @@ const Register = () => {
 
         setRegister(true);
         navigate(location?.state ? location.state : "/");
-        
       })
 
       .catch((error) => {
@@ -87,101 +86,102 @@ const Register = () => {
       });
   };
   return (
-    <div>
+    <div className="bg-base-200">
       <Helmet>
         <title>QueryHive | SignUp</title>
       </Helmet>
 
-      <div className="w-10/12 px-8  mx-auto bg-base-200  md:px-32 py-10 mt-56 lg:mt-44 mb-10">
-        <div className="text-center my-5">
-          <h1 className="font-bold text-3xl mb-10">SignUp Here</h1>
-        </div>
+      <div className="w-11/12 px-8  mx-auto md:px-32 pb-10  pt-28">
+        <div className="lg:flex lg:justify-between lg:gap-36 items-center">
+          <div className=" lg:w-4/12 mx-auto">
+            <div className="text-center ">
+              <h1 className="font-bold text-5xl">SignUp Here</h1>
+            </div>
+            <form onSubmit={handleSignUp}>
+              <div className=" my-5">
+                <label className="form-control w-full ">
+                  <div className="label">
+                    <span className="label-text">Name</span>
+                  </div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter Name"
+                    className="input input-bordered w-full "
+                  />
+                </label>
+                <label className="form-control w-full ">
+                  <div className="label">
+                    <span className="label-text">Email</span>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder=" Enter Email"
+                    className="input input-bordered w-full "
+                  />
+                </label>
+              </div>
+              <div className="md:flex justify-between gap-6 items-center my-5">
+                <label className="form-control w-full ">
+                  <div className="label">
+                    <span className="label-text">Password</span>
+                  </div>
+                  <input
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="password"
+                    className="input input-bordered "
+                    required
+                  />
+                  <button
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-[180px] md:right-[220px] lg:right-[900px] lg:top-[420px] top-[420px]"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
+                  </button>
+                </label>
+              </div>
 
-       <div className="lg:flex lg:justify-between lg:gap-16 items-center">
-        <div className="lg:flex-1">
-        <form onSubmit={handleSignUp}>
-          <div className=" my-5">
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text">Name</span>
+              <div className="md:flex justify-between gap-6 items-center my-5">
+                <label className="form-control w-full ">
+                  <div className="label">
+                    <span className="label-text">Photo</span>
+                  </div>
+                  <input
+                    type="text"
+                    name="photo"
+                    placeholder="Enter photo url"
+                    className="input input-bordered w-full "
+                    required
+                  />
+                </label>
               </div>
               <input
-                type="text"
-                name="name"
-                placeholder="Enter Name"
-                className="input input-bordered w-full "
+                type="submit"
+                value="SignUp"
+                className="w-full py-3 text-center font-bold button bg-red-950   border-2 border-[#331A15] text-[#ffffff] rounded-lg"
               />
-            </label>
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text">Email</span>
-              </div>
-              <input
-                type="email"
-                name="email"
-                placeholder=" Enter Email"
-                className="input input-bordered w-full "
-              />
-            </label>
-          </div>
-          <div className="md:flex justify-between gap-6 items-center my-5">
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text">Password</span>
-              </div>
-              <input
-                name="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="password"
-                className="input input-bordered "
-                required
-              />
+              <p>
+                Already have an account? please <Link className="font-bold" to="/login">SignIn</Link>
+              </p>
+            </form>
+            {error && <p className="text-red-600 px-4 pb-4">{error}</p>}
+
+            <div className="my-4   rounded-full lg:w-[60%] w-full">
               <button
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-[180px] md:right-[220px] lg:right-[850px] lg:top-[580px] top-[600px]"
+                onClick={handleGoogleSignUp}
+                className=" font-semibold flex justify-around items-center border-2 p-3 rounded-full "
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
+                <img src={google} alt="" className="w-8 mr-3" />
+                <p>SignUp with Google</p>
               </button>
-            </label>
+            </div>
           </div>
-
-          <div className="md:flex justify-between gap-6 items-center my-5">
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text">Photo</span>
-              </div>
-              <input
-                type="text"
-                name="photo"
-                placeholder="Enter photo url"
-                className="input input-bordered w-full "
-                required
-              />
-            </label>
+          <div >
+            <Lottie className="lg:w-[500px]"  animationData={signinlottie}></Lottie>
           </div>
-          <input
-            type="submit"
-            value="SignUp"
-            className="w-full py-3 text-center font-bold button bg-[#5c4E4E]  border-2 border-[#331A15] text-[#ffffff] rounded-lg"
-          />
-           <p>
-              Already have an account? please <Link to="/login">Login</Link>
-            </p>
-        </form>
-        {error && <p className="text-red-600 px-4 pb-4">{error}</p>}
-
-        <div className="my-4 ml-3  rounded-full lg:w-[50%] w-full">
-          <button
-            onClick={handleGoogleSignUp}
-            className=" font-semibold flex justify-around items-center border-2 p-3 rounded-full "
-          >
-            <img src={google} alt="" className="w-8 mr-3" />
-            <p>Sign Up with Google</p>
-          </button>
         </div>
-        </div>
-        <div className="lg:flex-1"><Lottie className="lg:w-96" animationData={signinlottie}></Lottie></div>
-       </div>
       </div>
     </div>
   );

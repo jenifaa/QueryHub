@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BiBookmarkAlt } from "react-icons/bi";
 import { CiClock1 } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 const Cards = () => {
   const [cards, setCards] = useState([]);
   const navigate = useNavigate();
@@ -36,24 +36,24 @@ const Cards = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 w-10/12 gap-6 mx-auto">
-        {cards.map((card) => (
-          <div key={card._id}>
-            <div className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="md:flex gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-10/12 mx-auto">
+        {cards.map((card, index) => (
+          <>
+            <div
+              key={card._id}
+              className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col h-full"
+            >
+              <div className="flex flex-col md:flex-row gap-4 items-start h-full">
                 <figure className="flex-shrink-0">
                   <img
-                    className="md:w-36 md:h-36 w-full h-[250px] object-cover rounded-md"
                     src={card.image}
                     alt={card.title}
+                    className="w-44 h-[200px] object-cover rounded-md"
                   />
                 </figure>
-
-                <div className="border-l-2 border-black h-auto"></div>
-
-                <div className="flex-1">
-                  <div className="flex justify-between items-center mb-2">
-                    <h2 className="text-2xl font font-semibold text-gray-800">
+                <div className="flex-1 flex flex-col justify-between h-full">
+                  <div className="flex justify-between items-center mb-1">
+                    <h2 className="text-lg font font-semibold text-gray-800">
                       {card.title}
                     </h2>
                     <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1 rounded-md">
@@ -65,12 +65,12 @@ const Cards = () => {
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-1">
                     <p className="flex items-center gap-1">
-                      <CiClock1 className="text-base"/>
+                      <CiClock1 className="text-base" />
                       {card.currentDateAndTime}
                     </p>
-                    <p className="flex items-center gap-1 px-2 py-1 bg-blue-100">
+                    <p className="flex items-center gap-1 px-2 py-1 bg-blue-100 rounded">
                       <FaRegEye />
                       {Math.floor(
                         Math.random() * (100000 - 10000) + 10000
@@ -79,28 +79,28 @@ const Cards = () => {
                     </p>
                   </div>
 
-                  <div className="md:flex justify-between items-center">
-                    <div>
-                      <h3 className="font-bold text-xl">
-                       {card.name}
-                      </h3>
-                      <p className="text-gray-600">{card.reason}</p>
-                    </div>
+                  <div className="mb-1">
+                    <h3 className="font-bold text-base">{card.name}</h3>
+                    <p className="text-gray-600">{card.reason}</p>
+                  </div>
 
-                    <div className="text-right">
-                      <button className="px-4 font py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
-                        <Link to={`/queries/${card._id}`}>More Details...</Link>
-                      </button>
-                    </div>
+                  <div className="mt-auto flex items-end">
+                    <button className="px-4 py-2 font bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                      <Link to={`/queries/${card._id}`}>More Details...</Link>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-            <hr className="border border-gray-400 mt-6" />
-          </div>
+
+            {(index + 1) % 2 === 0 && (
+              <hr className="col-span-2 border-t border-gray-300" />
+            )}
+          </>
         ))}
       </div>
 
+      
       <div className="flex justify-center items-center mb-5 mt-7">
         <button
           onClick={handleQueries}

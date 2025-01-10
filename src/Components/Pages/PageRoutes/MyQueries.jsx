@@ -11,8 +11,6 @@ import { FaRegEye } from "react-icons/fa";
 import { MdOutlineRecommend } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
 
-
-
 const MyQueries = () => {
   // const data = useLoaderData();
   const [queries, setQueries] = useState([]);
@@ -102,7 +100,9 @@ const MyQueries = () => {
       </div>
 
       <div>
-        <h2 className="text-5xl font-bold text-center my-10">My Queries</h2>
+        <h2 className="text-5xl font-bold text-center my-10">
+          My <span className="text-6xl text-red-900">Q</span>ueries
+        </h2>
       </div>
       <hr />
 
@@ -114,74 +114,72 @@ const MyQueries = () => {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2  lg:w-11/12 gap-5 mx-auto my-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2  lg:w-11/12 gap-5 mx-auto my-6 px-2">
           {queries.map((query) => (
-            <div key={query._id} className="border rounded-xl p-3 ">
-              <div className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="lg:flex gap-6 items-start">
-                  <figure>
-                    <img
-                      className="w-36 h-36 object-cover rounded-md"
-                      src={query.image}
-                    />
-                  </figure>
-
-                  <div className="flex-1">
-                    <div className=" mb-2">
-                      <h2 className="text-2xl font-semibold text-gray-800">
-                        {query.title}
-                      </h2>
-                    </div>
-
-                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                      <p className="flex items-center gap-1">
-                        <CiClock1 />
-                        {query.currentDateAndTime}
-                      </p>
-                      <p className="flex items-center gap-1 px-2 py-1 bg-blue-100">
-                        <FaRegEye />
-                        {Math.floor(
-                          Math.random() * (100000 - 10000) + 10000
-                        )}{" "}
-                        Views
-                      </p>
-                      <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1 ">
-                        <MdOutlineRecommend />
-                        {query.recommendationCount}
-                        <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs py-1 px-2 rounded">
-                          Recommendation
-                        </span>
-                      </p>
-                    </div>
-
-                    <div className="md:flex justify-between items-center">
-                      <div>
-                        <h3 className="font-bold text-gray-700">
-                          Name:{" "}
-                          <span className="font-normal">{query.name}</span>
-                        </h3>
-                        <p className="text-gray-600">{query.reason}</p>
-                      </div>
-
-                      <div className="text-right flex gap-1 items-center">
-                        <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
-                          <Link to={`/queries/user/${query._id}`}>Update</Link>
-                        </button>
-                        <button
-                          onClick={() => handleDelete(query._id)}
-                          className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors"
-                        >
-                          Delete
-                        </button>
-                        <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
-                          <Link to={`/queries/${query._id}`}>Details</Link>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+           <div
+           key={query._id}
+           className="border rounded-xl p-5 bg-gray-100 h-full flex flex-col shadow-md hover:shadow-lg transition-shadow"
+         >
+           <div className="lg:flex gap-6 items-start">
+             <figure>
+               <img
+                 className="lg:w-52 lg:h-52 w-full h-72 lg:mb-0 mb-10 object-cover rounded-md"
+                 src={query.image}
+                 alt={`Image for ${query.title}`}
+               />
+             </figure>
+         
+             <div className="flex-1 flex flex-col justify-between">
+               <div>
+                 <div className="mb-2">
+                   <h2 className="text-2xl font-semibold text-gray-800">{query.title}</h2>
+                 </div>
+         
+                 <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                   <p className="flex items-center gap-1">
+                     <CiClock1 />
+                     {query.currentDateAndTime}
+                   </p>
+                   <p className="flex items-center gap-1 px-2 py-1 bg-blue-100">
+                     <FaRegEye />
+                     {Math.floor(Math.random() * (100000 - 10000) + 10000)} Views
+                   </p>
+                   <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1">
+                     <MdOutlineRecommend />
+                     {query.recommendationCount}
+                     <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs py-1 px-2 rounded">
+                       Recommendation
+                     </span>
+                   </p>
+                 </div>
+         
+                 <div>
+                   <h3 className="font-bold">
+                    {query.name}
+                   </h3>
+                   <p className="text-gray-600">{query.reason}</p>
+                 </div>
+               </div>
+         
+             
+               <div className="mt-4 flex gap-2 items-center">
+                 <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                   <Link to={`/queries/user/${query._id}`}>Update</Link>
+                 </button>
+                 <button
+                   onClick={() => handleDelete(query._id)}
+                   className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors"
+                 >
+                   Delete
+                 </button>
+                 <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                   <Link to={`/queries/${query._id}`}>Details</Link>
+                 </button>
+               </div>
+             </div>
+           </div>
+         </div>
+         
           ))}
         </div>
       )}

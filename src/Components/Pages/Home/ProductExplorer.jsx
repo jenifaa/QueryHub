@@ -87,7 +87,7 @@ const ProductExplorer = () => {
           </h1>
           <div className="text-center space-y-5 ">
             {step === 1 && (
-              <motion.div
+              <div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -113,11 +113,11 @@ const ProductExplorer = () => {
                     Accessories
                   </button>
                 </div>
-              </motion.div>
+              </div>
             )}
 
             {step === 2 && (
-              <motion.div
+              <div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -146,11 +146,11 @@ const ProductExplorer = () => {
                 >
                   Back to Category
                 </button>
-              </motion.div>
+              </div>
             )}
 
             {step === 3 && (
-              <motion.div
+              <div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -160,7 +160,7 @@ const ProductExplorer = () => {
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredProducts.map((product, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       className="bg-white rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
                       initial={{ opacity: 0 }}
@@ -178,7 +178,7 @@ const ProductExplorer = () => {
                         </h3>
                         <p className="text-gray-500">{product.price}</p>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
 
@@ -188,7 +188,7 @@ const ProductExplorer = () => {
                 >
                   Back to Price Range
                 </button>
-              </motion.div>
+              </div>
             )}
           </div>
         </div>

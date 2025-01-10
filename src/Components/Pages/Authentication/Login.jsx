@@ -55,18 +55,17 @@ const Login = () => {
       });
   };
   return (
-    <div>
+    <div className="bg-base-200 ">
       <Helmet>
         <title>QueryHive | SignIn</title>
       </Helmet>
 
-      <div className="w-10/12 px-8  mx-auto bg-base-200  md:px-32 py-10 mt-56 lg:mt-44 mb-10">
-        <div className="text-center my-5">
-          <h1 className="font-bold text-3xl mb-10">SignIn Here</h1>
-        </div>
-
+      <div className=" px-8 lg:w-10/12 mx-auto   md:px-32 py-10 pt-28">
         <div className="lg:flex justify-between gap-10 items-center">
-          <div className="flex-1">
+          <div className="lg:w-5/12 sm:w-8/12 mx-auto">
+            <div className="text-center">
+              <h1 className="font-bold text-5xl mb-10">SignIn Here</h1>
+            </div>
             <form onSubmit={handleSignin}>
               <div className=" my-5">
                 <label className="form-control w-full ">
@@ -94,7 +93,7 @@ const Login = () => {
                   />
                   <button
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-[160px] top-[500px] md:right-[230px] lg:top-[468px] lg:left-[680px]"
+                    className="absolute right-[160px] top-[340px] md:right-[280px] md:top-[334px]  lg:top-[335px] lg:left-[680px]"
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
                   </button>
@@ -107,26 +106,26 @@ const Login = () => {
               <input
                 type="submit"
                 value="Sign in"
-                className="w-full py-3 text-center font-bold button bg-[#5c4E4E]  border-2 border-[#331A15] text-[#ffffff] rounded-lg"
+                className="w-full py-3 text-center font-bold button bg-red-900  border-2 border-[#331A15] text-[#ffffff] rounded-lg"
               />
               <p>
-                New to this website? please <Link to="/register">Register</Link>
+                New to this website? please <Link className="font-bold" to="/register">SignUp</Link>
               </p>
             </form>
-            <div className="my-4 ml-3  rounded-full lg:w-[50%] w-full">
+            <div className="my-4   rounded-full lg:w-[50%] w-full">
               <button
                 onClick={handleGoogleSignIn}
                 className=" font-semibold flex justify-around items-center border-2 p-3  rounded-full "
               >
                 <img src={google} alt="" className="w-8 mr-3" />
-                <p>Sign Up with Google</p>
+                <p>SignIn with Google</p>
               </button>
             </div>
           </div>
 
-         <div className="flex-1">
-         <Lottie className="lg:w-80" animationData={loginAnime}></Lottie>
-         </div>
+          <div className="">
+            <Lottie className="" animationData={loginAnime}></Lottie>
+          </div>
         </div>
       </div>
     </div>

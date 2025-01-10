@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
+// import { motion } from "framer-motion";
+// import { div } from "framer-motion/client";
 import Lottie from "lottie-react";
 import animation from "../../../assets/lottie/ai.json";
 
@@ -389,16 +389,7 @@ const AiGenerated = () => {
       <h2 className="text-4xl font-bold text-center font">
         Get Your Answer By <span className="text-6xl text-red-900">Ai</span>
       </h2>
-      {/* <h2 className="text-4xl font-bold text-center font">
-          Get Your Answer By{" "}
-          <motion.span
-            animate={{ color: ["#f1391c", "#1cf1b7", "#dbf11c"] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-            className="text-5xl"
-          >
-            Ai
-          </motion.span>
-        </h2> */}
+     
       <p className="text-sm text-center my-3 font">
         Leverage the power of AI to enhance your query experience. Discover
         accurate insights, personalized <br />
@@ -415,7 +406,7 @@ const AiGenerated = () => {
             Type a question to explore answers and recommendations.
           </p>
 
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
@@ -427,12 +418,12 @@ const AiGenerated = () => {
               placeholder="Type a query..."
               className="md:w-96 px-4 py-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-          </motion.div>
+          </div>
 
           <div className="space-y-2">
             {suggestions.length > 0 &&
               suggestions.map((suggestion, index) => (
-                <motion.div
+                <div
                   key={index}
                   className="bg-gray-100 text-black px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"
                   initial={{ opacity: 0, y: 10 }}
@@ -441,12 +432,12 @@ const AiGenerated = () => {
                   onClick={() => setQuery(suggestion)}
                 >
                   {suggestion}
-                </motion.div>
+                </div>
               ))}
           </div>
 
           {answer && (
-            <motion.div
+            <div
               className="mt-4 bg-green-100 text-black px-4 py-4 rounded-lg"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -454,10 +445,10 @@ const AiGenerated = () => {
             >
               <h4 className="text-lg font-semibold">Answer:</h4>
               <p>{answer}</p>
-            </motion.div>
+            </div>
           )}
 
-          <motion.button
+          <button
             onClick={() =>
               setQuery(data[Math.floor(Math.random() * data.length)].question)
             }
@@ -466,7 +457,7 @@ const AiGenerated = () => {
             whileTap={{ scale: 0.95 }}
           >
             Auto Generate
-          </motion.button>
+          </button>
         </div>
         <div>
           <Lottie className="w-96" animationData={animation} loop={true} />

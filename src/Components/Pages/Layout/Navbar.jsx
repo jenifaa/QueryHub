@@ -163,13 +163,13 @@ const Navbar = () => {
               <NavLink to="/login">
                 <button className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1">
                   <CiLogin />
-                  Login
+                  Sign In
                 </button>
               </NavLink>
               <NavLink to="/register">
                 <button className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1">
                   <IoPersonOutline />
-                  Register
+                  Sign Up
                 </button>
               </NavLink>
             </>
