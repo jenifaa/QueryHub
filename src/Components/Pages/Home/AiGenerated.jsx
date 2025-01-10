@@ -389,7 +389,7 @@ const AiGenerated = () => {
       <h2 className="text-4xl font-bold text-center font">
         Get Your Answer By <span className="text-6xl text-red-900">Ai</span>
       </h2>
-     
+
       <p className="text-sm text-center my-3 font">
         Leverage the power of AI to enhance your query experience. Discover
         accurate insights, personalized <br />
@@ -453,8 +453,6 @@ const AiGenerated = () => {
               setQuery(data[Math.floor(Math.random() * data.length)].question)
             }
             className="px-6 py-2 font bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             Auto Generate
           </button>

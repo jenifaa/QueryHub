@@ -36,22 +36,19 @@ const Cards = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-10/12 mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 w-10/12 mx-auto">
         {cards.map((card, index) => (
-          <>
-            <div
-              key={card._id}
-              className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col h-full"
-            >
-              <div className="flex flex-col md:flex-row gap-4 items-start h-full">
-                <figure className="flex-shrink-0">
+          <div key={card._id}>
+            <div className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col h-full">
+              <div className="sm:flex flex-col sm:flex-row gap-4 items-start h-full">
+                <figure className="sm:flex-shrink-0">
                   <img
                     src={card.image}
                     alt={card.title}
-                    className="w-44 h-[200px] object-cover rounded-md"
+                    className="sm:w-44 w-full sm:h-[200px] h-[250px] object-cover rounded-md"
                   />
                 </figure>
-                <div className="flex-1 flex flex-col justify-between h-full">
+                <div className="sm:flex-1 sm:flex sm:flex-col sm:justify-between h-full">
                   <div className="flex justify-between items-center mb-1">
                     <h2 className="text-lg font font-semibold text-gray-800">
                       {card.title}
@@ -84,7 +81,7 @@ const Cards = () => {
                     <p className="text-gray-600">{card.reason}</p>
                   </div>
 
-                  <div className="mt-auto flex items-end">
+                  <div className="sm:mt-auto sm:flex sm:items-end">
                     <button className="px-4 py-2 font bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
                       <Link to={`/queries/${card._id}`}>More Details...</Link>
                     </button>
@@ -92,15 +89,12 @@ const Cards = () => {
                 </div>
               </div>
             </div>
-
-            {(index + 1) % 2 === 0 && (
-              <hr className="col-span-2 border-t border-gray-300" />
-            )}
-          </>
+          </div>
         ))}
       </div>
-
-      
+     
+              <hr className=" border-t border-gray-300 my-5" />
+           
       <div className="flex justify-center items-center mb-5 mt-7">
         <button
           onClick={handleQueries}

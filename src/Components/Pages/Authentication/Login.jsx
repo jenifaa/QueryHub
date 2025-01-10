@@ -55,7 +55,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="bg-base-200 ">
+    <div className="bg-base-200 min-h-screen">
       <Helmet>
         <title>QueryHive | SignIn</title>
       </Helmet>

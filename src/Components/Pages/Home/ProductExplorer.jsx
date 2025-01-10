@@ -4,6 +4,7 @@ import bg from "../../../assets/images/freepik.jpg";
 import playStore from "../../../assets/images/playstore.png";
 import apple from "../../../assets/images/apple-logo.png";
 import windows from "../../../assets/images/microsoft.png";
+import { Link } from "react-router-dom";
 
 const ProductExplorer = () => {
   const [step, setStep] = useState(1);
@@ -206,16 +207,16 @@ const ProductExplorer = () => {
                 DownLoad Our App
               </h1>
               <div className="mb-5 flex justify-between items-center">
-                <div className="flex flex-col items-center">
+                <Link to="https://www.apple.com/app-store" className="flex flex-col items-center">
                   <img className="w-16 mb-3" src={apple} alt="App Store" />
                   <p className="text-lg font-medium text-white">App Store</p>
-                </div>
-                <div className="flex flex-col items-center">
+                </Link>
+                <Link to="https://play.google.com/store/search?q=play%20store&c=apps" className="flex flex-col items-center">
                   <img className="w-16 mb-3" src={playStore} alt="Play Store" />
                   <p className="text-lg font-medium text-white">Play Store</p>
-                </div>
+                </Link>
 
-                <div className="flex flex-col items-center">
+                <Link to="https://apps.microsoft.com/home?hl=en-US&gl=US" className="flex flex-col items-center">
                   <img
                     className="w-16 mb-3"
                     src={windows}
@@ -224,7 +225,7 @@ const ProductExplorer = () => {
                   <p className="text-lg font-medium text-white">
                     Windows Store
                   </p>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

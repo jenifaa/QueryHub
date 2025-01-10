@@ -92,7 +92,7 @@ const MyQueries = () => {
               A platform where you can add, explore, and manage queries. Join
               the community and find insights on various topics.
             </p>
-            <button className="btn bg-blue-500 text-white hover:text-blue-600">
+            <button className="px-6 py-3 text-md rounded-md hover:bg-red-900 text-white bg-red-950 ">
               <Link to="/addQueries">Add Query </Link>
             </button>
           </div>
@@ -114,72 +114,72 @@ const MyQueries = () => {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2  lg:w-11/12 gap-5 mx-auto my-6 px-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:w-11/12 gap-5 mx-auto my-6 px-2">
           {queries.map((query) => (
-           <div
-           key={query._id}
-           className="border rounded-xl p-5 bg-gray-100 h-full flex flex-col shadow-md hover:shadow-lg transition-shadow"
-         >
-           <div className="lg:flex gap-6 items-start">
-             <figure>
-               <img
-                 className="lg:w-52 lg:h-52 w-full h-72 lg:mb-0 mb-10 object-cover rounded-md"
-                 src={query.image}
-                 alt={`Image for ${query.title}`}
-               />
-             </figure>
-         
-             <div className="flex-1 flex flex-col justify-between">
-               <div>
-                 <div className="mb-2">
-                   <h2 className="text-2xl font-semibold text-gray-800">{query.title}</h2>
-                 </div>
-         
-                 <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                   <p className="flex items-center gap-1">
-                     <CiClock1 />
-                     {query.currentDateAndTime}
-                   </p>
-                   <p className="flex items-center gap-1 px-2 py-1 bg-blue-100">
-                     <FaRegEye />
-                     {Math.floor(Math.random() * (100000 - 10000) + 10000)} Views
-                   </p>
-                   <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1">
-                     <MdOutlineRecommend />
-                     {query.recommendationCount}
-                     <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs py-1 px-2 rounded">
-                       Recommendation
-                     </span>
-                   </p>
-                 </div>
-         
-                 <div>
-                   <h3 className="font-bold">
-                    {query.name}
-                   </h3>
-                   <p className="text-gray-600">{query.reason}</p>
-                 </div>
-               </div>
-         
-             
-               <div className="mt-4 flex gap-2 items-center">
-                 <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
-                   <Link to={`/queries/user/${query._id}`}>Update</Link>
-                 </button>
-                 <button
-                   onClick={() => handleDelete(query._id)}
-                   className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors"
-                 >
-                   Delete
-                 </button>
-                 <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
-                   <Link to={`/queries/${query._id}`}>Details</Link>
-                 </button>
-               </div>
-             </div>
-           </div>
-         </div>
-         
+            <div
+              key={query._id}
+              className="border rounded-xl p-4 bg-gray-100 flex flex-col shadow-md hover:shadow-lg transition-shadow h-full"
+            >
+              <div className="lg:flex gap-4 items-start h-full">
+                <figure className="flex-shrink-0">
+                  <img
+                    className="lg:w-52 lg:h-52 w-full h-72 object-cover rounded-md"
+                    src={query.image}
+                    alt={`Image for ${query.title}`}
+                  />
+                </figure>
+
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-1">
+                      {query.title}
+                    </h2>
+
+                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-1">
+                      <p className="flex items-center gap-1">
+                        <CiClock1 />
+                        {query.currentDateAndTime}
+                      </p>
+                      <p className="flex items-center gap-1 px-2 py-1 bg-blue-100 rounded-md">
+                        <FaRegEye />
+                        {Math.floor(
+                          Math.random() * (100000 - 10000) + 10000
+                        )}{" "}
+                        Views
+                      </p>
+                      <p className="relative group flex items-center gap-1 px-2 bg-blue-200 py-1 rounded-md">
+                        <MdOutlineRecommend />
+                        {query.recommendationCount}
+                        <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs py-1 px-2 rounded">
+                          Recommendation
+                        </span>
+                      </p>
+                    </div>
+
+                   
+                  </div>
+                  <div>
+                      <h3 className="font-bold mb-1">{query.name}</h3>
+                      <p className="text-gray-600">{query.reason}</p>
+                    </div>
+
+                  <div className="mt-auto flex items-end  gap-2">
+                    <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                      <Link to={`/queries/user/${query._id}`}>Update</Link>
+                    </button>
+                    <button
+                      onClick={() => handleDelete(query._id)}
+                      className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition-colors"
+                    >
+                      Delete
+                    </button>
+                    <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                      <Link to={`/queries/${query._id}`}>Details</Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       )}

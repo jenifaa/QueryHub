@@ -10,7 +10,21 @@ const Queries = () => {
   const [allQuery, setAllQuery] = useState(allData);
   const [search, setSearch] = useState("");
   const [isGrid, setIsGrid] = useState(false);
+  const [isAscending, setIsAscending] = useState(true); // Track ascending or descending order
 
+  // Function to sort the queries by currentDateAndTime
+  const sortByDate = () => {
+    const sortedData = [...allQuery].sort((a, b) => {
+      const dateA = new Date(a.currentDateAndTime);
+      const dateB = new Date(b.currentDateAndTime);
+
+      // Toggle the sort order
+      return isAscending ? dateA - dateB : dateB - dateA;
+    });
+
+    setAllQuery(sortedData);
+    setIsAscending(!isAscending); // Toggle the sort order
+  };
   return (
     <div className="mt-20 bg-base-100">
       <Helmet>
@@ -62,7 +76,10 @@ const Queries = () => {
           >
             Change LayOut
           </button>
-          <button className="btn bg-blue-500 text-white">Sort</button>
+          <button onClick={sortByDate} className="btn bg-blue-500 text-white">
+            {" "}
+            Sort ({isAscending ? "Asc" : "Des"})
+          </button>
         </div>
       </div>
       <div
