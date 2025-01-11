@@ -7,6 +7,7 @@ import Card from "./Card";
 import Header from "../Layout/Header";
 import AboutUs from "./AboutUs";
 import { Helmet } from "react-helmet-async";
+import FAQ from "./FAQ";
 
 
 const Home = () => {
@@ -26,6 +27,7 @@ const Home = () => {
       <AiGenerated />
 
       <AboutUs></AboutUs>
+      <FAQ></FAQ>
 
       <ProductExplorer />
     </div>

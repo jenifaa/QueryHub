@@ -396,13 +396,13 @@ const AiGenerated = () => {
         recommendations, and faster solutions tailored to your needs.
       </p>
 
-      <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-500 text-white py-16 px-8 lg:px-16 my-12 ">
+      <div className="flex flex-col lg:flex-row items-center justify-between bg-base-200  py-5 px-8 lg:px-20 my-12 ">
         <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-left mx-auto">
           <h2 className="font-bold text-3xl font">
             Unlock Insights with AI: Smarter Queries, Better Answers
           </h2>
 
-          <p className="text-lg text-[#ffffff]">
+          <p className="text-lg ">
             Type a question to explore answers and recommendations.
           </p>
 
@@ -458,7 +458,7 @@ const AiGenerated = () => {
           </button>
         </div>
         <div>
-          <Lottie className="w-96" animationData={animation} loop={true} />
+          <Lottie className="w-96 lg:w-[400px]" animationData={animation} loop={true} />
         </div>
       </div>
     </div>

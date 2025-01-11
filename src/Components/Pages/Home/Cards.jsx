@@ -21,7 +21,7 @@ const Cards = () => {
   }, []);
 
   return (
-    <div id="queries" className="my-20 ">
+    <div id="queries" className="my-12 ">
       <div className="text-center font">
         <h2 className="my-4 font-bold text-4xl flex justify-center items-center gap-1">
           <BiBookmarkAlt />

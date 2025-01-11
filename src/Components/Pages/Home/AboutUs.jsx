@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 import about from "../../../assets/lottie/aboutUs.json";
 const AboutUs = () => {
   return (
-    <div id="about" className=" my-20">
+    <div id="about" className=" my-10">
       <h2 className="text-center font-bold text-5xl font mb-2"><span className="text-7xl text-red-900">A</span>bout US</h2>
       <p className="text-center font text-sm mb-7">Know More About Us...</p>
     <div className="bg-gray-100 py-3">
@@ -35,7 +35,7 @@ const AboutUs = () => {
 
 
 
-      <div className="lg:flex md:justify-between items-center mb-10">
+      <div className="lg:flex md:justify-between items-center mb-5">
         <Lottie className="lg:w-96 w-full md:flex-1" animationData={about}></Lottie>
         <div className="bg-base-200 md:flex-1 p-6 rounded-lg shadow-md text-center">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Find Us</h2>
@@ -69,6 +69,8 @@ const AboutUs = () => {
           <button className="btn bg-blue-500 text-white mt-4"><Link to="https://mail.google.com/mail/u/0/#inbox">Contact Us</Link></button>
         </div>
       </div>
+      <hr className="border border-gray-300 " />
+
     </div>
   );
 };
