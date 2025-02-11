@@ -33,15 +33,15 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500  ${
         scrolled ? "bg-white text-black shadow-lg" : "bg-red-950 text-white"
       }`}
     >
-      <nav className="flex justify-between items-center px-8 py-2">
-        <div className="hidden lg:flex space-x-6 ">
+      <nav className="flex justify-between items-center px-10 py-2">
+        <div className="hidden lg:flex gap-6 ">
           <NavLink
             to="/"
-            className="hover:text-blue-500 hover:font-bold text-sm flex items-center space-x-2"
+            className="hover:text-blue-500 hover:font-bold text-sm flex items-center"
           >
             Home
           </NavLink>
@@ -50,6 +50,12 @@ const Navbar = () => {
             className="hover:text-blue-500 hover:font-bold text-sm "
           >
             Queries
+          </NavLink>
+          <NavLink
+            to="/blog"
+            className="hover:text-blue-500 hover:font-bold text-sm "
+          >
+            Our Blog
           </NavLink>
           {user && user?.email ? (
             <>

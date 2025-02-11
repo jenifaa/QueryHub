@@ -7,7 +7,7 @@ const Blog = () => {
     <div className="">
       <Navbar></Navbar>
       <h2 className="text-center font-bold text-6xl font mt-20 mb-10">Our Blog</h2>
-      <div className="bg-base-200 p-8 rounded-lg shadow-lg max-w-4xl mx-auto mb-10">
+      <div className="bg-base-200 p-8 rounded-lg shadow-lg w-11/12 mx-auto mb-10">
         <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
           Transforming Shopping with Personalized Recommendations
         </h1>
