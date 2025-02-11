@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom";
+
 import fb from "../../../assets/images/facebook.png";
 import insta from "../../../assets/images/instagram.png";
 import linkedIn from "../../../assets/images/linkedin.png";
 import query from '../../../assets/images/query.png'
 // import logo from "../../../assets/images/queries.png";
-
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
 const Footer = () => {
   return (
     <div
@@ -23,7 +30,11 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="footer-title ">Company</h6>
-          <a className="link link-hover">About us</a>
+          <Link spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+              to="about" className=" link-hover">About us</Link>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
