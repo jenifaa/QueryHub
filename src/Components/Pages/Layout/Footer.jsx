@@ -37,7 +37,7 @@ const Footer = () => {
           <Link to='/register' className=" link-hover">Sign Up</Link>
           
         </nav>
-        <nav className="md:place-self-center ">
+        <nav className=" ">
           <h2 className="mb-4 text-xl font-semibold">Follow Us</h2>
           <div className="grid grid-flow-col gap-4">
             <Link to="https://www.facebook.com/">
