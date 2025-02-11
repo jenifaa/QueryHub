@@ -12,7 +12,7 @@ const AboutUs = () => {
       <p className="text-center font text-sm mb-7">Know More About Us...</p>
      
 
-      <div className="lg:flex md:justify-between items-center mb-5">
+      <div className="lg:flex md:justify-between items-center mb-5 px-8">
         <Lottie
           className="lg:w-96 w-full md:flex-1"
           animationData={about}
@@ -50,7 +50,7 @@ const AboutUs = () => {
       </div>
       <hr className="border border-gray-200 " />
       <div className=" ">
-        <div className="md:flex items-center justify-between my-5 w-11/12 mx-auto">
+        <div className="lg:flex items-center justify-between my-5 w-11/12 mx-auto">
           <div className="flex-1 bg-base-200 px-16 py-14 rounded-lg shadow-md">
             <p className="text-gray-600 text-lg colo">
               Discover the future of smart recommendations with{" "}
