@@ -11,7 +11,7 @@ import {
 import query from "../../../assets/images/query.png";
 const Header = () => {
   return (
-    <div className="mt-16  py-4 ">
+    <div className="mt-16  py-4">
       <div className="md:flex justify-between items-center w-11/12 mx-auto">
         <div className="flex items-center">
           <img className="w-16" src={query} alt="" />

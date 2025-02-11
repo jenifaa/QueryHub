@@ -1,9 +1,22 @@
 
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+[data-theme="dracula"] .colo {
+  color: white;
+  
+}
+[data-theme="light"] .colored {
+  color: black;
+  
+}
 
 /* .font {
   font-family: "Great Vibes", serif;

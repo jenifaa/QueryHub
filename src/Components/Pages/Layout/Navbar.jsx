@@ -8,7 +8,10 @@ import { BsPersonCircle } from "react-icons/bs";
 import useAuth from "../../Hooks/useAuth";
 import { CiLogin } from "react-icons/ci";
 import Loading from "./Loading";
-import { IoPersonOutline } from "react-icons/io5";
+import { IoMoon, IoPersonOutline } from "react-icons/io5";
+import { FaMoon } from "react-icons/fa";
+import { FaSun } from "react-icons/fa6";
+import { IoMdSunny } from "react-icons/io";
 
 const Navbar = () => {
   const { user, setUser, logOut, updateUserProfile, loading } = useAuth();
@@ -19,6 +22,20 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const isHomepage = location.pathname === "/";
+  const [theme, setTheme] = useState(
+    typeof window !== "undefined"
+      ? localStorage.getItem("theme") || "light"
+      : "light"
+  );
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dracula" : "light");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +54,7 @@ const Navbar = () => {
         scrolled ? "bg-white text-black shadow-lg" : "bg-red-950 text-white"
       }`}
     >
-      <nav className="flex justify-between items-center px-10 py-2">
+      <nav className="flex justify-between items-center px-12 py-2">
         <div className="hidden lg:flex gap-6 ">
           <NavLink
             to="/"
@@ -142,6 +159,17 @@ const Navbar = () => {
         </div>
 
         <div className="flex   items-center gap-2 lg:gap-5">
+          <button className="" onClick={toggleTheme}>
+            {theme === "light" ? (
+              <>
+                <IoMoon className="text-3xl"/>
+              </>
+            ) : (
+              <>
+                <IoMdSunny className="text-3xl" />
+              </>
+            )}
+          </button>
           {user && user?.photoURL ? (
             <img
               src={user?.photoURL}
@@ -149,7 +177,7 @@ const Navbar = () => {
               className="w-10 h-10  rounded-full md:flex"
             ></img>
           ) : (
-            <BsPersonCircle className="text-5xl" />
+            <BsPersonCircle className="text-4xl" />
           )}
 
           {user && user?.email ? (
@@ -157,7 +185,7 @@ const Navbar = () => {
               <NavLink>
                 <button
                   onClick={logOut}
-                  className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1"
+                  className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1"
                 >
                   <CiLogout />
                   LogOut
@@ -167,13 +195,13 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink to="/login">
-                <button className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1">
+                <button className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] text-sm font-bold rounded-md flex items-center gap-1">
                   <CiLogin />
                   Sign In
                 </button>
               </NavLink>
               <NavLink to="/register">
-                <button className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1">
+                <button className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md font-bold text-sm flex items-center gap-1">
                   <IoPersonOutline />
                   Sign Up
                 </button>

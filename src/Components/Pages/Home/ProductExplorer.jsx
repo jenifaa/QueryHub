@@ -80,7 +80,7 @@ const ProductExplorer = () => {
 
   return (
     <div id="explore">
-      <h2 className="text-3xl font-bold text-center my-10 font"><span className="text-6xl text-red-900">E</span>xplore More...</h2>
+      <h2 className="text-3xl font-bold text-center mt-5 mb-10 font"><span className="text-6xl text-red-900">E</span>xplore More...</h2>
       <div className="py-10 px-8 bg-base-200 lg:flex lg:justify-between items-center gap-10">
         <div className=" lg:flex-1">
           <h1 className="text-2xl md:text-4xl font-bold text-center my-4 md:py-6">

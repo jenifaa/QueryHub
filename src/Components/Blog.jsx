@@ -8,10 +8,10 @@ const Blog = () => {
       <Navbar></Navbar>
       <h2 className="text-center font-bold text-6xl font mt-20 mb-10">Our Blog</h2>
       <div className="bg-base-200 p-8 rounded-lg shadow-lg w-11/12 mx-auto mb-10">
-        <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
+        <h1 className="text-4xl font-bold  mb-6 text-center">
           Transforming Shopping with Personalized Recommendations
         </h1>
-        <p className="text-gray-600 text-lg mb-6">
+        <p className=" text-lg mb-6">
           In a world overflowing with options, finding the perfect product can
           feel like searching for a needle in a haystack. At
           <span className="font-semibold">QueryHive</span>, we’re here to change
@@ -20,10 +20,10 @@ const Blog = () => {
           and money.
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="text-2xl font-bold  mb-4">
           What Sets Us Apart?
         </h2>
-        <ul className="list-disc list-inside text-gray-600 mb-6">
+        <ul className="list-disc list-inside  mb-6">
           <li>
             <span className="font-semibold">Intelligent Query System:</span>{" "}
             Quickly capture your needs with our easy-to-use platform.
@@ -38,10 +38,10 @@ const Blog = () => {
           </li>
         </ul>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="text-2xl font-bold  mb-4">
           How Our System Works
         </h2>
-        <ol className="list-decimal list-inside text-gray-600 mb-6">
+        <ol className="list-decimal list-inside  mb-6">
           <li>
             <span className="font-semibold">Submit Your Query:</span> Share your
             preferences such as budget, features, or categories.
@@ -60,10 +60,10 @@ const Blog = () => {
           </li>
         </ol>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="text-2xl font-bold  mb-4">
           Top Categories We Recommend
         </h2>
-        <ul className="grid grid-cols-2 gap-4 text-gray-600 mb-6">
+        <ul className="grid grid-cols-2 gap-4  mb-6">
           <li>
             <span className="font-semibold">Electronics & Gadgets:</span> Latest
             innovations for tech enthusiasts.
@@ -82,10 +82,10 @@ const Blog = () => {
           </li>
         </ul>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="text-2xl font-bold  mb-4">
           Why Our Customers Love Us
         </h2>
-        <div className="text-gray-600 italic mb-6 space-y-4">
+        <div className=" italic mb-6 space-y-4">
           <p>
              "The recommendations are spot-on! I found the perfect laptop for
             my needs within minutes." — Sarah J.
@@ -100,23 +100,23 @@ const Blog = () => {
           </p>
         </div>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="text-2xl font-bold  mb-4">
           Your Journey to Smarter Shopping
         </h2>
-        <p className="text-gray-600 mb-6">
+        <p className=" mb-6">
           At <span className="font-semibold">QueryHive</span>, we believe in
           empowering you to make confident, informed decisions. Our platform is
           more than just a tool—it’s your trusted shopping companion.
         </p>
-        <p className="text-gray-700 font-semibold text-center mb-6">
+        <p className=" font-semibold text-center mb-6">
            Start Now: Submit your first query today and experience
           personalized recommendations like never before!
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="text-2xl font-bold  mb-4">
           Stay Connected
         </h2>
-        <div className="text-left text-gray-600 space-y-2">
+        <div className="text-left  space-y-2">
           <p>
             <span className="font-bold"> WhatsApp:</span> +1 (234) 567-890
           </p>

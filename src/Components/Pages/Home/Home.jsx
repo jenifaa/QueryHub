@@ -12,7 +12,7 @@ import FAQ from "./FAQ";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       <Helmet>
         <title>QueryHive</title>
       </Helmet>

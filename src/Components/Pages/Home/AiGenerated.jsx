@@ -416,7 +416,7 @@ const AiGenerated = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Type a query..."
-              className="md:w-96 px-4 py-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="md:w-96 px-4 py-3 rounded-lg border border-gray-300 text-black colo focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
