@@ -84,7 +84,7 @@ const QueryDetails = () => {
         <h2 className="text-center text-5xl font-bold my-4 font">
           <span className="text-red-900 text-6xl">M</span>ore Details For You
         </h2>
-        <p className="text-sm font font-semibold text-gray-500 my-5 text-center">
+        <p className="text-sm font font-semibold text-gray-500 my-5 text-center colo">
           Discover the comprehensive insights and background behind this query,
           including the motivations and detailed <br /> reasoning that inspired
           its creation.{" "}
@@ -100,15 +100,15 @@ const QueryDetails = () => {
 
           <div className=" md:w-2/3 p-5 bg-base-200 shadow-lg flex-grow  h-full flex flex-col rounded-xl">
             <h1 className=" mb-2 text-lg font-bold font">{data.name}</h1>
-            <h1 className=" mb-3 text-lg text-gray-600 font">
-              <span className="text-xl font-bold text-black">Query: </span>
+            <h1 className=" mb-3 text-lg text-gray-600 font colo">
+              <span className="text-xl font-bold text-black colo">Query: </span>
               {data.title}
             </h1>
             <p className="text-lg text-red-700 font mb-3">{data.reason}</p>
 
             <p className="my-2 font">{data.brand}</p>
 
-            <p className="text-md text-gray-500 font-semi bold mb-4">
+            <p className="text-md text-gray-500 font-semi bold mb-4 colo">
               {data.currentDateAndTime}
             </p>
 
@@ -139,11 +139,11 @@ const QueryDetails = () => {
           <div className="md:flex items-center justify-around py-10 px-5">
             <div className=" ">
               <h2 className="italic font-semibold">
-                <span className="font-bold text-xl text-black">Name: </span>
+                <span className="font-bold text-xl text-black colo">Name: </span>
                 {data.userName}
               </h2>
               <h2 className="text-green-700 font-semibold my-6 italic">
-                <span className="font-bold text-xl text-black">Email: </span>
+                <span className="font-bold text-xl text-black colo">Email: </span>
                 {data.userEmail}
               </h2>
             </div>
