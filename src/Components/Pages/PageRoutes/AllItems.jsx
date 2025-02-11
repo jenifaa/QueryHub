@@ -12,7 +12,7 @@ const AllItems = () => {
       });
   }, []);
   return (
-    <div>
+    <div className="my-28">
       <div className="mb-10">
         <h2 className="text-4xl font-bold text-center mt-16 mb-3">
           All <span className="text-6xl font-extrabold text-red-900">Q</span>
@@ -42,7 +42,7 @@ const AllItems = () => {
                       </div>
                       <div>
                         <div className="font-bold">{tableItem.name}</div>
-                        <div className="text-sm opacity-50">{tableItem.brand}</div>
+                        <div className="text-sm opacity-80">{tableItem.brand}</div>
                       </div>
                     </div>
                   </td>

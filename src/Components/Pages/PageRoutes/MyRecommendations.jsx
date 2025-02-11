@@ -115,7 +115,7 @@ const MyRecommendations = () => {
                     </div>
                     <div>
                       <div className="font-bold">{myReco.name}</div>
-                      <div className="text-sm opacity-50"> {myReco.title}</div>
+                      <div className="text-sm opacity-80"> {myReco.title}</div>
                     </div>
                   </div>
                 </td>

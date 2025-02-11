@@ -52,7 +52,7 @@ const RecommendationForMe = () => {
                     </div>
                     <div>
                       <div className="font-bold">{allReco.name}</div>
-                      <div className="text-sm opacity-50"> {allReco.title}</div>
+                      <div className="text-sm opacity-80 colo"> {allReco.title}</div>
                     </div>
                   </div>
                 </td>

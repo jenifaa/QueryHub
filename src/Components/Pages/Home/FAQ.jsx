@@ -30,7 +30,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="">
+    <div className="mt-14">
       <h2 className="text-6xl font-bold text-center">
         FA<span className="text-7xl text-red-900">Q</span><span className="text-4xl">s</span>
       </h2>
@@ -41,10 +41,10 @@ const FAQ = () => {
           </div>
           <div>
             <div className="max-w-5xl mx-auto text-center">
-              <h2 className="text-3xl font font-bold text-gray-800 mb-6">
+              <h2 className="text-3xl font font-bold text-gray-800 mb-6 colo">
                 Frequently Asked Questions
               </h2>
-              <p className="text-gray-600 mb-10">
+              <p className="text-gray-600 mb-10 colo">
                 Have questions about how QueryHive works? We’ve got answers!
                 Explore our <br /> FAQs to learn more.
               </p>

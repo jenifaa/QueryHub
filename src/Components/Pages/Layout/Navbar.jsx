@@ -54,7 +54,7 @@ const Navbar = () => {
         scrolled ? "bg-white text-black shadow-lg" : "bg-red-950 text-white"
       }`}
     >
-      <nav className="flex justify-between items-center px-12 py-2">
+      <nav className="flex justify-between items-center px-5 md:px-12 py-3">
         <div className="hidden lg:flex gap-6 ">
           <NavLink
             to="/"
@@ -185,7 +185,7 @@ const Navbar = () => {
               <NavLink>
                 <button
                   onClick={logOut}
-                  className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex items-center gap-1"
+                  className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex text-sm font-bold items-center gap-1"
                 >
                   <CiLogout />
                   LogOut
