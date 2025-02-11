@@ -51,7 +51,7 @@ const AboutUs = () => {
       <hr className="border border-gray-200 " />
       <div className=" ">
         <div className="lg:flex items-center justify-between my-5 w-11/12 mx-auto">
-          <div className="flex-1 bg-base-200 px-16 py-14 rounded-lg shadow-md">
+          <div className="lg:flex-1 bg-base-200 px-16 py-14 rounded-lg shadow-md">
             <p className="text-gray-600 text-lg colo">
               Discover the future of smart recommendations with{" "}
               <span className="font-semibold">QueryHive</span>! We specialize in
@@ -69,7 +69,7 @@ const AboutUs = () => {
               </Link>
             </button>
           </div>
-          <div className="md:flex-1 md:ml-32 lg:ml-48">
+          <div className="lg:flex-1 md:ml-32 lg:ml-48">
             <img className=" sm:ml-16 w-96 " src={logo} alt="" />
           </div>
         </div>

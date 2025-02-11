@@ -15,6 +15,7 @@ import QueryDetails from "../QueryDetails";
 import PrivateRoute from "../Main/PrivateRoute";
 import Blog from "../Blog";
 import AllItems from "../Pages/PageRoutes/AllItems";
+import About from "../Pages/Layout/About";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>,
+      },
+      {
+        path: "ab",
+        element: <About></About>
       },
       {
         path: "queries",

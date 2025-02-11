@@ -1,25 +1,17 @@
-
+import { Link } from "react-router-dom";
 import fb from "../../../assets/images/facebook.png";
 import insta from "../../../assets/images/instagram.png";
 import linkedIn from "../../../assets/images/linkedin.png";
-import query from '../../../assets/images/query.png'
+import query from "../../../assets/images/query.png";
 // import logo from "../../../assets/images/queries.png";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-} from "react-scroll";
+
 const Footer = () => {
   return (
     <div
       className=" text-white bg-black"
       style={{
-       
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <footer className="footer  pt-7 mb-2 md:flex items-start justify-around">
@@ -30,20 +22,20 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="footer-title ">Company</h6>
-          <Link spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              to="about" className=" link-hover">About us</Link>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <Link to="/ab" className=" link-hover">About us</Link>
+
+          <Link to="/queries" className=" link-hover">
+            Queries
+          </Link>
+          <Link to="/blog" className="link-hover ">
+            Our Blogs
+          </Link>
         </nav>
         <nav>
-          <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <h6 className="footer-title">Authorization</h6>
+          <Link to='/login' className=" link-hover">Sign in</Link>
+          <Link to='/register' className=" link-hover">Sign Up</Link>
+          
         </nav>
         <nav className="md:place-self-center ">
           <h2 className="mb-4 text-xl font-semibold">Follow Us</h2>
@@ -65,16 +57,14 @@ const Footer = () => {
         </nav>
       </footer>
 
-      
-        <div className="footer footer-center  p-4">
-          <aside>
-            <p>
-              Copyright © {new Date().getFullYear()} - All right reserved by
-              QueryHive Industries Ltd
-            </p>
-          </aside>
-        </div>
-      
+      <div className="footer footer-center  p-4">
+        <aside>
+          <p>
+            Copyright © {new Date().getFullYear()} - All right reserved by
+            QueryHive Industries Ltd
+          </p>
+        </aside>
+      </div>
     </div>
   );
 };

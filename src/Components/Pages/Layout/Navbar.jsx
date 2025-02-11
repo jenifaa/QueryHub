@@ -74,6 +74,12 @@ const Navbar = () => {
           >
             Our Blog
           </NavLink>
+          <NavLink
+            to="/ab"
+            className="hover:text-blue-500 hover:font-bold text-sm "
+          >
+            About Us
+          </NavLink>
           {user && user?.email ? (
             <>
               <NavLink
@@ -162,7 +168,7 @@ const Navbar = () => {
           <button className="" onClick={toggleTheme}>
             {theme === "light" ? (
               <>
-                <IoMoon className="text-3xl"/>
+                <IoMoon className="text-3xl" />
               </>
             ) : (
               <>
@@ -215,6 +221,8 @@ const Navbar = () => {
         <div className="flex flex-col space-y-4 px-6 py-4 bg-gradient-to-r from-[#87CEEB] via-[#B0C4DE] to-[#B0E0E6]  text-white lg:hidden">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/queries">Queries</NavLink>
+          <NavLink to="/blog">Our Blog</NavLink>
+          <NavLink to="/ab">About Us</NavLink>
           {user && user?.email ? (
             <>
               <NavLink to="/recommendationForme" className=" ">
