@@ -51,7 +51,7 @@ Key packages and tools used in the project:
 - `react-icons`
 - `sweetalert2`
 - `jsonwebtoken`
-- `mongoose`
+- `Daisyui`
 
 ---
 
