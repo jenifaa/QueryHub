@@ -58,25 +58,25 @@ const Navbar = () => {
         <div className="hidden lg:flex gap-6 ">
           <NavLink
             to="/"
-            className="hover:text-blue-500 hover:font-bold text-sm flex items-center"
+            className="hover:text-base hover:font-bold text-sm flex items-center"
           >
             Home
           </NavLink>
           <NavLink
             to="/queries"
-            className="hover:text-blue-500 hover:font-bold text-sm "
+            className="hover:text-base  hover:font-bold text-sm "
           >
             Queries
           </NavLink>
           <NavLink
             to="/blog"
-            className="hover:text-blue-500 hover:font-bold text-sm "
+            className="hover:text-base  hover:font-bold text-sm "
           >
             Our Blog
           </NavLink>
           <NavLink
             to="/ab"
-            className="hover:text-blue-500 hover:font-bold text-sm "
+            className="hover:text-base hover:font-bold text-sm "
           >
             About Us
           </NavLink>
@@ -84,7 +84,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/recommendationForme"
-                className="hover:text-blue-500 hover:font-bold text-sm "
+                className="hover:text-base  hover:font-bold text-sm "
               >
                 Recommendations For Me
               </NavLink>
@@ -96,7 +96,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myQueries"
-                className="hover:text-blue-500 hover:font-bold text-sm "
+                className="hover:text-base  hover:font-bold text-sm "
               >
                 My Queries
               </NavLink>
@@ -108,7 +108,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/myRecommendation"
-                className="hover:text-blue-500 hover:font-bold text-sm "
+                className="hover:text-base  hover:font-bold text-sm "
               >
                 My recommendations
               </NavLink>
@@ -120,7 +120,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/allItems"
-                className="hover:text-blue-500 hover:font-bold text-sm "
+                className="hover:text-base  hover:font-bold text-sm "
               >
                 All-Queries
               </NavLink>
@@ -132,7 +132,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/addQueries"
-                className="hover:text-blue-500 hover:font-bold text-sm "
+                className="hover:text-base  hover:font-bold text-sm "
               >
                 Add Queries
               </NavLink>
@@ -191,7 +191,7 @@ const Navbar = () => {
               <NavLink>
                 <button
                   onClick={logOut}
-                  className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md flex text-sm font-bold items-center gap-1"
+                  className="px-3 py-2 bg-[#FFFFFF] text-red-950 rounded-md flex text-sm font-bold items-center gap-1"
                 >
                   <CiLogout />
                   LogOut
@@ -201,13 +201,13 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink to="/login">
-                <button className="px-4 py-2 bg-[#FFFFFF] text-[#0575E6] text-sm font-bold rounded-md flex items-center gap-1">
+                <button className="px-4 py-2 bg-[#FFFFFF] text-red-950 text-sm font-bold rounded-md flex items-center gap-1">
                   <CiLogin />
                   Sign In
                 </button>
               </NavLink>
               <NavLink to="/register">
-                <button className="px-3 py-2 bg-[#FFFFFF] text-[#0575E6] rounded-md font-bold text-sm flex items-center gap-1">
+                <button className="px-3 py-2 bg-[#FFFFFF] text-red-950 rounded-md font-bold text-sm flex items-center gap-1">
                   <IoPersonOutline />
                   Sign Up
                 </button>

@@ -87,8 +87,8 @@ const Cards = () => {
                     <p className="text-gray-600 ">{card.reason}</p>
                   </div>
 
-                  <div className="sm:mt-auto sm:flex sm:items-end">
-                    <button className="px-4 py-1 font bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors">
+                  <div className="sm:mt-auto  sm:flex sm:items-end">
+                    <button className="px-4 py-1 font bg-red-900 text-white font-medium rounded-md hover:bg-red-950 transition-colors">
                       <Link to={`/queries/${card._id}`}>More Details...</Link>
                     </button>
                   </div>
@@ -161,7 +161,7 @@ const Cards = () => {
       <div className="flex justify-center items-center mb-5 mt-7">
         <button
           onClick={handleQueries}
-          className="font text-white px-3 py-2 bg-blue-500 "
+          className="font text-white px-3 py-2 bg-red-900 "
         >
           View All Queries
         </button>

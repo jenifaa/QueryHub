@@ -6,7 +6,14 @@ const Blog = () => {
   return (
     <div className="">
       <Navbar></Navbar>
-      <h2 className="text-center font-bold text-6xl font mt-20 mb-10">Our Blog</h2>
+
+
+      <h2 className="text-center font-bold text-5xl  font mt-24 mb-10">
+          Our <span className="text-6xl font font-extrabold text-red-900">B</span>
+          log
+        </h2>
+
+      
       <div className="bg-base-200 p-8 rounded-lg shadow-lg w-11/12 mx-auto mb-10">
         <h1 className="text-4xl font-bold  mb-6 text-center">
           Transforming Shopping with Personalized Recommendations

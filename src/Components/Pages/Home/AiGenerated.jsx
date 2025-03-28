@@ -452,7 +452,7 @@ const AiGenerated = () => {
             onClick={() =>
               setQuery(data[Math.floor(Math.random() * data.length)].question)
             }
-            className="px-6 py-2 font bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+            className="px-6 py-2 font bg-red-900 text-white rounded-lg hover:bg-red-950 transition"
           >
             Auto Generate
           </button>

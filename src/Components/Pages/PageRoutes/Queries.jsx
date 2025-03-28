@@ -32,8 +32,8 @@ const Queries = () => {
       </Helmet>
 
       <div>
-        <h2 className="text-4xl font-bold text-center mt-10 mb-3">
-          All <span className="text-6xl font-extrabold text-red-900">Q</span>
+        <h2 className="text-5xl font font-bold text-center mt-10 mb-3">
+          All <span className="text-6xl  font-extrabold text-red-900">Q</span>
           ueries
         </h2>
         <p className="text-center text-sm font-semibold mb-10">
@@ -72,11 +72,11 @@ const Queries = () => {
         <div className="flex justify-center gap-3 items-center">
           <button
             onClick={() => setIsGrid(!isGrid)}
-            className="btn bg-blue-500 text-white"
+            className="btn bg-red-900 text-white"
           >
             Change LayOut
           </button>
-          <button onClick={sortByDate} className="btn bg-blue-500 text-white">
+          <button onClick={sortByDate} className="btn bg-red-900 text-white">
             {" "}
             Sort ({isAscending ? "Asc" : "Des"})
           </button>
@@ -125,7 +125,7 @@ const Queries = () => {
                     <span className="font-bold mr-3">Recommendations:</span>
                     {all.recommendationCount}
                   </p>
-                  <button className="px-3 py-1 bg-blue-500 text-white my-2">
+                  <button className="px-3 py-1 bg-red-900 text-white my-2">
                     <Link to={`/queries/${all._id}`}>More Details...</Link>
                   </button>
                 </div>

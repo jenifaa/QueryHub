@@ -3,9 +3,9 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaQuestionCircle } from "react-ico
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-base-200 text-base-content p-6 flex flex-col items-center py-28">
+    <div className="min-h-screen bg-base-200  p-6 flex flex-col items-center py-24">
       <div className="max-w-4xl text-center">
-        <h1 className="text-5xl font-bold text-red-900 mb-4">About QueryHub</h1>
+        <h1 className="text-5xl font-bold font   mb-7">Query<span className="text-red-950 text-6xl">H</span>ub</h1>
         <p className="text-lg mb-6">
           Welcome to <span className="font-semibold">QueryHub</span>, your go-to
           platform for sharing knowledge, solving problems, and making informed

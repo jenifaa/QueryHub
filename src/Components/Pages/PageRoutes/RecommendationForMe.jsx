@@ -24,7 +24,7 @@ const RecommendationForMe = () => {
         <title>QueryHive | Recommendation for me</title>
       </Helmet>
 
-      <h2 className="font text-3xl font-bold text-center my-10">Recommendation For ME</h2>
+      <h2 className="font text-4xl font-bold text-center my-10">Recommendation For <span className="text-5xl text-red-950">M</span>E</h2>
       <hr className="mb-5"/>
       <div className="overflow-x-auto">
         <table className="table">

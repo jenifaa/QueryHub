@@ -86,7 +86,7 @@ const MyRecommendations = () => {
         <title>QueryHive | My Recommendation</title>
       </Helmet>
 
-      <h2 className="my-10 text-center font-bold text-3xl font">My Recommendation</h2>
+      <h2 className="my-10 text-center font-bold text-4xl font">My <span className="text-6xl text-red-950">R</span>ecommendation</h2>
       <hr className="my-9"/>
       <div className="overflow-x-auto">
         <table className="table">

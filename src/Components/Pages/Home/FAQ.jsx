@@ -1,5 +1,6 @@
 import React from "react";
 import faq from "../../../assets/images/FAQs-rafiki.png";
+// import faq from "../../../assets/images/faq.svg";
 const FAQ = () => {
   const faqs = [
     {
@@ -58,7 +59,7 @@ const FAQ = () => {
                   <input
                     type="radio"
                     name="faq-accordion"
-                    defaultChecked={index === 0} // Only the first FAQ is open by default
+                    defaultChecked={index === 0} 
                   />
                   <div className="collapse-title text-xl font-medium">
                     {faq.question}

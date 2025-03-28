@@ -12,9 +12,9 @@ const AllItems = () => {
       });
   }, []);
   return (
-    <div className="my-28">
+    <div className="my-24">
       <div className="mb-10">
-        <h2 className="text-4xl font-bold text-center mt-16 mb-3">
+        <h2 className="text-5xl font font-bold text-center mt-12 mb-3">
           All <span className="text-6xl font-extrabold text-red-900">Q</span>
           ueries Table
         </h2>

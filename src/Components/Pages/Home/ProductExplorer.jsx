@@ -96,19 +96,19 @@ const ProductExplorer = () => {
                 
                 <div className="md:grid-cols-3 grid-cols-2 gap-4 md:gap-10    grid md:justify-center ">
                   <button
-                    className="bg-blue-500 text-white hover:bg-blue-800 px-4 py-3 rounded-lg shadow-lg transition duration-300"
+                    className="bg-red-900 text-white hover:bg-red-950 px-4 py-3 rounded-lg shadow-lg transition duration-300"
                     onClick={() => handleCategorySelection("Laptops")}
                   >
                     Laptops
                   </button>
                   <button
-                    className="bg-blue-500 text-white hover:bg-blue-800 px-4 py-3 rounded-lg shadow-lg transition duration-300"
+                    className="bg-red-900 text-white hover:bg-red-950 px-4 py-3 rounded-lg shadow-lg transition duration-300"
                     onClick={() => handleCategorySelection("Smartphones")}
                   >
                     Smartphones
                   </button>
                   <button
-                    className="bg-blue-500 text-white hover:bg-blue-800 px-4 py-3 rounded-lg shadow-lg transition duration-300"
+                    className="bg-red-900 text-white hover:bg-red-950 px-4 py-3 rounded-lg shadow-lg transition duration-300"
                     onClick={() => handleCategorySelection("Accessories")}
                   >
                     Accessories

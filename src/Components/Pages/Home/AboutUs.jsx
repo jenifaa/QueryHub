@@ -43,7 +43,7 @@ const AboutUs = () => {
           <p className="text-gray-700 italic mt-2 colo">
             ✨ We’re here to assist you 24/7! ✨
           </p>
-          <button className="btn bg-blue-500 text-white mt-4">
+          <button className="btn bg-red-900 text-white mt-4">
             <Link to="https://mail.google.com/mail/u/0/#inbox">Contact Us</Link>
           </button>
         </div>
@@ -63,7 +63,7 @@ const AboutUs = () => {
             <p className="text-gray-700 colo italic mt-2">
               ✨ Your trusted partner in smarter shopping! ✨
             </p>
-            <button className="px-4 py-1 bg-blue-100 my-3">
+            <button className="px-4 py-1 bg-red-100 my-3">
               <Link to="/blog" className="text-black">
                 See More...
               </Link>
