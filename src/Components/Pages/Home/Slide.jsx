@@ -7,7 +7,7 @@ import { easeOut } from "framer-motion";
 const Slide = ({ image, text1, text2}) => {
   return (
     <div
-      className="w-full bg-center bg-cover h-[30rem]"
+      className="w-full bg-center bg-cover h-[700px]"
       style={{
         backgroundImage: `url(${image})`,
       }}

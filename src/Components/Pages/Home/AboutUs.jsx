@@ -17,12 +17,12 @@ const AboutUs = () => {
           className="lg:w-96 w-full md:flex-1"
           animationData={about}
         ></Lottie>
-        <div className="bg-base-200 md:flex-1 p-6 rounded-lg shadow-md text-center">
+        <div className="bg-base-200 md:flex-1 p-6 rounded-lg shadow-md lg:mr-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Find Us</h2>
           <p className="text-gray-600 mb-2 colo">
             Need help or have a query? Reach out to us anytime!
           </p>
-          <div className="text-left mx-auto max-w-sm">
+          <div className="">
             <p className="mb-2">
               <span className="font-bold">📞 WhatsApp:</span> +1 (234) 567-890
             </p>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 // import logo from "../../../assets/images/queries.png";
+import query from "../../../assets/images/query.png";
 import { CiLogout } from "react-icons/ci";
 
 import { BsPersonCircle } from "react-icons/bs";
@@ -55,88 +56,78 @@ const Navbar = () => {
       }`}
     >
       <nav className="flex justify-between items-center px-5 md:px-12 py-3">
-        <div className="hidden lg:flex gap-6 ">
+        <div className="hidden lg:flex items-center gap-6 ">
+          <Link to="/" className="flex items-center md:mr-8">
+            <img className="w-12" src={query} alt="" />
+            <h1 className="font-bold text-xl font">QueryHive</h1>
+          </Link>
           <NavLink
             to="/"
-            className="hover:text-base hover:font-bold text-sm flex items-center"
+            className="hover:text-base hover:font-semibold text-sm flex items-center"
           >
             Home
           </NavLink>
           <NavLink
             to="/queries"
-            className="hover:text-base  hover:font-bold text-sm "
+            className="hover:text-base  hover:font-semibold text-sm "
           >
             Queries
           </NavLink>
           <NavLink
             to="/blog"
-            className="hover:text-base  hover:font-bold text-sm "
+            className="hover:text-base  hover:font-semibold text-sm"
           >
             Our Blog
           </NavLink>
           <NavLink
             to="/ab"
-            className="hover:text-base hover:font-bold text-sm "
+            className="hover:text-base hover:font-semibold text-sm "
           >
             About Us
           </NavLink>
+
           {user && user?.email ? (
-            <>
-              <NavLink
-                to="/recommendationForme"
-                className="hover:text-base  hover:font-bold text-sm "
-              >
-                Recommendations For Me
-              </NavLink>
-            </>
-          ) : (
-            ""
-          )}
-          {user && user?.email ? (
-            <>
-              <NavLink
-                to="/myQueries"
-                className="hover:text-base  hover:font-bold text-sm "
-              >
+            <div className="dropdown dropdown-start">
+              <div tabIndex={0} role="button" className="text-sm hover:font-semibold">
                 My Queries
-              </NavLink>
-            </>
-          ) : (
-            ""
-          )}
-          {user && user?.email ? (
-            <>
-              <NavLink
-                to="/myRecommendation"
-                className="hover:text-base  hover:font-bold text-sm "
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
               >
-                My recommendations
-              </NavLink>
-            </>
-          ) : (
-            ""
-          )}
-          {user && user?.email ? (
-            <>
-              <NavLink
-                to="/allItems"
-                className="hover:text-base  hover:font-bold text-sm "
-              >
-                All-Queries
-              </NavLink>
-            </>
-          ) : (
-            ""
-          )}
-          {user && user?.email ? (
-            <>
-              <NavLink
-                to="/addQueries"
-                className="hover:text-base  hover:font-bold text-sm "
-              >
-                Add Queries
-              </NavLink>
-            </>
+                <NavLink
+                  to="/recommendationForme"
+                  className="text-black hover:font-bold text-sm mb-2 bg-base-200 px-2 py-1 rounded-box"
+                >
+                  Recommendations For Me
+                </NavLink>
+
+                <NavLink
+                  to="/myQueries"
+                  className="text-black hover:font-bold text-sm mb-2 bg-base-200 px-2 py-1 rounded-box"
+                >
+                  My Queries
+                </NavLink>
+                <NavLink
+                  to="/myRecommendation"
+                  className="text-black  hover:font-bold text-sm mb-2 bg-base-200 px-2 py-1 rounded-box"
+                >
+                  My recommendations
+                </NavLink>
+                <NavLink
+                  to="/allItems"
+                  className="text-black  hover:font-bold text-sm mb-2 bg-base-200 px-2 py-1 rounded-box"
+                >
+                  All-Queries(Table)
+                </NavLink>
+                <NavLink
+                  to="/addQueries"
+                  className="text-black hover:font-bold text-sm mb-1 bg-base-200 px-2 py-1 rounded-box"
+                >
+                  Add Queries
+                </NavLink>
+              </ul>
+            </div>
           ) : (
             ""
           )}
@@ -201,17 +192,18 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink to="/login">
+                
                 <button className="px-4 py-2 bg-[#FFFFFF] text-red-950 text-sm font-bold rounded-md flex items-center gap-1">
                   <CiLogin />
                   Sign In
                 </button>
               </NavLink>
-              <NavLink to="/register">
+              {/* <NavLink to="/register">
                 <button className="px-3 py-2 bg-[#FFFFFF] text-red-950 rounded-md font-bold text-sm flex items-center gap-1">
                   <IoPersonOutline />
                   Sign Up
                 </button>
-              </NavLink>
+              </NavLink> */}
             </>
           )}
         </div>
@@ -232,6 +224,7 @@ const Navbar = () => {
           ) : (
             ""
           )}
+
           {user && user?.email ? (
             <>
               <NavLink to="/myQueries">My Queries</NavLink>

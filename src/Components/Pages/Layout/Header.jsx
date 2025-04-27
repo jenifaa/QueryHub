@@ -13,12 +13,7 @@ const Header = () => {
   return (
     <div className="mt-16  py-4">
       <div className="md:flex justify-between items-center w-11/12 mx-auto">
-        <div className="flex items-center">
-          <img className="w-16" src={query} alt="" />
-          <h1 className="font-bold text-3xl font">
-            <span className="text-4xl font-extrabold">Q</span>ueryHive
-          </h1>
-        </div>
+        
         <div className="md:grid md:grid-cols-4  md:space-x-2 space-x-2  sm:space-x-4 space-y-5 md:space-y-0">
           <button className="px-4 py-2 text-center  text-white font-medium rounded-md bg-red-950 transition-colors">
             <Link

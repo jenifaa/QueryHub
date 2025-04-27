@@ -16,7 +16,7 @@ const Home = () => {
       <Helmet>
         <title>QueryHive</title>
       </Helmet>
-      <Header /> 
+      {/* <Header />  */}
 
       <Banner />
 

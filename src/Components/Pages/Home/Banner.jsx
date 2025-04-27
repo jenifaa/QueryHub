@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import bg1 from "../../../assets/images/banner.jpg";
-import bg2 from "../../../assets/images/banner2.webp";
+import bg2 from "../../../assets/images/hand-holding-question-mark.jpg";
 import bg3 from "../../../assets/images/banner3.jpg";
 import Slide from "./Slide";
 import "swiper/css";

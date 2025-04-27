@@ -80,7 +80,9 @@ const ProductExplorer = () => {
 
   return (
     <div id="explore">
-      <h2 className="text-3xl font-bold text-center mt-5 mb-10 font"><span className="text-6xl text-red-900">E</span>xplore More...</h2>
+      <h2 className="text-3xl font-bold text-center mt-5 mb-10 font">
+        <span className="text-6xl text-red-900">E</span>xplore More...
+      </h2>
       <div className="py-10 px-8 bg-base-200 lg:flex lg:justify-between items-center gap-10">
         <div className=" lg:flex-1">
           <h1 className="text-2xl md:text-4xl font-bold text-center my-4 md:py-6">
@@ -93,7 +95,6 @@ const ProductExplorer = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                
                 <div className="md:grid-cols-3 grid-cols-2 gap-4 md:gap-10    grid md:justify-center ">
                   <button
                     className="bg-red-900 text-white hover:bg-red-950 px-4 py-3 rounded-lg shadow-lg transition duration-300"
@@ -194,7 +195,7 @@ const ProductExplorer = () => {
           </div>
         </div>
 
-        <div
+        {/* <div
           className="hero  lg:flex-1 my-4"
           style={{
             backgroundImage: `url(${bg})`,
@@ -207,16 +208,25 @@ const ProductExplorer = () => {
                 DownLoad Our App
               </h1>
               <div className="mb-5 flex justify-between items-center">
-                <Link to="https://www.apple.com/app-store" className="flex flex-col items-center">
+                <Link
+                  to="https://www.apple.com/app-store"
+                  className="flex flex-col items-center"
+                >
                   <img className="w-16 mb-3" src={apple} alt="App Store" />
                   <p className="text-lg font-medium text-white">App Store</p>
                 </Link>
-                <Link to="https://play.google.com/store/search?q=play%20store&c=apps" className="flex flex-col items-center">
+                <Link
+                  to="https://play.google.com/store/search?q=play%20store&c=apps"
+                  className="flex flex-col items-center"
+                >
                   <img className="w-16 mb-3" src={playStore} alt="Play Store" />
                   <p className="text-lg font-medium text-white">Play Store</p>
                 </Link>
 
-                <Link to="https://apps.microsoft.com/home?hl=en-US&gl=US" className="flex flex-col items-center">
+                <Link
+                  to="https://apps.microsoft.com/home?hl=en-US&gl=US"
+                  className="flex flex-col items-center"
+                >
                   <img
                     className="w-16 mb-3"
                     src={windows}
@@ -229,7 +239,7 @@ const ProductExplorer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

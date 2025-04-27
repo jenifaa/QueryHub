@@ -85,8 +85,8 @@ const Queries = () => {
       <div
         className={`grid  grid-cols-1 ${
           isGrid
-            ? "md:grid-cols-1 sm:grid-cols-1 sm:w-9/12 lg:grid-cols-3 md:w-11/12 px-3 "
-            : "lg:grid-cols-4 lg:w-11/12 sm:grid-cols-2 sm:w-11/12 w-8/12"
+            ? "md:grid-cols-2 sm:grid-cols-1 sm:w-9/12 lg:grid-cols-4  lg:w-9/12 px-3 md:w-8/12  md:px-6 "
+            : "lg:grid-cols-5 md:grid-cols-3 md:w-full lg:w-11/12 sm:grid-cols-2 sm:w-11/12 w-8/12"
         }  gap-4 lg:gap-5  mx-auto my-10`}
       >
         {allQuery
@@ -97,15 +97,15 @@ const Queries = () => {
           })
           .map((all) => (
             <div key={all._id} className="">
-              <div className="bg-base-300 p-5  md:w-80 mx-auto h-full flex flex-col">
+              <div className="bg-base-300 p-3  md:w-64 mx-auto h-full flex flex-col">
                 <div className="flex-grow">
                   <h2 className="card-title font-bold">Name: {all.name}</h2>
-                  <p>{all.currentDateAndTime}</p>
-                  <hr className="border border-gray-300 my-2" />
+
+                  <hr className="border border-gray-300 my-1" />
                   <div className="my-auto">
                     <figure>
                       <img
-                        className="md:w-80 w-full object-cover my-3 h-56"
+                        className="md:w-56 w-full object-cover my-3 h-36"
                         src={all.image}
                         alt="Card"
                       />
@@ -117,7 +117,7 @@ const Queries = () => {
                       <span className="font-semibold mr-3">Brand:</span>{" "}
                       {all.brand}
                     </h2>
-                    <p className="text-red-700 my-2">{all.reason}</p>
+                    <p className="text-red-700 my-1">{all.reason}</p>
                   </div>
                 </div>
                 <div className="mt-auto card-actions flex flex-col">
@@ -125,9 +125,10 @@ const Queries = () => {
                     <span className="font-bold mr-3">Recommendations:</span>
                     {all.recommendationCount}
                   </p>
-                  <button className="px-3 py-1 bg-red-900 text-white my-2">
+                  <button className="px-3 py-1 bg-red-900 text-white mt-1">
                     <Link to={`/queries/${all._id}`}>More Details...</Link>
                   </button>
+                  <p className="text-xs text-right">{all.currentDateAndTime}</p>
                 </div>
               </div>
             </div>
